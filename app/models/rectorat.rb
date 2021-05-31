@@ -1,0 +1,2 @@
+class Rectorat < ApplicationRecord
+end
