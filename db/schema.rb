@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_31_151951) do
+ActiveRecord::Schema.define(version: 2021_05_31_162636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,19 +30,17 @@ ActiveRecord::Schema.define(version: 2021_05_31_151951) do
 
   create_table "classrooms", force: :cascade do |t|
     t.bigint "school_id", null: false
-    t.bigint "review_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["review_id"], name: "index_classrooms_on_review_id"
     t.index ["school_id"], name: "index_classrooms_on_school_id"
   end
 
   create_table "directors", force: :cascade do |t|
     t.string "name"
-    t.integer "phone"
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "phone"
   end
 
   create_table "rectorats", force: :cascade do |t|
@@ -57,6 +55,8 @@ ActiveRecord::Schema.define(version: 2021_05_31_151951) do
     t.bigint "teacher_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "classroom_id"
+    t.index ["classroom_id"], name: "index_reviews_on_classroom_id"
     t.index ["teacher_id"], name: "index_reviews_on_teacher_id"
   end
 
@@ -73,21 +73,21 @@ ActiveRecord::Schema.define(version: 2021_05_31_151951) do
   create_table "schools", force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.integer "phone"
     t.string "specification"
     t.bigint "director_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "phone"
     t.index ["director_id"], name: "index_schools_on_director_id"
   end
 
   create_table "teachers", force: :cascade do |t|
     t.string "name"
-    t.integer "phone"
     t.string "mail"
     t.boolean "availability"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "phone"
   end
 
   create_table "users", force: :cascade do |t|
@@ -105,7 +105,6 @@ ActiveRecord::Schema.define(version: 2021_05_31_151951) do
   add_foreign_key "assignments", "classrooms"
   add_foreign_key "assignments", "rectorats"
   add_foreign_key "assignments", "teachers"
-  add_foreign_key "classrooms", "reviews"
   add_foreign_key "classrooms", "schools"
   add_foreign_key "reviews", "teachers"
   add_foreign_key "school_teachers", "schools"
