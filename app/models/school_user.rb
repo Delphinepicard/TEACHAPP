@@ -1,5 +1,5 @@
 class SchoolUser < ApplicationRecord
   belongs_to :user
   belongs_to :school
-  validates :attachment, presence: true
+  validates :attachment, inclusion: { in: [true, false] }
 end

@@ -17,31 +17,37 @@ Director.destroy_all
 # DB for schools in 42
 school_filepath = File.join(__dir__,'data/schools_42.csv')
 
-  sql = <<-SQL
-  COPY public.schools (name, address, phone, specification, lat, long)
-  FROM '#{school_filepath}'
-  DELIMITER ','
-  CSV HEADER QUOTE '"'
-  SQL
+sql = <<-SQL
+COPY public.schools (name, address, phone, specification, lat, long)
+FROM '#{school_filepath}'
+DELIMITER ','
+CSV HEADER QUOTE '"'
+SQL
 
-  ActiveRecord::Base.connection.execute(sql)
+ActiveRecord::Base.connection.execute(sql)
+
+school1 = School.first
+school2 = School.second
+school3 = School.third
+school285 = School.limit(1).offset(284)
+
 
 # autres seeds
 
 d1 = Director.create!(first_name: 'toto le directeur', last_name: 'du 42', phone: '06123456789', email: 'toto@gmai.com')
 d2 = Director.create!(first_name: 'titi le directeur', last_name: 'du 42 la zone', phone: '06123456789', email: 'titi@gmai.com')
 
-user1 = User.create!(first_name: 'first_name1', last_name: 'last_name1', email: 't1@gmail.com', password: "azerty", availability: true)
-user2 = User.create!(first_name: 'first_name2', last_name: 'last_name2', email: 't2@gmail.com', password: "azerty", availability: true)
-user3 = User.create!(first_name: 'first_name3', last_name: 'last_name3', email: 't3@gmail.com', password: "azerty", availability: true)
+user1 = User.create!(first_name: 'first_name1', last_name: 'last_name1', phone: '06123456789', email: 't1@gmail.com', password: "azerty", availability: true)
+user2 = User.create!(first_name: 'first_name2', last_name: 'last_name2', phone: '06123456789', email: 't2@gmail.com', password: "azerty", availability: true)
+user3 = User.create!(first_name: 'first_name3', last_name: 'last_name3', phone: '06123456789', email: 't3@gmail.com', password: "azerty", availability: true)
 
 
-SchoolUser.create!(user: user1, school: school1, attachment: false)
+SchoolUser.create!(user: user1, school: school1, attachment: true)
 SchoolUser.create!(user: user1, school: school2, attachment: true)
-SchoolUser.create!(user: user1, school: school3, attachment: false)
+SchoolUser.create!(user: user1, school: school3, attachment: true)
 SchoolUser.create!(user: user2, school: school1, attachment: true)
-SchoolUser.create!(user: user2, school: school2, attachment: false)
-SchoolUser.create!(user: user2, school: school3, attachment: false)
+SchoolUser.create!(user: user2, school: school2, attachment: true)
+SchoolUser.create!(user: user2, school: school3, attachment: true)
 
 toto_recto = Rectorat.create!(first_name: "toto", last_name: 'titi', email: 'titi@recto.org')
 tata_recto = Rectorat.create!(first_name: "tata", last_name: 'tutu', email: 'tutu@recto.org')
