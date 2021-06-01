@@ -1,4 +1,6 @@
 class Classroom < ApplicationRecord
   belongs_to :school
-  belongs_to :review
+
+  has_many :reviews
+  has_many :assignments
 end
