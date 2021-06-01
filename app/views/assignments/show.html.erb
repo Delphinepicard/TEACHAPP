@@ -6,4 +6,8 @@
   <li><%= @assignment.classroom.level %></li>
   <li><%= "#{@assignment.school.director.first_name} #{@assignment.school.director.last_name}" %></li>
 </ul>
+<% @reviews.each do |review| %>
+<%= "#{review.content}" %>
+<% end %>
+<%= "#{@school}" %>
 </div>

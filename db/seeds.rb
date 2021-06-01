@@ -71,3 +71,6 @@ ce2 = Classroom.create!(level: 'CE2', school: school1)
 
 assig1 = Assignment.create!(start_date: 3.days.from_now, end_date: 5.days.from_now, rectorat: toto_recto, user: user1, classroom: ce1)
 assig2 = Assignment.create!(start_date: 6.days.from_now, end_date: 8.days.from_now, rectorat: toto_recto, user: user2, classroom: ce2)
+
+review1 = Review.create!(content: "Voici la premiere entrée du carnet de bord de la classe CE1", classroom: ce1, user: user1)
+review2 = Review.create!(content: "Voici la premiere entrée du carnet de bord de la classe CE2", classroom: ce2, user: user2)
