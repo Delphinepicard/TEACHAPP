@@ -14,15 +14,22 @@ User.destroy_all
 School.destroy_all
 Director.destroy_all
 
+# DB for schools in 42
+school_filepath = File.join(__dir__,'data/schools_42.csv')
+
+  sql = <<-SQL
+  COPY public.schools (name, address, phone, specification, lat, long)
+  FROM '#{school_filepath}'
+  DELIMITER ','
+  CSV HEADER QUOTE '"'
+  SQL
+
+  ActiveRecord::Base.connection.execute(sql)
+
+# autres seeds
 
 d1 = Director.create!(first_name: 'toto le directeur', last_name: 'du 42', phone: '06123456789', email: 'toto@gmai.com')
 d2 = Director.create!(first_name: 'titi le directeur', last_name: 'du 42 la zone', phone: '06123456789', email: 'titi@gmai.com')
-
-
-school1 = School.create!(name: 'school1', director: d1)
-school2 = School.create!(name: 'school2', director: d2)
-school3 = School.create!(name: 'school3', director: d1)
-
 
 user1 = User.create!(first_name: 'first_name1', last_name: 'last_name1', email: 't1@gmail.com', password: "azerty", availability: true)
 user2 = User.create!(first_name: 'first_name2', last_name: 'last_name2', email: 't2@gmail.com', password: "azerty", availability: true)
