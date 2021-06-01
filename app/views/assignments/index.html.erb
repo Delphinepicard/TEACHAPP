@@ -1,0 +1,9 @@
+<h1>Assignments#index</h1>
+
+<ul>
+<% @assignments.each do |assignment| %>
+  <li> <%= link_to "Affectation du #{assignment.start_date} au #{assignment.end_date}", assignment_path(assignment) %> </li>
+<% end %>
+</ul>
+
+
