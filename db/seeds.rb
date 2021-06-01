@@ -6,13 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Assignment.destroy_all
-Classroom.destroy_all
-Rectorat.destroy_all
-SchoolUser.destroy_all
-User.destroy_all
-School.destroy_all
-Director.destroy_all
+Assignment.delete_all
+Classroom.delete_all
+Rectorat.delete_all
+SchoolUser.delete_all
+User.delete_all
+School.delete_all
+Director.delete_all
 
 # DB for schools in 42
 school_filepath = File.join(__dir__,'data/schools_42.csv')
@@ -26,33 +26,47 @@ SQL
 
 ActiveRecord::Base.connection.execute(sql)
 
-school1 = School.first
-school2 = School.second
-school3 = School.third
-school285 = School.limit(1).offset(284)
-
 
 # autres seeds
 
-d1 = Director.create!(first_name: 'toto le directeur', last_name: 'du 42', phone: '06123456789', email: 'toto@gmai.com')
-d2 = Director.create!(first_name: 'titi le directeur', last_name: 'du 42 la zone', phone: '06123456789', email: 'titi@gmai.com')
+School.all.each_with_index do |school, index|
+  director = if school.name == "Ecole primaire de la Forêt"
+                Director.create!(first_name: "Alfred", last_name: "DUPONT", phone: '0622345647', email: "alfred.dupont@gmai.com")
+              elsif school.name == "Ecole primaire Arsenal"
+                Director.create!(first_name: "Jeannine", last_name: "MARTEL", phone: '0622348647', email: "alfred.martel@gmai.com")
+              elsif school.name == "Ecole maternelle Richelandiere"
+                Director.create!(first_name: "Martin", last_name: "DUFOUR", phone: '0722345647', email: "martin.dupont@gmai.com")
+              else
+                Director.create!(first_name: "first_name_#{index}", last_name: "last_name_#{index}", phone: '06123456789', email: "user#{index}@gmai.com")
+              end
+  school.update(director: director)
+end
+
+
+
+ap School.all
+ap Director.all
+
+school1 = School.find_by(name: 'Ecole primaire de la Forêt')
+school2 = School.find_by(name: 'Ecole primaire Arsenal')
+school3 = School.find_by(name: 'Ecole maternelle Richelandiere')
 
 user1 = User.create!(first_name: 'first_name1', last_name: 'last_name1', phone: '06123456789', email: 't1@gmail.com', password: "azerty", availability: true)
 user2 = User.create!(first_name: 'first_name2', last_name: 'last_name2', phone: '06123456789', email: 't2@gmail.com', password: "azerty", availability: true)
 user3 = User.create!(first_name: 'first_name3', last_name: 'last_name3', phone: '06123456789', email: 't3@gmail.com', password: "azerty", availability: true)
 
 
-SchoolUser.create!(user: user1, school: school1, attachment: true)
-SchoolUser.create!(user: user1, school: school2, attachment: true)
+SchoolUser.create!(user: user1, school: school1, attachment: false)
+SchoolUser.create!(user: user1, school: school2, attachment: false)
 SchoolUser.create!(user: user1, school: school3, attachment: true)
 SchoolUser.create!(user: user2, school: school1, attachment: true)
-SchoolUser.create!(user: user2, school: school2, attachment: true)
-SchoolUser.create!(user: user2, school: school3, attachment: true)
+SchoolUser.create!(user: user2, school: school2, attachment: false)
+SchoolUser.create!(user: user2, school: school3, attachment: false)
 
 toto_recto = Rectorat.create!(first_name: "toto", last_name: 'titi', email: 'titi@recto.org')
 tata_recto = Rectorat.create!(first_name: "tata", last_name: 'tutu', email: 'tutu@recto.org')
 
-ce1 = Classroom.create!(level: 'CE1', school: school1)
+ce1 = Classroom.create!(level: 'CE1', school: school3)
 ce2 = Classroom.create!(level: 'CE2', school: school1)
 
 assig1 = Assignment.create!(start_date: 3.days.from_now, end_date: 5.days.from_now, rectorat: toto_recto, user: user1, classroom: ce1)
