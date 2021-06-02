@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2021_06_02_120538) do
   create_table "schools", force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.boolean "rep", default: false, null: false
+    t.string "specification"
     t.bigint "director_id"
     t.string "phone"
     t.float "long"

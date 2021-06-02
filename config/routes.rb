@@ -3,9 +3,12 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :assignments, only: [:index, :show] do
+    get "teacher_proposals", on: :member
     get "accept", on: :member
-end
+  end
   resources :classroom, only: [:show] do
     resources :reviews, only: [:create]
-end
+  end
+
+  resources :users, only: :index
 end
