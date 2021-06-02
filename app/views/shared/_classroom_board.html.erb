@@ -1,12 +1,16 @@
-<% classroom.reviews.each do |review| %>
-<hr>
-<p id="review-<%= review.id %>">Ecrit par <strong><%= review.user.first_name %> <%= review.user.last_name %></strong> à <%= I18n.l(review.created_at, format: :short) %>:<br>
-<%= review.content %></p>
-<% end %>
-<%= link_to 'Back', assignments_path %>
-
-<%= simple_form_for ([ classroom, Review.new ]), remote: true do |f| %>
-<%= f.hidden_field :assignment, as: :hidden, value: assignment.id  %>
-<%= f.input :content, as: :text, label: "Nouvelle entrée :" %>
-<%= f.button :submit, "Enregistrer" %>
-<% end %>
+<h1>Carnet de bord</h1>
+<p>Merci de tenir à jours ce carnet qui doit décrire la progression de la classe</p>
+<div class="review-container">
+  <% classroom.reviews.each do |review| %>
+    <hr>
+    <p id="review-<%= review.id %>">Ecrit par <strong><%= review.user.first_name %> <%= review.user.last_name %></strong> à <%= I18n.l(review.created_at, format: :short) %>:<br>
+    <%= review.content %></p>
+  <% end %>
+</div>
+<div class="form-review">
+  <%= simple_form_for ([ classroom, Review.new ]), remote: true do |f| %>
+    <%= f.hidden_field :assignment, as: :hidden, value: assignment.id  %>
+    <%= f.input :content, as: :text, label: "Nouvelle entrée :" %>
+    <%= f.button :submit, "Enregistrer", class: "btn btn-primary w-100" %>
+  <% end %>
+</div>
