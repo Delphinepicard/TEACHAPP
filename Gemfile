@@ -27,7 +27,6 @@ gem 'redis', '~> 4.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-
 gem 'devise'
 
 gem 'autoprefixer-rails', '10.2.5'
@@ -62,3 +61,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "awesome_print", "~> 1.9"
+gem 'turbolinks_render'
