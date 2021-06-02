@@ -1,11 +1,18 @@
 <div class="container">
-<h1>Assignments#show</h1>
-<h4><%="Affectation du #{@assignment.start_date} au #{@assignment.end_date}"%></h4>
-<ul>
-  <li><%= @assignment.school.name %></li>
-  <li><%= @assignment.classroom.level %></li>
-  <li><%= "#{@assignment.school.director.first_name} #{@assignment.school.director.last_name}" %></li>
-</ul>
+<h2><%="Affectation N° "%></h2>
+<p>Du <%= "#{@assignment.start_date} au #{@assignment.end_date}" %></p>
+<h3><%= @assignment.school.name %></h3>
+<p>Classe de <%= @assignment.classroom.level%></p>
+<h4>Directeur / Directrice :</h4>
+<p><%="#{@assignment.school.director.first_name} #{@assignment.school.director.last_name}"%></p>
+<p><%="#{@assignment.school.director.phone}"%></p>
+<p><%="#{@assignment.school.director.email}"%></p>
+
+<h4>Enseignant(e) absent(e) :</h4>
+<p><%="#{@assignment.school.director.first_name} #{@assignment.school.director.last_name}"%></p>
+<p><%="#{@assignment.school.director.phone}"%></p>
+<p><%="#{@assignment.school.director.email}"%></p>
+
 <%= render 'shared/classroom_board', classroom: @assignment.classroom, assignment: @assignment  %>
-<%= link_to "got to classroom", classroom_path(@classroom)  %>
+<%#= link_to "got to classroom", classroom_path(@classroom)  %>
 </div>
