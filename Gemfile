@@ -62,3 +62,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "awesome_print", "~> 1.9"
+gem 'letter_opener', group: :development
+

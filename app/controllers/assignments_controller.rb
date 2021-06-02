@@ -8,6 +8,9 @@ class AssignmentsController < ApplicationController
   def show
   end
 
+  def accept
+  end
+
   private
 
   def set_assignment
