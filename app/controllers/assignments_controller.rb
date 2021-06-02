@@ -6,6 +6,9 @@ class AssignmentsController < ApplicationController
   end
 
   def show
+    @review = Review.new
+    @user = current_user
+    @classroom = @assignment.classroom
   end
 
   def accept

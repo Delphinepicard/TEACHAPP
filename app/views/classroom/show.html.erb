@@ -1,0 +1,10 @@
+<h1>Classroom#show</h1>
+<% @classroom.reviews.each do |review| %>
+<%= "#{review.content}" %>
+<% end %>
+<%= link_to 'Back', assignments_path %>
+
+<%= simple_form_for ([ @classroom, @review ]) do |f| %>
+<%= f.input :content, as: :text, label: "Nouvelle entrée :" %>
+<%= f.button :submit, "Enregistrer" %>
+<% end %>
