@@ -1,8 +1,9 @@
 class UserMailer < ApplicationMailer
-  def assignment
-    @user = params[:user] # Instance variable => available in view
-    @url  = 'http://example.com/login'
-    mail(to: @school_user.email, subject: 'Votre affectation')
+
+  def accept_assignment(assignment)
+    @assignment = assignment
+    @user = @assignment.user
+    mail to: @user.email, subject: "Votre affectation"
     # This will render a view in `app/views/user_mailer`!
   end
 end

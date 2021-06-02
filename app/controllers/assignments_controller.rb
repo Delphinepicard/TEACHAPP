@@ -1,5 +1,5 @@
 class AssignmentsController < ApplicationController
-  before_action :set_assignment, only: [:show]
+  before_action :set_assignment, only: [:show, :accept]
 
   def index
     @assignments = Assignment.all

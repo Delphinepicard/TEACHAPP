@@ -8,3 +8,4 @@ end
   resources :classroom, only: [:show] do
     resources :reviews, only: [:create]
 end
+end
