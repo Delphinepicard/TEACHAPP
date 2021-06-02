@@ -6,10 +6,9 @@ class AssignmentsController < ApplicationController
   end
 
   def show
-    @reviews = Review.all
-    # @school = Assignment.school
-    # school
-    # reviews
+    @review = Review.new
+    @user = current_user
+    @classroom = @assignment.classroom
   end
 
   private
