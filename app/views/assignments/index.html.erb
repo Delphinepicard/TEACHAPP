@@ -1,8 +1,10 @@
 <h1>Assignments#index</h1>
 
+filter_level = @teacher.level == @classroom.level
+
 <ul>
 <% @assignments.each do |assignment| %>
-  <li> <%= link_to "Affectation du #{assignment.start_date} au #{assignment.end_date}", assignment_path(assignment) %> </li>
+  <li> <%= link_to "Affectation du #{assignment.start_date} au #{assignment.end_date}", teacher_proposals_assignment_path(assignment) %> </li>
 <% end %>
 </ul>
 
