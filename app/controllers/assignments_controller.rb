@@ -28,6 +28,7 @@ class AssignmentsController < ApplicationController
     end
     # @city_ask = @assignment.school.address
     # @teacher_attached = @assignment.user.school_user
+  end
 
   private
 
