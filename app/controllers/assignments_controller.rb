@@ -1,5 +1,9 @@
 class AssignmentsController < ApplicationController
+<<<<<<< mailing
+  before_action :set_assignment, only: [:show, :accept]
+=======
   before_action :set_assignment, only: [:show, :teacher_proposals]
+>>>>>>> master
 
   def index
     @assignments = Assignment.all
@@ -11,6 +15,9 @@ class AssignmentsController < ApplicationController
     @classroom = @assignment.classroom
   end
 
+<<<<<<< mailing
+  def accept
+=======
   def teacher_proposals
     @level_ask = @assignment.classroom.level
     @spe_ask = @assignment.school.specification
@@ -24,6 +31,7 @@ class AssignmentsController < ApplicationController
     end
     # @city_ask = @assignment.school.address
     # @teacher_attached = @assignment.user.school_user
+>>>>>>> master
   end
 
   private
