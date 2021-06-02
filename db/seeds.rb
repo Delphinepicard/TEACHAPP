@@ -51,9 +51,9 @@ school1 = School.find_by(name: 'Ecole primaire de la Forêt')
 school2 = School.find_by(name: 'Ecole primaire Arsenal')
 school3 = School.find_by(name: 'Ecole maternelle Richelandiere')
 
-user1 = User.create!(first_name: 'first_name1', last_name: 'last_name1', phone: '06123456789', email: 't1@gmail.com', password: "azerty", availability: true)
-user2 = User.create!(first_name: 'first_name2', last_name: 'last_name2', phone: '06123456789', email: 't2@gmail.com', password: "azerty", availability: true)
-user3 = User.create!(first_name: 'first_name3', last_name: 'last_name3', phone: '06123456789', email: 't3@gmail.com', password: "azerty", availability: true)
+user1 = User.create!(first_name: 'first_name1', last_name: 'last_name1', phone: '06123456789', email: 't1@gmail.com', password: "azerty", availability: true, specification: "", level: "CE1")
+user2 = User.create!(first_name: 'first_name2', last_name: 'last_name2', phone: '06123456789', email: 't2@gmail.com', password: "azerty", availability: false, specification: "REP+", level: "CP")
+user3 = User.create!(first_name: 'first_name3', last_name: 'last_name3', phone: '06123456789', email: 't3@gmail.com', password: "azerty", availability: true, specification: "", level: "CM2")
 
 
 SchoolUser.create!(user: user1, school: school1, attachment: false)
@@ -69,8 +69,8 @@ tata_recto = Rectorat.create!(first_name: "tata", last_name: 'tutu', email: 'tut
 ce1 = Classroom.create!(level: 'CE1', school: school3)
 ce2 = Classroom.create!(level: 'CE2', school: school1)
 
-assig1 = Assignment.create!(start_date: 3.days.from_now, end_date: 5.days.from_now, rectorat: toto_recto, user: user1, classroom: ce1)
-assig2 = Assignment.create!(start_date: 6.days.from_now, end_date: 8.days.from_now, rectorat: toto_recto, user: user2, classroom: ce2)
+assig1 = Assignment.create!(start_date: 3.days.from_now, end_date: 5.days.from_now, rectorat: toto_recto, classroom: ce1)
+assig2 = Assignment.create!(start_date: 6.days.from_now, end_date: 8.days.from_now, rectorat: toto_recto, classroom: ce2)
 
 review1 = Review.create!(content: "Voici la premiere entrée du carnet de bord de la classe CE1", classroom: ce1, user: user1)
 review2 = Review.create!(content: "Voici la premiere entrée du carnet de bord de la classe CE2", classroom: ce2, user: user2)
