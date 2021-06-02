@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/index'
   get 'assignments/index'
   get 'assignments/show'
   devise_for :users
