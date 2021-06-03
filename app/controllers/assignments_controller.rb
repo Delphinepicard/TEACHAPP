@@ -1,7 +1,7 @@
 class AssignmentsController < ApplicationController
   skip_before_action :authenticate_user!, only: :rectorat_index
   before_action :set_assignment, only: [:show, :accept, :teacher_proposals]
-  
+
   def index
     @assignments = current_user.assignments
   end
