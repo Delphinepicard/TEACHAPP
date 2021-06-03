@@ -1,1 +1,9 @@
-<h1>Assignement (rectorat)</h1>
+<h1>Assignements List Rectorat</h1>
+
+<ul>
+  <% @assignments.each do |assignment| %>
+    <li>
+      <%= link_to "Affectations du #{assignment.start_date} au #{assignment.end_date}", teacher_proposals_assignment_path(assignment) %>
+    </li>
+  <% end %>
+</ul>
