@@ -74,6 +74,7 @@ ce2 = Classroom.create!(level: 'CE2', school: school1)
 # assignments rectorat
 assig1 = Assignment.create!(start_date: 3.days.from_now, end_date: 5.days.from_now, rectorat: toto_recto, classroom: ce1)
 assig2 = Assignment.create!(start_date: 6.days.from_now, end_date: 8.days.from_now, rectorat: toto_recto, classroom: ce2)
+assig3 = Assignment.create!(start_date: 6.days.from_now, end_date: 8.days.from_now, rectorat: toto_recto, classroom: ce1, user: user1)
 
 # assignments du teacher
 assig3 = Assignment.create!(start_date: 6.days.from_now, end_date: 8.days.from_now, rectorat: toto_recto, classroom: ce1, user: user1)
