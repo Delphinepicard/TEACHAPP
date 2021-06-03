@@ -64,3 +64,4 @@ gem "awesome_print", "~> 1.9"
 
 gem 'turbolinks_render'
 
+gem 'geocoder'
