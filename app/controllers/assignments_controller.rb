@@ -1,6 +1,6 @@
 class AssignmentsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :rectorat_index
-  before_action :set_assignment, only: [:show, :accept, :teacher_proposals]
+  skip_before_action :authenticate_user!, only: %i[rectorat_index teacher_proposals]
+  before_action :set_assignment, only: %i[show accept teacher_proposals]
 
   def index
     @assignments = current_user.assignments
@@ -23,20 +23,42 @@ class AssignmentsController < ApplicationController
     @level_ask = @assignment.classroom.level
     @spe_ask = @assignment.school.specification
     @school = @assignment.school
+    # A retrouver dans le model school qui correspond aux profs rattaches a l'etablissment de l'affectatiion
     @teachers_attached = @school.users_attached
 
-    if @school.specification.present?
-      @match_teachers_attached = @teachers_attached.where(level: @level_ask, specification: @spe_ask)
-    else
-      @match_teachers_attached = @teachers_attached.where(level: @level_ask)
-    end
-    # @city_ask = @assignment.school.address
-    # @teacher_attached = @assignment.user.school_user
+    filter_teacher_attached
+
+    # Gem Geocoder
+    @schools_around = School.near([@school.latitude, @school.longitude], 10)
+    # On cree un tableau de profs rattaches aux ecoles aux alentours des 10km
+    @teachers_in_schools_around = @schools_around.map(&:users_attached).flatten.uniq
+
+    filter_teacher_around
   end
 
   private
 
   def set_assignment
     @assignment = Assignment.find(params[:id])
+  end
+
+  def filter_teacher_attached
+    if @school.specification.present?
+      @match_teachers_attached = @teachers_attached.where(level: @level_ask, specification: @spe_ask)
+    else
+      @match_teachers_attached = @teachers_attached.where(level: @level_ask)
+    end
+  end
+
+  def filter_teacher_around
+    if @school.specification.present?
+      @match_teachers_around = @teachers_in_schools_around.select do |t|
+        t.level == @level_ask && t.specification == @spe_ask
+      end
+    else
+      @match_teachers_around = @teachers_in_schools_around.select do |t|
+        t.level == @level_ask
+      end
+    end
   end
 end

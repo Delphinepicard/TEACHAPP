@@ -10,4 +10,6 @@ class School < ApplicationRecord
 
   has_many :school_users_attached, -> { where(attachment: true) }, class_name: 'SchoolUser'
   has_many :users_attached, through: :school_users_attached, source: :user
+
+  geocoded_by :address
 end

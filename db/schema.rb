@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_02_120538) do
+ActiveRecord::Schema.define(version: 2021_06_03_132120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,8 +79,8 @@ ActiveRecord::Schema.define(version: 2021_06_02_120538) do
     t.string "specification"
     t.bigint "director_id"
     t.string "phone"
-    t.float "long"
-    t.float "lat"
+    t.float "longitude"
+    t.float "latitude"
     t.index ["director_id"], name: "index_schools_on_director_id"
   end
 

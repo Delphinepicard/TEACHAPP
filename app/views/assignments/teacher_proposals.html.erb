@@ -1,1 +1,13 @@
-<h1>Teacher proposals</h1>
+<div class="container">
+  <h1>Teacher proposals</h1>
+  <h2> <%= "#{@school.name}" %> </h2>
+
+  <div class="d-flex">
+    <% @match_teachers_around.each do |teacher| %>
+      <div class="card">
+        <p><%= teacher.first_name %></p>
+        <p> <%= teacher.last_name %> </p>
+      </div>
+    <% end %>
+  </div>
+</div>

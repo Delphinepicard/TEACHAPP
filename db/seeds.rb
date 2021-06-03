@@ -18,7 +18,7 @@ Director.delete_all
 school_filepath = File.join(__dir__,'data/schools_42.csv')
 
 sql = <<-SQL
-COPY public.schools (name, address, phone, specification, lat, long)
+COPY public.schools (name, address, phone, specification, latitude, longitude)
 FROM '#{school_filepath}'
 DELIMITER ','
 CSV HEADER QUOTE '"'
@@ -53,7 +53,7 @@ school3 = School.find_by(name: 'Ecole maternelle Richelandiere')
 
 user1 = User.create!(first_name: 'first_name1', last_name: 'last_name1', phone: '06123456789', email: 't1@gmail.com', password: "azerty", availability: true, specification: "", level: "CE1")
 user2 = User.create!(first_name: 'first_name2', last_name: 'last_name2', phone: '06123456789', email: 't2@gmail.com', password: "azerty", availability: false, specification: "REP+", level: "CP")
-user3 = User.create!(first_name: 'first_name3', last_name: 'last_name3', phone: '06123456789', email: 't3@gmail.com', password: "azerty", availability: true, specification: "", level: "CM2")
+user3 = User.create!(first_name: 'first_name3', last_name: 'last_name3', phone: '06123456789', email: 't3@gmail.com', password: "azerty", availability: true, specification: "", level: "CE1")
 
 
 SchoolUser.create!(user: user1, school: school1, attachment: false)
@@ -62,6 +62,8 @@ SchoolUser.create!(user: user1, school: school3, attachment: true)
 SchoolUser.create!(user: user2, school: school1, attachment: true)
 SchoolUser.create!(user: user2, school: school2, attachment: false)
 SchoolUser.create!(user: user2, school: school3, attachment: false)
+SchoolUser.create!(user: user3, school: school2, attachment: true)
+SchoolUser.create!(user: user3, school: school3, attachment: false)
 
 toto_recto = Rectorat.create!(first_name: "toto", last_name: 'titi', email: 'titi@recto.org')
 tata_recto = Rectorat.create!(first_name: "tata", last_name: 'tutu', email: 'tutu@recto.org')
