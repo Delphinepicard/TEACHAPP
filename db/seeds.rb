@@ -44,8 +44,8 @@ end
 
 
 
-ap School.all
-ap Director.all
+# ap School.all
+# ap Director.all
 
 school1 = School.find_by(name: 'Ecole primaire de la Forêt')
 school2 = School.find_by(name: 'Ecole primaire Arsenal')
