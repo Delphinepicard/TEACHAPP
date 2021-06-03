@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     get "teacher_proposals", on: :member
     get "accept", on: :member
   end
+
+  get 'rectorat/assignments/', to: 'assignments#rectorat_index'
+
   resources :classroom, only: [:show] do
     resources :reviews, only: [:create]
   end
