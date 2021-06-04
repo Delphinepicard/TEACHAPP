@@ -52,13 +52,13 @@ end
 
 paul     = User.create!(first_name: 'Paul',      last_name: 'Langevin',    phone: '06123456789', email: 'paul.langevin@gmail.com',         password: "azerty", availability: true, specification: "",     level: "CP")
 
-marie    = User.create!(first_name: 'Marie',     last_name: 'Curie',       phone: '0653796357', email: 'marie.curie@gmail.com',           password: "azerty", availability: false, specification: "REP", level: "CE1")
+marie    = User.create!(first_name: 'Marie',     last_name: 'Curie',       phone: '0653796357', email: 'marie.curie@gmail.com',           password: "azerty", availability: true, specification: "REP", level: "CE1")
 
-francois = User.create!(first_name: 'François',  last_name: 'Rabelais',    phone: '0609635853', email: 'francois.rabelais@gmail.com',     password: "azerty", availability: true, specification: "",     level: "CE2")
+francois = User.create!(first_name: 'François',  last_name: 'Rabelais',    phone: '0609635853', email: 'francois.rabelais@gmail.com',     password: "azerty", availability: true, specification: "REP+", level: "CE2")
 
-simone   = User.create!(first_name: 'Simone',    last_name: 'de Beauvoir', phone: '0613585946', email: 'simone.debeauvoir@gmail.com',     password: "azerty", availability: true, specification: "REP",  level: "CM1")
+simone   = User.create!(first_name: 'Simone',    last_name: 'de Beauvoir', phone: '0613585946', email: 'simone.debeauvoir@gmail.com',     password: "azerty", availability: true, specification: "",     level: "CM1")
 
-yuki     = User.create!(first_name: 'Yukihiro',  last_name: 'Matsumoto',   phone: '0673796376', email: 'yuki.matsu@ruby.com',             password: "azerty", availability: true, specification: "",     level: "CM2")
+yuki     = User.create!(first_name: 'Yukihiro',  last_name: 'Matsumoto',   phone: '0673796376', email: 'yuki.matsu@ruby.com',             password: "azerty", availability: true, specification: "REP",  level: "CM2")
 
 shigeru  = User.create!(first_name: 'Shigeru',   last_name: 'Miyamoto',    phone: '0622468864', email: 'shigeru.miyamoto@supermario.com', password: "azerty", availability: true, specification: "REP+", level: "PSM")
 
@@ -66,11 +66,11 @@ hubert   = User.create!(first_name: 'Hubert',    last_name: 'Védrine',     phon
 
 michel   = User.create!(first_name: 'Michel',    last_name: 'Onfray',      phone: '0634545368', email: 'michel.onfray@gmail.com',         password: "azerty", availability: true, specification: "REP+",  level: "MSM")
 
-claudie  = User.create!(first_name: 'Claudie',   last_name: 'Haigneré',    phone: '0679573628', email: 'claudie.haignere@gmail.com',      password: "azerty", availability: true, specification: "",     level: "CP")
+claudie  = User.create!(first_name: 'Claudie',   last_name: 'Haigneré',    phone: '0679573628', email: 'claudie.haignere@gmail.com',      password: "azerty", availability: true, specification: "REP+", level: "CP")
 
-fabrice  = User.create!(first_name: 'Fabrice',   last_name: 'Luchini',     phone: '0607527597', email: 'fab.luchini@gmail.com',           password: "azerty", availability: true, specification: "REP",  level: "CE1")
+fabrice  = User.create!(first_name: 'Fabrice',   last_name: 'Luchini',     phone: '0607527597', email: 'fab.luchini@gmail.com',           password: "azerty", availability: true, specification: "",     level: "CE1")
 
-blanche  = User.create!(first_name: 'Blanche',   last_name: 'Gardin',      phone: '0615379507', email: 'blanche.gardin@gmail.com',        password: "azerty", availability: true, specification: "",     level: "CE2")
+blanche  = User.create!(first_name: 'Blanche',   last_name: 'Gardin',      phone: '0615379507', email: 'blanche.gardin@gmail.com',        password: "azerty", availability: true, specification: "REP",  level: "CE2")
 
 florence = User.create!(first_name: 'Florence',  last_name: 'Foresti',     phone: '0616486975', email: 'flo.foresti@lolmdr.com',          password: "azerty", availability: true, specification: "REP+", level: "CM1")
 
@@ -78,11 +78,25 @@ william  = User.create!(first_name: 'William',   last_name: 'Shakespeare', phone
 
 jean     = User.create!(first_name: 'Jean',      last_name: 'Moulin',      phone: '0676454479', email: 'jean.moulin@gmail.com',           password: "azerty", availability: true, specification: "REP",  level: "PSM")
 
-nelson   = User.create!(first_name: 'Nelson',    last_name: 'Mandela',     phone: '0609753679', email: 'nelson.mandela@gmail.com',        password: "azerty", availability: true, specification: "",     level: "MSM")
+nelson   = User.create!(first_name: 'Nelson',    last_name: 'Mandela',     phone: '0609753679', email: 'nelson.mandela@gmail.com',        password: "azerty", availability: true, specification: "REP+", level: "MSM")
 
-pie      = User.create!(first_name: 'Pie',       last_name: 'Tshibanda',   phone: '0613579578', email: 'pietshi@gmail.com',               password: "azerty", availability: true, specification: "REP",  level: "GSM")
+pie      = User.create!(first_name: 'Pie',       last_name: 'Tshibanda',   phone: '0613579578', email: 'pietshi@gmail.com',               password: "azerty", availability: true, specification: "",     level: "GSM")
 
-alex     = User.create!(first_name: 'Alexandre', last_name: 'Astier',      phone: '0637974536', email: 'alex.astier@gmail.com',           password: "azerty", availability: true, specification: "",     level: "CP")
+alex     = User.create!(first_name: 'Alexandre', last_name: 'Astier',      phone: '0637974536', email: 'alex.astier@gmail.com',           password: "azerty", availability: true, specification: "REP",  level: "CP")
+
+thomas   = User.create!(first_name: 'Thomas',    last_name: 'Piketty',     phone: '0633561008', email: 'thom.piketty@gmail.com',          password: "azerty", availability: true, specification: "REP+", level: "CE1")
+
+bernard  = User.create!(first_name: 'Bernard',   last_name: 'Werber',      phone: '0753379118', email: 'beberwerber@gmail.com',           password: "azerty", availability: true, specification: "",     level: "CE2")
+
+gaspard  = User.create!(first_name: 'Gaspard',   last_name: 'Proust',      phone: '0611357689', email: 'gaspard.proust@gmail.com',        password: "azerty", availability: true, specification: "REP",  level: "CM1")
+
+hayao    = User.create!(first_name: 'Hayao',     last_name: 'Miyazaki',    phone: '0712274490', email: 'hayaomimi@gmail.com',             password: "azerty", availability: true, specification: "REP+", level: "CM2")
+
+idriss   = User.create!(first_name: 'Idriss',    last_name: 'Aberkane',    phone: '0633567005', email: 'idrissaberkane@gmail.com',        password: "azerty", availability: true, specification: "",     level: "PSM")
+
+marina   = User.create!(first_name: 'Marina',    last_name: 'Foïs',        phone: '0722452859', email: 'marina.fois@gmail.com',           password: "azerty", availability: true, specification: "REP",  level: "MSM")
+
+kyan     = User.create!(first_name: 'Kyan',      last_name: 'Khojandi',    phone: '0644770221', email: 'kyankho@gmail.com',               password: "azerty", availability: true, specification: "REP+", level: "GSM")
 
 # RATTACHEMENT PROFS / ETABLISSEMENTS
 
@@ -101,8 +115,15 @@ SchoolUser.create!(user: florence, school: school6, attachment: true)
 SchoolUser.create!(user: william,  school: school1, attachment: true)
 SchoolUser.create!(user: jean,     school: school2, attachment: true)
 SchoolUser.create!(user: nelson,   school: school3, attachment: true)
-SchoolUser.create!(user: pie,      school: school3, attachment: true)
-SchoolUser.create!(user: alex,     school: school3, attachment: true)
+SchoolUser.create!(user: pie,      school: school4, attachment: true)
+SchoolUser.create!(user: alex,     school: school5, attachment: true)
+SchoolUser.create!(user: thomas,   school: school6, attachment: true)
+SchoolUser.create!(user: bernard,  school: school1, attachment: true)
+SchoolUser.create!(user: gaspard,  school: school2, attachment: true)
+SchoolUser.create!(user: hayao,    school: school3, attachment: true)
+SchoolUser.create!(user: idriss,   school: school4, attachment: true)
+SchoolUser.create!(user: marina,   school: school5, attachment: true)
+SchoolUser.create!(user: kyan,     school: school6, attachment: true)
 
 # RECTORAT
 
@@ -120,6 +141,12 @@ ce2 = Classroom.create!(level: 'CE2', school: school6, main_teacher: francois)
 cm1 = Classroom.create!(level: 'CM1', school: school4, main_teacher: simone)
 cm2 = Classroom.create!(level: 'CM2', school: school5, main_teacher: yuki)
 
+# CLASSROOM FOR ASSIGNMENT WITH USER
+
+cm2_w_user = Classroom.create!(level: 'CM2', school: school5, main_teacher: yuki)
+ce2_w_user  = Classroom.create!(level: 'CE2',  school: school6, main_teacher: francois)
+gsm_w_user = Classroom.create!(level: 'GSM', school: school3, main_teacher: michel)
+
 # AFFECTATIONS EN ATTENTE DE PROFFESSEUR
 
 assig1 = Assignment.create!(start_date: 1.days.from_now, end_date: 2.days.from_now, rectorat: toto_recto, classroom: psm, user: paul)
@@ -129,11 +156,15 @@ assig4 = Assignment.create!(start_date: 2.days.from_now, end_date: 5.days.from_n
 assig5 = Assignment.create!(start_date: 4.days.from_now, end_date: 8.days.from_now, rectorat: toto_recto, classroom: ce1)
 assig6 = Assignment.create!(start_date: 2.days.from_now, end_date: 3.days.from_now, rectorat: toto_recto, classroom: ce2)
 assig7 = Assignment.create!(start_date: 2.days.from_now, end_date: 4.days.from_now, rectorat: toto_recto, classroom: cm1)
-assig8 = Assignment.create!(start_date: 3.days.from_now, end_date: 9.days.from_now, rectorat: toto_recto, classroom: cm2)
+assig8 = Assignment.create!(start_date: 4.days.from_now, end_date: 9.days.from_now, rectorat: toto_recto, classroom: cm2)
 
 # AFFECTATIONS AVEC PROFFESSEUR
 
+assig9  = Assignment.create!(start_date: 3.days.ago, end_date: 2.days.from_now, rectorat: toto_recto, classroom: cm2_w_user, user: hayao)
 
+assig10 = Assignment.create!(start_date: 1.days.ago, end_date: 1.days.from_now, rectorat: toto_recto, classroom: ce2_w_user, user: blanche)
+
+assig11 = Assignment.create!(start_date: 5.days.ago, end_date: 1.days.from_now, rectorat: toto_recto, classroom: gsm_w_user, user: pie)
 
 # REVIEWS
 
