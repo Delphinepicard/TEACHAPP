@@ -4,7 +4,7 @@
 <%= link_to 'Historique', assignments_path, class: "btn btn-primary" %>
 <% if @assignment.user %>
   <% if @assignment.distance != 0 %>
-    <p>Indemnité pour : <%= @assignment.distance %> Km = <%= sprintf('%.2f', @assignment.indemnite_km_per_day) %>€ X <%= @assignment.duration %> jours = <%= sprintf('%.2f', @assignment.indemnite_km) %>€</p>
+    <p>Indemnité pour : <%= sprintf('%.3f', @assignment.distance) %> Km = <%= sprintf('%.2f', @assignment.indemnite_km_per_day) %>€ X <%= @assignment.duration %> jours = <%= sprintf('%.2f', @assignment.indemnite_km) %>€</p>
   <% end %>
   <% if @assignment.school.specification? %>
     <p>Prime pour établissement <%= @assignment.school.specification %> : <%= sprintf('%.2f', @assignment.prime_per_day) %>€ X <%= @assignment.duration %> jours = <%= sprintf('%.2f', @assignment.prime) %>€</p>
