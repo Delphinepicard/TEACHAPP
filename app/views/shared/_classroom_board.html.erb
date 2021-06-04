@@ -1,9 +1,9 @@
 <h2>Carnet de bord classe</h2>
-<p>suivit du programme de la classe <%= @assignment.classroom.level %> </p>
+<p>Suivit du programme de la classe <%= @assignment.classroom.level %> </p>
 <div class="review-container">
   <% classroom.reviews.each do |review| %>
     <hr>
-    <p id="review-<%= review.id %>">Ecrit par <strong><%= review.user.first_name %> <%= review.user.last_name %></strong> à <%= I18n.l(review.created_at, format: :short) %>:<br>
+    <p id="review-<%= review.id %>">Ecrit par <strong><%= review.user.first_name %> <%= review.user.last_name %></strong> le <%= I18n.l(review.created_at, format: :short) %><br>
     <%= review.content %></p>
   <% end %>
 </div>
