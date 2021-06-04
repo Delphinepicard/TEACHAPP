@@ -1,6 +1,6 @@
 class AssignmentsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[rectorat_index teacher_proposals]
-  before_action :set_assignment, only: %i[show accept teacher_proposals]
+  before_action :set_assignment, only: %i[show accept teacher_proposals affect]
 
   def index
     @assignments = current_user.assignments
@@ -19,6 +19,14 @@ class AssignmentsController < ApplicationController
   def accept
   end
 
+  def affect
+    @user = User.find(params[:user_id])
+    @assignment.update!(user: @user) # sauvegarde en BDD
+    UserMailer.accept_assignment(@assignment).deliver_now # envoyer un email
+    redirect_to rectorat_assignments_path, notice: "email bien envoyé"
+  end
+
+
   def teacher_proposals
     @level_ask = @assignment.classroom.level
     @spe_ask = @assignment.school.specification
@@ -34,6 +42,7 @@ class AssignmentsController < ApplicationController
     @teachers_in_schools_around = @schools_around.map(&:users_attached).flatten.uniq
 
     filter_teacher_around
+
   end
 
   private
