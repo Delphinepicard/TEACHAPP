@@ -7,7 +7,7 @@ class AssignmentsController < ApplicationController
   end
 
   def rectorat_index
-    @assignments = Assignment.all
+    @assignments = Assignment.where(user: nil)
   end
 
   def show
