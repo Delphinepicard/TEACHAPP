@@ -11,6 +11,15 @@
         <li> <%= "Prime REP" %> </li>
         <li> <%= "Total" %> </li>
         <br>
+          <% if assignment.distance != 0 %>
+            <p>Indemnité pour : <%= sprintf('%.3f', assignment.distance) %> Km = <%= sprintf('%.2f', assignment.indemnite_km_per_day) %>€ X <%= assignment.duration %> jours = <%= sprintf('%.2f', assignment.indemnite_km) %>€</p>
+          <% end %>
+          <% if assignment.school.specification? %>
+            <p>Prime pour établissement <%= assignment.school.specification %> : <%= sprintf('%.2f', assignment.prime_per_day) %>€ X <%= assignment.duration %> jours = <%= sprintf('%.2f', assignment.prime) %>€</p>
+          <% end %>
+          <% if assignment.distance != 0 && assignment.school.specification? %>
+            <p>Total prime + indemnité = <%= sprintf('%.2f', assignment.indemnite_km + assignment.prime) %>€
+          <% end %>
       <% end %>
     </ul>
   <% end %>
