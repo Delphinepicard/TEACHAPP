@@ -133,6 +133,7 @@ assig8 = Assignment.create!(start_date: 3.days.from_now, end_date: 9.days.from_n
 
 # AFFECTATIONS AVEC PROFFESSEUR
 
+assig9 = Assignment.create!(start_date: 3.days.from_now, end_date: 9.days.from_now, rectorat: toto_recto, classroom: cm2, user: pie)
 
 
 # REVIEWS
