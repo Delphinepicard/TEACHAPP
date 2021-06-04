@@ -1,16 +1,13 @@
-<h2>Carnet de bord classe</h2>
-<p>Suivit du programme de la classe <%= @assignment.classroom.level %> </p>
-<div class="review-container">
-  <% classroom.reviews.each do |review| %>
-    <hr>
-    <p id="review-<%= review.id %>">Ecrit par <strong><%= review.user.first_name %> <%= review.user.last_name %></strong> le <%= I18n.l(review.created_at, format: :short) %><br>
-    <%= review.content %></p>
-  <% end %>
-</div>
-<div class="form-review">
-  <%= simple_form_for ([ classroom, Review.new ]), remote: true do |f| %>
-    <%= f.hidden_field :assignment, as: :hidden, value: assignment.id  %>
-    <%= f.input :content, as: :text, label: "Nouvelle entrée :" %>
-    <%= f.button :submit, "Enregistrer", class: "btn btn-primary w-100" %>
-  <% end %>
-</div>
+<h3><%= @assignment.school.name %></h3>
+<p>Specification: <%= @assignment.school.specification ? @assignment.school.specification : "Aucune" %></p>
+<p> <%= @assignment.school.address %> </p>
+<p> téléphone : <%= @assignment.school.phone %> </p>
+<h4>Directeur / Directrice :</h4>
+<p><%="#{@assignment.school.director.first_name} #{@assignment.school.director.last_name}"%></p>
+<p><%="#{@assignment.school.director.phone}"%></p>
+<p><%="#{@assignment.school.director.email}"%></p>
+
+<h4>Enseignant(e) absent(e) :</h4>
+<p><%="#{@assignment.classroom.main_teacher.first_name} #{@assignment.classroom.main_teacher.last_name}"%></p>
+<p><%="#{@assignment.classroom.main_teacher.phone}"%></p>
+<p><%="#{@assignment.classroom.main_teacher.email}"%></p>
