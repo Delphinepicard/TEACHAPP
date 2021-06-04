@@ -18,9 +18,9 @@
 <p><%="#{@assignment.school.director.email}"%></p>
 
 <h4>Enseignant(e) absent(e) :</h4>
-<p><%="#{@assignment.school.director.first_name} #{@assignment.school.director.last_name}"%></p>
-<p><%="#{@assignment.school.director.phone}"%></p>
-<p><%="#{@assignment.school.director.email}"%></p>
+<p><%="#{@assignment.classroom.main_teacher.first_name} #{@assignment.classroom.main_teacher.last_name}"%></p>
+<p><%="#{@assignment.classroom.main_teacher.phone}"%></p>
+<p><%="#{@assignment.classroom.main_teacher.email}"%></p>
 
 <%= render 'shared/classroom_board', classroom: @assignment.classroom, assignment: @assignment  %>
 <%#= link_to "got to classroom", classroom_path(@classroom)  %>
