@@ -1,27 +1,18 @@
-<div class="container">
-<h2>Classe de <%= @assignment.classroom.level%>de  </h2>
+<h2>Classe de <%= @assignment.classroom.level%> de <%= @assignment.classroom.main_teacher.first_name%> <%= @assignment.classroom.main_teacher.last_name%> </h2>
 <h3>Affectation #<%= @assignment.created_at.time.to_i%>-<%= @assignment.id %></h3>
 <p>Du <%= "#{@assignment.start_date} au #{@assignment.end_date}" %></p>
-<h3><%= @assignment.school.name %></h3>
-<% if @assignment.distance != 0 %>
-  <p>Indemnité pour : <%= @assignment.distance %> Km = <%= sprintf('%.2f', @assignment.indemnite_km_per_day) %>€ X <%= @assignment.duration %> jours = <%= sprintf('%.2f', @assignment.indemnite_km) %>€</p>
+<%= link_to 'Historique', assignments_path, class: "btn btn-primary" %>
+<% if @assignment.user %>
+  <% if @assignment.distance != 0 %>
+    <p>Indemnité pour : <%= @assignment.distance %> Km = <%= sprintf('%.2f', @assignment.indemnite_km_per_day) %>€ X <%= @assignment.duration %> jours = <%= sprintf('%.2f', @assignment.indemnite_km) %>€</p>
+  <% end %>
+  <% if @assignment.school.specification? %>
+    <p>Prime pour établissement <%= @assignment.school.specification %> : <%= sprintf('%.2f', @assignment.prime_per_day) %>€ X <%= @assignment.duration %> jours = <%= sprintf('%.2f', @assignment.prime) %>€</p>
+  <% end %>
+  <% if @assignment.distance != 0 && @assignment.school.specification? %>
+    <p>Total prime + indemnité = <%= sprintf('%.2f', @assignment.indemnite_km + @assignment.prime) %>€
+  <% end %>
 <% end %>
-<% if @assignment.school.specification? %>
-  <p>Prime pour établissement <%= @assignment.school.specification %> : <%= sprintf('%.2f', @assignment.prime_per_day) %>€ X <%= @assignment.duration %> jours = <%= sprintf('%.2f', @assignment.prime) %>€</p>
-<% end %>
-<% if @assignment.distance != 0 && @assignment.school.specification? %>
-  <p>Total prime + indemnité = <%= sprintf('%.2f', @assignment.indemnite_km + @assignment.prime) %>€
-<% end %>
-<h4>Directeur / Directrice :</h4>
-<p><%="#{@assignment.school.director.first_name} #{@assignment.school.director.last_name}"%></p>
-<p><%="#{@assignment.school.director.phone}"%></p>
-<p><%="#{@assignment.school.director.email}"%></p>
-
-<h4>Enseignant(e) absent(e) :</h4>
-<p><%="#{@assignment.classroom.main_teacher.first_name} #{@assignment.classroom.main_teacher.last_name}"%></p>
-<p><%="#{@assignment.classroom.main_teacher.phone}"%></p>
-<p><%="#{@assignment.classroom.main_teacher.email}"%></p>
-
 <%= render 'shared/classroom_board', classroom: @assignment.classroom, assignment: @assignment  %>
+<%= render 'shared/classroom_log', classroom: @assignment.classroom, assignment: @assignment  %>
 <%#= link_to "got to classroom", classroom_path(@classroom)  %>
-</div>

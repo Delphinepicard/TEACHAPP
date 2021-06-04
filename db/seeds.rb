@@ -62,9 +62,9 @@ yuki     = User.create!(first_name: 'Yukihiro',  last_name: 'Matsumoto',   phone
 
 shigeru  = User.create!(first_name: 'Shigeru',   last_name: 'Miyamoto',    phone: '0622468864', email: 'shigeru.miyamoto@supermario.com', password: "azerty", availability: true, specification: "REP+", level: "PSM")
 
-hubert   = User.create!(first_name: 'Hubert',    last_name: 'Védrine',     phone: '0648634665', email: 'hubert.vedrine@gmail.com',        password: "azerty", availability: true, specification: "",     level: "MSM")
+hubert   = User.create!(first_name: 'Hubert',    last_name: 'Védrine',     phone: '0648634665', email: 'hubert.vedrine@gmail.com',        password: "azerty", availability: true, specification: "",     level: "GSM")
 
-michel   = User.create!(first_name: 'Michel',    last_name: 'Onfray',      phone: '0634545368', email: 'michel.onfray@gmail.com',         password: "azerty", availability: true, specification: "REP",  level: "GSM")
+michel   = User.create!(first_name: 'Michel',    last_name: 'Onfray',      phone: '0634545368', email: 'michel.onfray@gmail.com',         password: "azerty", availability: true, specification: "REP+",  level: "MSM")
 
 claudie  = User.create!(first_name: 'Claudie',   last_name: 'Haigneré',    phone: '0679573628', email: 'claudie.haignere@gmail.com',      password: "azerty", availability: true, specification: "",     level: "CP")
 
@@ -122,7 +122,7 @@ cm2 = Classroom.create!(level: 'CM2', school: school5, main_teacher: yuki)
 
 # AFFECTATIONS EN ATTENTE DE PROFFESSEUR
 
-assig1 = Assignment.create!(start_date: 1.days.from_now, end_date: 2.days.from_now, rectorat: toto_recto, classroom: psm)
+assig1 = Assignment.create!(start_date: 1.days.from_now, end_date: 2.days.from_now, rectorat: toto_recto, classroom: psm, user: paul)
 assig2 = Assignment.create!(start_date: 1.days.from_now, end_date: 4.days.from_now, rectorat: toto_recto, classroom: msm)
 assig3 = Assignment.create!(start_date: 3.days.from_now, end_date: 6.days.from_now, rectorat: toto_recto, classroom: gsm)
 assig4 = Assignment.create!(start_date: 2.days.from_now, end_date: 5.days.from_now, rectorat: toto_recto, classroom: cp)
