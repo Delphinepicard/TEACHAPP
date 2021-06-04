@@ -1,13 +1,40 @@
 <div class="container">
-  <h1>Teacher proposals</h1>
-  <h2> <%= "#{@school.name}" %> </h2>
+  <h1>Sélection des instituteurs</h1>
+  <h3> Pour l'établissement : <strong> <%= "#{@school.name}" %> </strong> </h3>
 
   <div class="d-flex">
     <% @match_teachers_around.each do |teacher| %>
-      <div class="card">
-        <p><%= teacher.first_name %></p>
-        <p> <%= teacher.last_name %> </p>
+    <div class="cartes">
+      <div class="row align-items">
+        <div class="col">
+          <div class="image">
+            <img src="" alt="la photo">
+          </div>
+        </div>
+        <div class="col">
+          <div class="contenus">
+            <div class="titre">
+              <%= "#{teacher.first_name} #{teacher.last_name}" %>
+            </div>
+            <div class="bio">
+              <strong>Disponibilité:</strong><%= " #{teacher.availability}" %>
+            </div>
+          </div>
       </div>
-    <% end %>
+    </div>
+  <div class="competence"> 
+    <strong>Niveau souhaité:</strong> <%= "#{teacher.level}" %>
   </div>
+  <div class="experience">
+    <strong>Catégorie souhaitée:</strong> <%= "#{teacher.specification}" %>
+  </div>
+  <div class="cliquer">
+    <button>
+      Envoyer un mail
+    </button>
+  </div>
+  </div>
+  <% end %>
 </div>
+     
+
