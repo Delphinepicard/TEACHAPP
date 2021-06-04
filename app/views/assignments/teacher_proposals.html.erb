@@ -30,7 +30,7 @@
   </div>
   <div class="cliquer">
     <button>
-      Envoyer un mail
+      <%= link_to "Envoyez un email", affect_assignment_path(@assignment, user_id: teacher.id), method: :post %>
     </button>
   </div>
   </div>

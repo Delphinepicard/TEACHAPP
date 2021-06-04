@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :assignments, only: [:index, :show] do
     get "teacher_proposals", on: :member
+    post "affect", on: :member
     get "accept", on: :member
   end
 
