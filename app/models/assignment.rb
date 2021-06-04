@@ -4,8 +4,6 @@ class Assignment < ApplicationRecord
   belongs_to :classroom
   has_one :school, through: :classroom
 
-  # has_many :reviews, through: :classroom
-
   validates :start_date, presence: true
   validates :end_date, presence: true
 
@@ -14,24 +12,25 @@ class Assignment < ApplicationRecord
   end
 
   def prime
-    prime_per_day * duration
+    (prime_per_day * duration)
   end
+
   def indemnite_km
-    indemnite_km_per_day * duration
+    (indemnite_km_per_day * duration)
   end
 
   def distance
     origine = [user.attached_school.latitude, user.attached_school.longitude]
     destination = [school.latitude, school.longitude]
-    Geocoder::Calculation.distance_between(origine, destination)
+    (Geocoder::Calculations.distance_between(origine, destination).round(2)) * 1.2
   end
 
   def prime_per_day
     case school.specification.to_s.upcase
     when "REP"
-      4.8
+      4.80
     when "REP+"
-      12.9
+      12.90
     else
       0
     end
@@ -39,10 +38,9 @@ class Assignment < ApplicationRecord
 
   def indemnite_km_per_day
     km = distance
-    ap "je usis la"
-    ap km
-
-    if km < 10
+    if km == 0
+      0
+    elsif km < 10
       15.38
     elsif km < 19
       20.02
@@ -57,7 +55,7 @@ class Assignment < ApplicationRecord
     elsif km < 80
       45.66
     elsif km >= 80
-      45.66 + (((km - 80).fdiv(20)) * 6.81).round(2)
+      45.66 + (km - 80).fdiv(20) * 6.81
     else
       "L'indemnité est incalculable"
     end
