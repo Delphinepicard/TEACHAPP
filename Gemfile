@@ -65,3 +65,5 @@ gem "awesome_print", "~> 1.9"
 gem 'turbolinks_render'
 
 gem 'geocoder'
+
+gem 'cloudinary', '~> 1.16.0'
