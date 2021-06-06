@@ -8,7 +8,9 @@
       <div class="row align-items">
         <div class="col">
           <div class="image">
-            <img src="" alt="la photo">
+            <% if teacher.photo.attached? %>
+              <%= cl_image_tag teacher.photo.key, height: 200, width: 200, crop: :fill %>
+            <% end %>
           </div>
         </div>
         <div class="col">
@@ -20,21 +22,20 @@
               <strong>Disponibilité:</strong><%= " #{teacher.availability}" %>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="competence">
+        <strong>Niveau souhaité:</strong> <%= "#{teacher.level}" %>
+      </div>
+      <div class="experience">
+        <strong>Catégorie souhaitée:</strong> <%= "#{teacher.specification}" %>
+      </div>
+      <div class="cliquer">
+        <button>
+          <%= link_to "Envoyez un email", affect_assignment_path(@assignment, user_id: teacher.id), method: :post %>
+        </button>
       </div>
     </div>
-  <div class="competence"> 
-    <strong>Niveau souhaité:</strong> <%= "#{teacher.level}" %>
+    <% end %>
   </div>
-  <div class="experience">
-    <strong>Catégorie souhaitée:</strong> <%= "#{teacher.specification}" %>
-  </div>
-  <div class="cliquer">
-    <button>
-      <%= link_to "Envoyez un email", affect_assignment_path(@assignment, user_id: teacher.id), method: :post %>
-    </button>
-  </div>
-  </div>
-  <% end %>
 </div>
-     
-
