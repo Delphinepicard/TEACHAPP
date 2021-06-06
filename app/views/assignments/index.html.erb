@@ -1,7 +1,7 @@
   <h1> <%= "Historique d'affectation(s) de #{current_user.first_name} #{current_user.last_name}" %> </h1>
 
   <% if @assignments.empty? %>
-    <%= "Tu n'as pas d'affectations en cours..." %>
+    <%= "Pas d'affectations en cours..." %>
   <% else %>
     <ul>
       <% @assignments.each do |assignment| %>
