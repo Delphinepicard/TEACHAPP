@@ -7,7 +7,7 @@ class Assignment < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
 
-  geocoded_by :address
+  reverse_geocoded_by :latitude, :longitude
   after_validation :geocode, if: :will_save_change_to_address?
 
   def duration
