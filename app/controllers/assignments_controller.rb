@@ -17,18 +17,24 @@ class AssignmentsController < ApplicationController
     @user = current_user
     @classroom = @assignment.classroom
 
-    # @markers = @assignment.school.geocoded.map do |position|
+    # @markers = @schools.geocoded.map do |position|
     #   {
     #     lat: position.latitude,
     #     lng: position.longitude
     #   }
-    #   raise
     # end
 
-    @markers = {
+    @attached_marker = {
+      lat: current_user.attached_school.latitude,
+      lng: current_user.attached_school.longitude
+    }
+
+    @assign_marker = {
       lat: @assignment.school.latitude,
       lng: @assignment.school.longitude
     }
+
+    @markers = [@attached_marker, @assign_marker]
   end
 
   def accept

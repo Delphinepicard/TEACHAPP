@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-
   def create
     @classroom = Classroom.find(params[:classroom_id])
     @review = Review.new(review_params)
@@ -16,7 +15,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-   params.require(:review).permit(:content)
+    params.require(:review).permit(:content)
   end
-
 end

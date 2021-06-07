@@ -20,7 +20,7 @@
           <% if @assignment.distance != 0 && @assignment.school.specification? %>
             Total prime + indemnité = <strong><%= sprintf('%.2f', @assignment.indemnite_km + @assignment.prime) %>€</strong>
           <% end %>
-        <% end %>
+<% end %>
       </div>
       </div>
     </div>
@@ -31,7 +31,7 @@
     <%= render 'shared/school_board', classroom: @assignment.classroom, assignment: @assignment  %>
   </div>
   <div class="col-sm">
-    <%= render 'shared/school_map', classroom: @assignment.classroom, assignment: @assignment  %>
+    <%= render 'shared/school_map', classroom: @assignment.classroom, assignment: @assignment, marker:@marker %>
   </div>
   <div class="col-sm">
     <%= render 'shared/classroom_log', classroom: @assignment.classroom, assignment: @assignment  %>
