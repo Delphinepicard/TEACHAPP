@@ -1,36 +1,36 @@
 <div class="container">
   <h1> <%= "Historique d'affectation(s) de #{current_user.first_name} #{current_user.last_name}" %> </h1>
   <% if @assignments.empty? %>
-  <%= "Pas d'affectations en cours..." %>
+    <%= "Pas d'affectations en cours..." %>
   <% else %>
-  <% @assignments.each do |assignment| %>
-  <div class="card border-secondary mb-3">
-    <div class="card-header">
-    <h6> Classe de <%= assignment.classroom.level%> de <%= assignment.classroom.main_teacher.first_name%> <%= assignment.classroom.main_teacher.last_name%></h6>
-      </div>
-      <div class="row p-2">
-        <div class="col">
-          <ul class="list-unstyled">
-            <li> <%= assignment.school.name %> </li>
-            <li> <%= "Période du #{assignment.start_date} au #{assignment.end_date}" %> </li>
-            <li> Durée de l'affectation : <%= assignment.duration %> jours </li>
-          </ul>
+    <% @assignments.each do |assignment| %>
+      <div class="card border-secondary mb-3">
+        <div class="card-header">
+          <h6> Classe de <%= assignment.classroom.level%> de <%= assignment.classroom.main_teacher.first_name%> <%= assignment.classroom.main_teacher.last_name%></h6>
         </div>
-        <div class="calcul col">
-          <% if assignment.user %>
-            <% if assignment.distance != 0 %>
-              Indemnité pour : <%= sprintf('%.3f', assignment.distance) %> Km = <%= sprintf('%.2f', assignment.indemnite_km_per_day) %>€ X <%= assignment.duration %> jours = <strong><%= sprintf('%.2f', assignment.indemnite_km) %>€</strong><br>
+        <div class="row p-2">
+          <div class="col">
+            <ul class="list-unstyled">
+              <li> <%= assignment.school.name %> </li>
+              <li> <%= "Période du #{assignment.start_date} au #{assignment.end_date}" %> </li>
+              <li> Durée de l'affectation : <%= assignment.duration %> jours </li>
+            </ul>
+          </div>
+          <div class="calcul col">
+            <% if assignment.user %>
+              <% if assignment.distance != 0 %>
+                Indemnité pour : <%= sprintf('%.3f', assignment.distance) %> Km = <%= sprintf('%.2f', assignment.indemnite_km_per_day) %>€ X <%= assignment.duration %> jours = <strong><%= sprintf('%.2f', assignment.indemnite_km) %>€</strong><br>
+              <% end %>
+              <% if assignment.school.specification? %>
+                Prime pour établissement <%= assignment.school.specification %> : <%= sprintf('%.2f', assignment.prime_per_day) %>€ X <%= assignment.duration %> jours = <strong><%= sprintf('%.2f', assignment.prime) %>€</strong><br>
+              <% end %>
+              <% if assignment.distance != 0 && assignment.school.specification? %>
+                Total prime + indemnité = <strong><%= sprintf('%.2f', assignment.indemnite_km + assignment.prime) %>€</strong>
+              <% end %>
             <% end %>
-            <% if assignment.school.specification? %>
-              Prime pour établissement <%= assignment.school.specification %> : <%= sprintf('%.2f', assignment.prime_per_day) %>€ X <%= assignment.duration %> jours = <strong><%= sprintf('%.2f', assignment.prime) %>€</strong><br>
-            <% end %>
-            <% if assignment.distance != 0 && assignment.school.specification? %>
-              Total prime + indemnité = <strong><%= sprintf('%.2f', assignment.indemnite_km + assignment.prime) %>€</strong>
-            <% end %>
-          <% end %>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
-  
