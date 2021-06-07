@@ -1,7 +1,15 @@
+.titre {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
 .carte {
   background-color: white;
   display: flex;
   margin: 0px auto;
+  margin-top: 16px;
+  margin-bottom: 16px;
   padding: 16px;
   width: 70%;
   border-radius: 4px;
@@ -9,10 +17,10 @@
 }
 
 .contenu {
-  width: 89%;
+  width: 85%;
 }
 
 .clique {
-  display: flex;
-  width: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
