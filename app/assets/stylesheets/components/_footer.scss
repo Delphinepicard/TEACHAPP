@@ -1,0 +1,12 @@
+.parent {
+  background-color: white;
+  height: 4em; /* hauteur du parent */
+  line-height: 4em; /* hauteur de ligne (identique) */
+  white-space: nowrap;
+}
+
+.content {
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}

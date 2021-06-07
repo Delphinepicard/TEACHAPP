@@ -6,7 +6,6 @@ class AssignmentsController < ApplicationController
   def index
     @assignments = current_user.assignments
     @current_assignment = current_user.assignments.where('start_date <= CURRENT_DATE AND CURRENT_DATE <= end_date').first
-    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
   end
 
   def rectorat_index
@@ -18,21 +17,18 @@ class AssignmentsController < ApplicationController
     @user = current_user
     @classroom = @assignment.classroom
 
-    # @markers = @schools.geocoded.map do |position|
-    #   {
-    #     lat: position.latitude,
-    #     lng: position.longitude
-    #   }
-    # end
-
     @attached_marker = {
       lat: current_user.attached_school.latitude,
-      lng: current_user.attached_school.longitude
+      lng: current_user.attached_school.longitude,
+      info_window: render_to_string(partial: "shared/school_info_window", locals: { school: current_user.attached_school }),
+      image_url: helpers.asset_url('school_icon.png')
     }
 
     @assign_marker = {
       lat: @assignment.school.latitude,
-      lng: @assignment.school.longitude
+      lng: @assignment.school.longitude,
+      info_window: render_to_string(partial: "shared/school_info_window", locals: { school: @assignment.school }),
+      image_url: helpers.asset_url('pin.png')
     }
 
     @markers = [@attached_marker, @assign_marker]
@@ -52,6 +48,7 @@ class AssignmentsController < ApplicationController
     @level_ask = @assignment.classroom.level
     @spe_ask = @assignment.school.specification
     @school = @assignment.school
+
     # A retrouver dans le model school qui correspond aux profs rattaches a l'etablissment de l'affectatiion
     @teachers_attached = @school.users_attached
 
@@ -73,6 +70,7 @@ class AssignmentsController < ApplicationController
 
   def filter_teacher_attached
     @match_teachers_attached = @teachers_attached.where(level: @level_ask).where.not(id: @assignment.classroom.main_teacher.id)
+
     @match_teachers_attached = @match_teachers_attached.where(specification: @spe_ask) if @school.specification.present?
   end
 

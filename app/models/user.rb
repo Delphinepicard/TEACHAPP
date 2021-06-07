@@ -16,6 +16,20 @@ class User < ApplicationRecord
 
   has_one_attached :photo
 
+  scope :available, ->(start_date, end_date) do
+    sql_join = <<~SQL
+      LEFT JOIN (
+	    SELECT user_id
+	    FROM assignments
+	    JOIN users ON users.id = assignments.user_id
+	    WHERE start_date <= '#{start_date}' AND end_date >= '#{start_date}' OR
+	    	  start_date <= '#{end_date}' AND end_date >= '#{end_date}' OR
+	    	  start_date >= '#{start_date}' AND end_date <= '#{end_date}'
+	      ) subset ON users.id = subset.user_id
+    SQL
+    joins(sql_join).where(subset: {user_id: nil})
+  end
+
   # validates :last_name, presence: true
   # validates :first_name, presence: true
   # validates :phone, presence: true, format: { with: /(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}/ }
