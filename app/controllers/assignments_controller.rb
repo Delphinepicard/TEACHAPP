@@ -18,12 +18,16 @@ class AssignmentsController < ApplicationController
 
     @attached_marker = {
       lat: current_user.attached_school.latitude,
-      lng: current_user.attached_school.longitude
+      lng: current_user.attached_school.longitude,
+      info_window: render_to_string(partial: "shared/school_info_window", locals: { school: current_user.attached_school }),
+      image_url: helpers.asset_url('school_icon.png')
     }
 
     @assign_marker = {
       lat: @assignment.school.latitude,
-      lng: @assignment.school.longitude
+      lng: @assignment.school.longitude,
+      info_window: render_to_string(partial: "shared/school_info_window", locals: { school: @assignment.school }),
+      image_url: helpers.asset_url('pin.png')
     }
 
     @markers = [@attached_marker, @assign_marker]
