@@ -1,12 +1,12 @@
-<h1> <%= "Historique d'affectation(s) de #{current_user.first_name} #{current_user.last_name}" %> </h1>
-
-<% if @assignments.empty? %>
+<div class="container">
+  <h1> <%= "Historique d'affectation(s) de #{current_user.first_name} #{current_user.last_name}" %> </h1>
+  <% if @assignments.empty? %>
   <%= "Pas d'affectations en cours..." %>
-<% else %>
+  <% else %>
   <% @assignments.each do |assignment| %>
-    <div class="card border-secondary mb-3">
-      <div class="card-header">
-        <h6> Classe de <%= assignment.classroom.level%> de <%= assignment.classroom.main_teacher.first_name%> <%= assignment.classroom.main_teacher.last_name%></h6>
+  <div class="card border-secondary mb-3">
+    <div class="card-header">
+    <h6> Classe de <%= assignment.classroom.level%> de <%= assignment.classroom.main_teacher.first_name%> <%= assignment.classroom.main_teacher.last_name%></h6>
       </div>
       <div class="row p-2">
         <div class="col">
@@ -32,5 +32,5 @@
       </div>
     </div>
   <% end %>
-<% end %>
-
+</div>
+  

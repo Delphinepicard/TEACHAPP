@@ -1,6 +1,7 @@
 class AssignmentsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[rectorat_index teacher_proposals affect]
   before_action :set_assignment, only: %i[show accept teacher_proposals affect]
+  before_action :body_with_background!, only: %i[rectorat_index accept]
 
   def index
     @assignments = current_user.assignments
