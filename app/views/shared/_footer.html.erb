@@ -1,5 +1,8 @@
 <footer class="parent">
   <div class="content">
-    Teachapp
+    <%= link_to 'Teachapp', rectorat_assignments_path, class: "link-secondary" %>
+    <% if @current_assignment %>
+      <%= link_to 'Affectation en cours', assignment_path(@current_assignment), class: "link-secondary" %>
+    <% end %>
   </div>
 </footer>
