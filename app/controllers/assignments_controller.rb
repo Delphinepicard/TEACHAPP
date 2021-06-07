@@ -72,7 +72,7 @@ class AssignmentsController < ApplicationController
 
   def filter_teacher_attached
     @match_teachers_attached = @teachers_attached.where(level: @level_ask).where.not(id: @assignment.classroom.main_teacher.id)
-    @match_teachers_attached = @match_teachers_attached.where(pecification: @spe_ask) if @school.specification.present?
+    @match_teachers_attached = @match_teachers_attached.where(specification: @spe_ask) if @school.specification.present?
   end
 
   def filter_teacher_around
