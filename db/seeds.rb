@@ -56,11 +56,11 @@ claudie  = User.create!(first_name: 'Claudie',   last_name: 'Haigneré',    phon
 claudie_file = URI.open('https://cdn.radiofrance.fr/s3/cruiser-production/2015/05/e0b35b46-0609-11e5-bab6-005056a87c30/640_vh002074.jpg')
 claudie.photo.attach(io: claudie_file, filename: 'claudie.jpg', content_type: 'image/jpg')
 
-fabrice  = User.create!(first_name: 'Fabrice',   last_name: 'Luchini',     phone: '0607527597', email: 'fab.luchini@gmail.com',           password: "azerty", availability: true, specification: "",     level: "CE1")
+fabrice  = User.create!(first_name: 'Fabrice',   last_name: 'Luchini',     phone: '0607527597', email: 'fab.luchini42@gmail.com',           password: "azerty", availability: true, specification: "",     level: "CE1")
 fabrice_file = URI.open('https://cdn.radiofrance.fr/s3/cruiser-production/2017/05/52d4439b-7ead-4960-86dd-ce488472f99c/838_luchini1200.jpg')
 fabrice.photo.attach(io: fabrice_file, filename: 'fabrice.jpg', content_type: 'image/jpg')
 
-blanche  = User.create!(first_name: 'Blanche',   last_name: 'Gardin',      phone: '0615379507', email: 'blanche.gardin@gmail.com',        password: "azerty", availability: true, specification: "REP",  level: "CE2")
+blanche  = User.create!(first_name: 'Blanche',   last_name: 'Gardin',      phone: '0615379507', email: 'blanche.gardin42@gmail.com',        password: "azerty", availability: true, specification: "REP",  level: "CE2")
 blanche_file = URI.open('https://static1.purepeople.com/articles/5/41/07/95/@/5909702-blanche-gardin-photocall-film-effacer-amp_article_image_big-2.jpg')
 blanche.photo.attach(io: blanche_file, filename: 'blanche.jpg', content_type: 'image/jpg')
 
