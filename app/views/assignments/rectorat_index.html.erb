@@ -1,23 +1,26 @@
-<h1>Requêtes des établissements</h1>
-<h3>Demandes de remplacements - en cours </h3>
+<div class="titre">
+  <h1>Requêtes des établissements</h1>
+  <h3>Demandes de remplacements - en cours </h3>
+</div>
   <% @assignments.each do |assignment| %>
   <div class="carte">
     <div class="contenu">
       <div class="paragraphe">
         <ul>
           <li><strong><%= "Affectations du #{assignment.start_date} au #{assignment.end_date}" %></strong></li>
+          <li>Ecole: <%= assignment.school.name %></li>
           <li>Durée de la mission : <%= (assignment.end_date - assignment.start_date).to_i %> jours </li>
           <li>Localisation : <%= assignment.school.address %></li>
           <li>Niveau de la classe : <%= assignment.classroom.level %></li>
           <li>Catégorie: <%= assignment.school.specification %></li>
-          <div class="clique">
-            <button>
-              <%= link_to "Trouver un remplaçant", teacher_proposals_assignment_path(assignment) %>
-            </button>
-          </div>
         </ul>
       </div>
     </div>
+      <div class="clique">
+        <div class="bouton">
+          <%= link_to "Trouver un remplaçant", teacher_proposals_assignment_path(assignment) %>
+        </div>
+      </div>
   </div>
   <% end %>
 

@@ -1,17 +1,15 @@
-button {
-  color: white;
-  padding: 10px;
-  border: none;
-  background-color: #0965DB;
+.bouton {
+  padding: 8px;
+  background-color: blue;
   border-radius: 4px;
+  text-align: center;
+}
+
+.bouton:hover {
+  background-color: #064799;
+}
+
+.bouton a {
+  color: white;
   text-decoration: none;
 }
-
-button:hover {
-  color: white;
-  background-color: #06418E;
-}
-
-
-
-
