@@ -1,14 +1,15 @@
-<html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
-    <h1>Votre affectation, <%= @user.first_name %></h1>
+<div class="mail-container">
+  <div class="image-mail">
+    <%= image_tag "TeachappLogo.png", height: 40 %>
+  </div>
+  <div class="mail-name">
+    <h3>Votre affectation, <%= @user.first_name %></h3>
+  </div>
+    <p>Vous avez reçu une nouvelle affectation : <%= @assignment.school.name %><br></p>
     <p>
-      Vous avez reçu une nouvelle affectation : <%= @assignment %><br>
-    </p>
-    <p>
-     Voir les détails <%= link_to 'accept', accept_assignment_url(@assignment) %>.
-    </p>
-  </body>
-</html>
+  <div class="button-container">
+    <div class="button-mail">
+      <p><%= link_to 'Voir les détails', accept_assignment_url(@assignment) %></p>
+    </div>
+  </div>
+</div>
