@@ -1,3 +1,5 @@
+require 'active_support/inflector'
+
 <h1>Requêtes des établissements</h1>
 <h3>Demandes de remplacements - en cours </h3>
   <% @assignments.each do |assignment| %>
@@ -6,10 +8,12 @@
       <div class="paragraphe">
         <ul>
           <li><strong><%= "Affectations du #{assignment.start_date} au #{assignment.end_date}" %></strong></li>
-          <li>Durée de la mission : <%= (assignment.end_date - assignment.start_date).to_i %> jours </li>
+          <li>Durée de la mission : <%= pluralize((assignment.end_date - assignment.start_date).to_i, 'jour') %> </li>
           <li>Localisation : <%= assignment.school.address %></li>
           <li>Niveau de la classe : <%= assignment.classroom.level %></li>
-          <li>Catégorie: <%= assignment.school.specification %></li>
+           <% if assignment.school.specification? %>
+              <li>Catégorie: <%= assignment.school.specification %></li>
+           <% end %>
           <div class="clique">
             <button>
               <%= link_to "Trouver un remplaçant", teacher_proposals_assignment_path(assignment) %>
