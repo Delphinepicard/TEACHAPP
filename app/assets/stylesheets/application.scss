@@ -10,8 +10,12 @@
 
 // Your CSS partials
 @import "components/index";
+@import "components/supportbackground";
+@import "components/accept";
 @import "pages/index";
 @import "components/devise";
 @import "components/review";
 @import "components/map";
-@import "components/assign"
+@import "components/assign";
+
+@import "pages/dashboard";

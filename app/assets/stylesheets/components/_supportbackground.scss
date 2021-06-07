@@ -1,0 +1,17 @@
+.cover_image {
+  background-size: cover;
+  height: calc(100vh - 66px);
+  // background-position: center;
+}
+
+.background_color_picture {
+  background-color: transparent;
+}
+
+.background_infos {
+  background-color: rgba(255,255,255,0.97);
+  border-radius: 4px;
+  padding: 48px;
+  margin-top: 104px;
+  width: max-content;
+}

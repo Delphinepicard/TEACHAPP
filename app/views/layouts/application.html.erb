@@ -10,13 +10,18 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body>
+  <% if @body_with_background %>
+    <body class="cover_image" style="background-image: linear-gradient(rgba(255,249,240,0.4), rgba(255, 249, 240,0.4)), url(<%= image_url("support_fond_#{rand(1..5)}.png")%>);">
+  <% else %>
+    <body>
+  <% end %>
+
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
-        <div class="container">
+
           <%= yield %>
-        </div>
+
   </body>
 </html>
