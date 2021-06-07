@@ -18,9 +18,9 @@
             <div class="titre">
               <%= "#{teacher.first_name} #{teacher.last_name}" %>
             </div>
-            <div class="bio">
-              <strong>Disponibilité:</strong><%= " #{teacher.availability}" %>
-            </div>
+            <%# <div class="bio"> %>
+              <%# <strong>Disponibilité:</strong><%= " #{teacher.availability}" %>
+            <%# </div> %>
           </div>
         </div>
       </div>
@@ -28,7 +28,9 @@
         <strong>Niveau souhaité:</strong> <%= "#{teacher.level}" %>
       </div>
       <div class="experience">
-        <strong>Catégorie souhaitée:</strong> <%= "#{teacher.specification}" %>
+        <% if teacher.specification? %>
+            <strong>Catégorie souhaitée:</strong> <%= "#{teacher.specification}" %>
+        <% end %>
       </div>
       <div class="cliquer">
         <button>
