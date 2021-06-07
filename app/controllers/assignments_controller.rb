@@ -47,6 +47,7 @@ class AssignmentsController < ApplicationController
     @level_ask = @assignment.classroom.level
     @spe_ask = @assignment.school.specification
     @school = @assignment.school
+
     # A retrouver dans le model school qui correspond aux profs rattaches a l'etablissment de l'affectatiion
     @teachers_attached = @school.users_attached
 
@@ -68,6 +69,7 @@ class AssignmentsController < ApplicationController
 
   def filter_teacher_attached
     @match_teachers_attached = @teachers_attached.where(level: @level_ask).where.not(id: @assignment.classroom.main_teacher.id)
+
     @match_teachers_attached = @match_teachers_attached.where(specification: @spe_ask) if @school.specification.present?
   end
 
