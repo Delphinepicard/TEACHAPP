@@ -1,0 +1,14 @@
+<h3><%= @assignment.school.name %></h3>
+<hr>
+<p><%= @assignment.school.address %><br>
+téléphone : <%= @assignment.school.phone %><br>
+Specification: <%= @assignment.school.specification ? @assignment.school.specification : "Aucune" %></p>
+<h4>Directeur / Directrice :</h4>
+<p><%="#{@assignment.school.director.first_name} #{@assignment.school.director.last_name}"%><br>
+<%="#{@assignment.school.director.phone}"%><br>
+<%="#{@assignment.school.director.email}"%></p>
+
+<h4>Enseignant(e) absent(e) :</h4>
+<p><%="#{@assignment.classroom.main_teacher.first_name} #{@assignment.classroom.main_teacher.last_name}"%><br>
+<%="#{@assignment.classroom.main_teacher.phone}"%><br>
+<%="#{@assignment.classroom.main_teacher.email}"%></p>
