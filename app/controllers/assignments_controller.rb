@@ -5,7 +5,6 @@ class AssignmentsController < ApplicationController
   def index
     @assignments = current_user.assignments
     @current_assignment = current_user.assignments.where('start_date <= CURRENT_DATE AND CURRENT_DATE <= end_date').first
-    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
   end
 
   def rectorat_index
@@ -16,13 +15,6 @@ class AssignmentsController < ApplicationController
     @review = Review.new
     @user = current_user
     @classroom = @assignment.classroom
-
-    # @markers = @schools.geocoded.map do |position|
-    #   {
-    #     lat: position.latitude,
-    #     lng: position.longitude
-    #   }
-    # end
 
     @attached_marker = {
       lat: current_user.attached_school.latitude,
