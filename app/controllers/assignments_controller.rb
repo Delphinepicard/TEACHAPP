@@ -27,7 +27,6 @@ class AssignmentsController < ApplicationController
     redirect_to rectorat_assignments_path, notice: "email bien envoyé"
   end
 
-
   def teacher_proposals
     @level_ask = @assignment.classroom.level
     @spe_ask = @assignment.school.specification
@@ -38,12 +37,11 @@ class AssignmentsController < ApplicationController
     filter_teacher_attached
 
     # Gem Geocoder
-    @schools_around = School.near([@school.latitude, @school.longitude], 25)
+    @schools_around = School.near([@school.latitude, @school.longitude], 30)
     # On cree un tableau de profs rattaches aux ecoles aux alentours des 25km
     @teachers_in_schools_around = @schools_around.map(&:users_attached).flatten.uniq
 
     filter_teacher_around
-
   end
 
   private
@@ -53,14 +51,13 @@ class AssignmentsController < ApplicationController
   end
 
   def filter_teacher_attached
-    if @school.specification.present?
-      @match_teachers_attached = @teachers_attached.where(level: @level_ask, specification: @spe_ask)
-    else
-      @match_teachers_attached = @teachers_attached.where(level: @level_ask)
-    end
+    @match_teachers_attached = @teachers_attached.where(level: @level_ask).where.not(id: @assignment.classroom.main_teacher.id)
+    @match_teachers_attached = @match_teachers_attached.where(pecification: @spe_ask) if @school.specification.present?
   end
 
   def filter_teacher_around
+    @teachers_in_schools_around.reject! { |t| t.id == @assignment.classroom.main_teacher.id } # on ne veux pas proposer le prof absent
+
     if @school.specification.present?
       @match_teachers_around = @teachers_in_schools_around.select do |t|
         t.level == @level_ask && t.specification == @spe_ask
