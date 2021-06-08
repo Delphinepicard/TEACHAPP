@@ -32,7 +32,7 @@
         <% end %>
       </div>
       <div class="boutons">
-          <%= link_to "Envoyez un email", affect_assignment_path(@assignment, user_id: teacher.id), method: :post %>
+          <%= link_to "Assigner cet instituteur", affect_assignment_path(@assignment, user_id: teacher.id), method: :post %>
       </div>
     </div>
     <% end %>
