@@ -5,8 +5,9 @@
   <% else %>
     <% @assignments.each do |assignment| %>
       <div class="card border-secondary mb-3">
-        <div class="card-header">
+        <div class="card-header d-flex justify-content-between">
           <h6> Classe de <%= assignment.classroom.level%> de <%= assignment.classroom.main_teacher.first_name%> <%= assignment.classroom.main_teacher.last_name%></h6>
+          <h6>Affectation #<strong><%= assignment.created_at.time.to_i%>-<%= assignment.id %></strong></h6>
         </div>
         <div class="row p-2">
           <div class="col">
