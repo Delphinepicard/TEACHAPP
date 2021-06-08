@@ -18,3 +18,7 @@
 @import "components/map";
 @import "components/assign";
 @import "pages/dashboard";
+
+body {
+  position: relative;
+}
