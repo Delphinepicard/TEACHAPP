@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   end
 
   get 'rectorat/assignments/', to: 'assignments#rectorat_index'
-  # get 'rectorat/assignments/validation', to: 'assignments#rectorat_index_validation'
   
   resources :classroom, only: [:show] do
     resources :reviews, only: [:create]
