@@ -1,4 +1,4 @@
-<% if notice %>
+<% if notice && !params[:sweet] %>
   <div class="alert alert-info alert-dismissible fade show m-1" role="alert">
     <%= notice %>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -6,6 +6,11 @@
     </button>
   </div>
 <% end %>
+
+<% if notice && params[:sweet] %>
+  <div id="sweet-notice" data-message="<%= notice %>"><div>
+<% end %>
+
 <% if alert %>
   <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
     <%= alert %>
