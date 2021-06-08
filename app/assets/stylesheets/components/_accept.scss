@@ -1,4 +1,29 @@
 .title_h1 {
-
+  padding: 8px;
 }
 
+.container {
+  margin-top: 40px;
+  margin-bottom: -28px;
+}
+
+.class {
+  padding: 8px;
+}
+
+
+.bouton-accept {
+  padding: 8px;
+  background-color: #0965DB;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.bouton-accept:hover {
+  background-color: #064799;
+}
+
+.bouton-accept a {
+  color: white;
+  text-decoration: none;
+}
