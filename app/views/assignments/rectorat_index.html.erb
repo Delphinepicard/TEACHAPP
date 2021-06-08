@@ -7,10 +7,9 @@
   <div class="contenu">
     <div class="paragraphe">
       <ul>
-        <li><strong><%= "Affectations du #{assignment.start_date} au #{assignment.end_date}" %></strong></li>
-        <li>Ecole: <%= assignment.school.name %></li>
-        <li>Durée de la mission : <%= pluralize((assignment.end_date - assignment.start_date).to_i, 'jour') %> </li>
-        <li>Localisation : <%= assignment.school.address %></li>
+        <li><strong><%= "Affectation du #{l assignment.start_date} au #{l assignment.end_date}" %></strong> (<%= pluralize((assignment.end_date - assignment.start_date).to_i, 'jour') %>) </li>
+        <li><%= assignment.school.name %></li>
+        <li><%= assignment.school.address %></li>
         <li>Niveau de la classe : <%= assignment.classroom.level %></li>
         <% if assignment.school.specification? %>
           <li>Catégorie: <%= assignment.school.specification %></li>
