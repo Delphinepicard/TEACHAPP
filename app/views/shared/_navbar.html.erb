@@ -20,8 +20,8 @@
           <%= cl_image_tag(current_user.photo.key, width: 40, height: 40, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Historique", assignments_path, class: "dropdown-item" %>
-            <% if @current_assignment %>
-              <%= link_to 'En cours', assignment_path(@current_assignment), class: "dropdown-item" %>
+            <% if current_assignment %>
+              <%= link_to 'En cours', assignment_path(current_assignment), class: "dropdown-item" %>
             <% end %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
@@ -34,3 +34,4 @@
     </ul>
   </div>
 </div>
+<%= console %>
