@@ -1,4 +1,4 @@
-<h3>Carnet de bord classe</h3>
+<h5>Carnet de bord classe</h5>
 <hr>
 <p>Suivit du programme de la classe <%= @assignment.classroom.level %> </p>
 <div class="review-container">
@@ -12,6 +12,6 @@
   <%= simple_form_for ([ classroom, Review.new ]), remote: true do |f| %>
     <%= f.hidden_field :assignment, as: :hidden, value: assignment.id  %>
     <%= f.input :content, as: :text, label: "Nouvelle entrée :" %>
-    <%= f.button :submit, "Enregistrer", class: "btn btn-primary w-100" %>
+    <%= f.button :submit, "Enregistrer", class: "btn btn-secondary btn-sm w-100" %>
   <% end %>
 </div>
