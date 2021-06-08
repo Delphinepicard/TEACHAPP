@@ -186,18 +186,18 @@ assig11 = Assignment.create!(start_date: 5.days.ago, end_date: 1.days.from_now, 
 
 # # REVIEWS
 
-review1 = Review.create!(content: "Bonjour, ils font la sieste à 13h30 et le gouter est à 15h45. Hier, on a essayé de leur faire dire les couleurs.",                     classroom: psm, user: shigeru)
+review1 = Review.create!(content: "Bonjour, ils font la sieste à 13h30 et le goûter est à 15h45. Hier, nous avons étudié les couleurs.",                   classroom: psm, user: shigeru)
 
-review2 = Review.create!(content: "Bonjour à toi, j'ai tenté depuis quelques jours de leur apprendre le découpage et le collage. Dans l'ensemble ils sont plutôt assidus.", classroom: msm, user: michel)
+review2 = Review.create!(content: "Bonjour à toi, j'ai tenté depuis quelques jours de leur apprendre le découpage et le collage. Dans l'ensemble, ils sont plutôt assidus.", classroom: msm, user: michel)
 
-review3 = Review.create!(content: "Hello ! Aujourd'hui c'est atelier puzzle ! Bonne journée :)",                                                       classroom: gsm, user: hubert)
+review3 = Review.create!(content: "Hello ! Aujourd'hui, c'est atelier puzzle ! Bonne journée :)",                                                       classroom: gsm, user: hubert)
 
-review4 = Review.create!(content: "Bonjour, ces temps si on apprend à lire et à écrire. Ils s'en sortent très bien. Tu trouveras le livre sur lequel on travaille ces temps ci dans le tiroir du bas. Merci !",                                                       classroom: cp,  user: paul)
+review4 = Review.create!(content: "Bonjour, nous avons effectué un exercice de lecture et d'écriture. Ils s'en sortent très bien. Tu trouveras le livre sur lequel on a travaillé dans le tiroir du bas. Merci ! !",                                                       classroom: cp,  user: paul)
 
-review5 = Review.create!(content: "Bonjour, hier on commencé les soustractions. Ils ont un peu de mal donc j'ai prévu un peu plus d'exercices que tu trouveras sur mon bureau. Ca devrait bien se passer :)",                                                       classroom: ce1, user: marie)
+review5 = Review.create!(content: "Bonjour, hier, nous avons commencé les premiers exercices concernant les soustractions. Ils ont eu quelques difficultés, j'ai sélectionné des exercices plus abordables : ils sont dans le tiroir du bureau. Cela devrait les aider à progresser :)",                                                       classroom: ce1, user: marie)
 
 review6 = Review.create!(content: "Holà ! Aujourd'hui c'est multiplication !",                                                       classroom: ce2, user: francois)
 
-review7 = Review.create!(content: "Cours de géographie depuis mercredi. A finir avec les départements. Merci !",                                                       classroom: cm1, user: simone)
+review7 = Review.create!(content: "Cours de géographie depuis mercredi. A finir : le thème sur les départements. Merci!",                                                       classroom: cm1, user: simone)
 
 review8 = Review.create!(content: "La dictée d'aujourd'hui est très importante ! Attention ils ont tendance à tricher. A surveiller comme le lait sur le feu !",     classroom: cm2, user: yuki)
