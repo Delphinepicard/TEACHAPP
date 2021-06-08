@@ -7,12 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <%= <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.js'></script> %>
+    <%= <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css' rel='stylesheet' /> %>
   </head>
 
   <% if @body_with_background %>
     <body class="body_background" style="background-image: linear-gradient(rgba(255,249,240,0.4), rgba(255, 249, 240,0.4)), url(<%= image_url("support_fond_#{rand(1..5)}.png")%>);">
   <% else %>
-    <body>
+    <body class="background_beige">
   <% end %>
     <%= render 'shared/navbar', current_assignment: @current_assignment %>
     <%= render 'shared/flashes' %>
