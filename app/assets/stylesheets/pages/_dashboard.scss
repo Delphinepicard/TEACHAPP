@@ -10,5 +10,32 @@
 }
 
 .margin-dashboard {
-  margin-top: 10rem;
+  margin-top: 200px;
+}
+
+.col-sm {
+  border: solid 1px;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 8px;
+  background-color: white;
+}
+
+.col-sm h5 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.col-sm p {
+  font-size: 16px;
+}
+
+
+.head-row {
+  padding: 8px;
+  margin: 0px;
+  background-color: white;
+  border: solid 1px;
+  width: 100%;
+  border-radius: 4px;
 }
