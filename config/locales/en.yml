@@ -32,6 +32,6 @@
 en:
   date:
     formats:
-      default: “%d-%m-%Y”
-      short: “%b %d”
-      long: “%B %d, %Y”
+      default: "%d-%m-%Y"
+      short: "%b %d"
+      long: "%B %d, %Y"
