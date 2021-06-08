@@ -1,14 +1,16 @@
 <div>
   <div class="container text-center background_infos shadow-lg">
     <div class="title_h1"><h1>Demande d'affectation...</h1></div>
-    <h3><%= @assignment.school.name %></h3>
-    <h5><%= @assignment.school.address %></h5>
-      <%="Affectation du #{@assignment.start_date} au #{@assignment.end_date}"%>
+    <div class="class">
+      <h3><%= @assignment.school.name %></h3>
+      <h5><%= @assignment.school.address %></h5>
+    </div>
+      <%= "Affectation du #{l @assignment.start_date} au #{l @assignment.end_date}"%><br>
       <%= "Niveau de la classe : #{@assignment.classroom.level}" %>
     <div class="container">
-      <button>
+      <div class="bouton-accept">
         <%= link_to 'Accepter', assignment_path(@assignment) %>
-      </button>
+      </div>
     </div>
   </div>
 </div>
