@@ -42,7 +42,7 @@ class AssignmentsController < ApplicationController
     @user = User.find(params[:user_id])
     @assignment.update!(user: @user) # sauvegarde en BDD
     UserMailer.accept_assignment(@assignment).deliver_now # envoyer un email
-    redirect_to rectorat_assignments_path, notice: "email bien envoyé"
+    redirect_to rectorat_assignments_path(sweet: true), notice: "L'instituteur remplaçant vient de recevoir un email de notification."
   end
 
   def teacher_proposals
