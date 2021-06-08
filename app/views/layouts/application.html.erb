@@ -12,7 +12,7 @@
   <% if @body_with_background %>
     <body class="body_background" style="background-image: linear-gradient(rgba(255,249,240,0.4), rgba(255, 249, 240,0.4)), url(<%= image_url("support_fond_#{rand(1..5)}.png")%>);">
   <% else %>
-    <body>
+    <body class="background_beige">
   <% end %>
     <%= render 'shared/navbar', current_assignment: @current_assignment %>
     <%= render 'shared/flashes' %>
