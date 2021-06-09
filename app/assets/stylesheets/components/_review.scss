@@ -20,7 +20,7 @@
 .boutons-dashboard {
   font-weight: bold;
   padding: 8px;
-  background-color: #8EF6CD;
+  background-color: #4BF2AF;
   width: 100%;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
@@ -28,5 +28,14 @@
 }
 
 .boutons-dashboard:hover {
-  background-color: #4BF2AF;
+  background-color: #00d47f;
+}
+
+.review_name{
+  font-weight: bolder;
+
+}
+
+.review_date {
+
 }
