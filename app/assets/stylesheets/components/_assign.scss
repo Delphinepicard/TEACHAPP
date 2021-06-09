@@ -2,6 +2,21 @@
   text-align: right;
 }
 
+.container h2 {
+  color: #6A39CC;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.card-header {
+  margin-top: auto;
+  color: #6A39CC;
+}
+
+.card-header h6 {
+  font-weight: bold;
+}
+
 .assign-badeau {
   height: 200px;
   display: flex;
@@ -9,7 +24,6 @@
 }
 
 .badge-total {
-  background-color: #FFD00E;
   display: inline-block;
   padding: 0.25em 0.4em;
   font-size: 75%;
@@ -35,13 +49,10 @@
     border-color: #b6b6b6;
     margin-bottom: 1rem !important;
 }
-  .activee {
-    @extend .card-index;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-box-shadow: 2px 2px 4px #d9d4cc,
-                        -4px -4px 8px #ffffff;
-    box-shadow: 2px 2px 4px #d9d4cc,
-                -4px -4px 8px #ffffff;
-    border: 2px solid #ffcf0e80;
+
+.activee {
+  border: solid 1px;
+  border-radius: 4px;
+  border-color: #A187D4;
+  box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.51);
 }

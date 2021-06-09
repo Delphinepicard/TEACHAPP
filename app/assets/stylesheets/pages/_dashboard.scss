@@ -5,7 +5,6 @@
   top: 0;
   left: 0;
   padding-top: 5rem;
-
   width: 100%;
 }
 
@@ -15,14 +14,22 @@
 
 .col-sm {
   border: solid 1px;
+  border-color: #A187D4;
   border-radius: 4px;
+  box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.51);
   padding: 8px;
   margin: 8px;
   background-color: white;
 }
 
-.col-sm h5 {
+.col-sm h4 {
+  color: #6A39CC;
   font-size: 24px;
+  font-weight: bold;
+}
+
+.col-sm h5{
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -33,9 +40,17 @@
 
 .head-row {
   padding: 8px;
-  margin: 0px;
+  margin: 0px auto;
   background-color: white;
   border: solid 1px;
+  border-color: #A187D4;
   width: 100%;
   border-radius: 4px;
+  box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.51);
 }
+
+.head-row h3 {
+  font-weight: bold;
+  color: #6A39CC;
+}
+

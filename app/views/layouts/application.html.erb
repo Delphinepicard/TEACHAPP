@@ -11,11 +11,7 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css' rel='stylesheet' />
   </head>
 
-  <% if @body_with_background %>
-    <body class="body_background" style="background-image: url(<%= image_url("support_fond_#{rand(1..5)}.png")%>);">
-  <% else %>
-    <body class="background_beige">
-  <% end %>
+  <body>
     <%= render 'shared/navbar', current_assignment: @current_assignment %>
     <%= render 'shared/flashes' %>
     <%= yield %>
