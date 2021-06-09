@@ -88,7 +88,7 @@ alex     = User.create!(first_name: 'Alexandre', last_name: 'Astier',      phone
 alex_file = URI.open('https://imgsrc.cineserie.com/2020/08/alexandre-astier-je-me-dis-que-kaamelott-etait-fait-pour-le-cinema.jpg')
 alex.photo.attach(io: alex_file, filename: 'alex.jpg', content_type: 'image/jpg')
 
-thomas   = User.create!(first_name: 'Thomas',    last_name: 'Piketty',     phone: '0633561008', email: 'thom.piketty@gmail.com',          password: "azerty", availability: true, specification: "REP+", level: "CE1")
+thomas   = User.create!(first_name: 'Thomas',    last_name: 'Piketty',     phone: '0633561008', email: 'thom.piketty@gmail.com',          password: "azerty", availability: true, specification: "", level: "CE1")
 thomas_file = URI.open('https://cap.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fcap.2F2020.2F06.2F24.2F3befb28f-5c2e-4726-987f-2d2bcd1cbe3c.2Ejpeg/790x395/background-color/ffffff/quality/90/le-capital-au-xxie-siecle-le-juteux-cachet-du-scenariste-thomas-piketty-1373614.jpg')
 thomas.photo.attach(io: thomas_file, filename: 'thomas.jpg', content_type: 'image/jpg')
 
