@@ -1,17 +1,17 @@
-<div>
-  <div class="container text-center background_infos shadow-lg">
-    <div class="title_h1"><h1>Votre affectation...</h1></div>
-    <%= image_tag "tableau_icon.svg", height: 90 %>
-     <div class="class">
-      <h3 class="title-margin"><%= @assignment.school.name %></h3>
-      <h5><%= @assignment.school.address %></h5>
-    </div>
-      <%= "Affectation du #{l @assignment.start_date} au #{l @assignment.end_date}"%><br>
-      <%= "Niveau de la classe : #{@assignment.classroom.level}" %>
-    <div class="container container-margin">
-      <div class="bouton-accept">
-        <%= link_to 'Accepter', assignment_path(@assignment) %>
-      </div>
-    </div>
+<div class="container text-center background_infos shadow-lg">
+  <div class="title_h1">
+    <h1>Votre affectation...</h1>
+  </div>
+  <%= image_tag "tableau_icon.svg", height: 90 %>
+  <div class="class">
+    <h3 class="title-margin"><%= @assignment.school.name %> - <%= @assignment.classroom.level %></h3>
+    <h5 class="address"><%= @assignment.school.address %></h5>
+  </div>
+  <div class= "date-affectation">
+  <%= "Du #{l @assignment.start_date} au #{l @assignment.end_date}" %><br>
+  </div>
+  <div class="container-boutons">
+    <%= link_to 'Accepter', assignment_path(@assignment), class: "teacher-btn" %>
+    <%= link_to 'Refuser', root_path, class: "teacher-btn" %>
   </div>
 </div>

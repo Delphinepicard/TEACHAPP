@@ -3,9 +3,10 @@ class AssignmentsController < ApplicationController
   before_action :set_assignment, only: %i[show accept teacher_proposals affect]
 
   def index
-    @assignments = current_user.assignments
+    @assignments = current_user.assignments.all
+    @past_assignments = current_user.assignments.where('CURRENT_DATE > end_date').order('start_date DESC')
     @current_assignment = current_user.assignments.where('start_date <= CURRENT_DATE AND CURRENT_DATE <= end_date').first
-    @futur_assignment = current_user.assignments.where('start_date > CURRENT_DATE').first
+    @futur_assignments = current_user.assignments.where('start_date > CURRENT_DATE').order('start_date DESC')
   end
 
   def rectorat_index
@@ -21,14 +22,14 @@ class AssignmentsController < ApplicationController
       lat: current_user.attached_school.latitude,
       lng: current_user.attached_school.longitude,
       info_window: render_to_string(partial: "shared/school_info_window", locals: { school: current_user.attached_school }),
-      image_url: helpers.asset_url('school_icon.png')
+      image_url: helpers.asset_url('school_icon.svg')
     }
 
     @assign_marker = {
       lat: @assignment.school.latitude,
       lng: @assignment.school.longitude,
       info_window: render_to_string(partial: "shared/school_info_window", locals: { school: @assignment.school }),
-      image_url: helpers.asset_url('pin.png')
+      image_url: helpers.asset_url('pin.svg')
     }
 
     @markers = [@attached_marker, @assign_marker]

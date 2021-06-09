@@ -88,7 +88,7 @@ alex     = User.create!(first_name: 'Alexandre', last_name: 'Astier',      phone
 alex_file = URI.open('https://imgsrc.cineserie.com/2020/08/alexandre-astier-je-me-dis-que-kaamelott-etait-fait-pour-le-cinema.jpg')
 alex.photo.attach(io: alex_file, filename: 'alex.jpg', content_type: 'image/jpg')
 
-thomas   = User.create!(first_name: 'Thomas',    last_name: 'Piketty',     phone: '0633561008', email: 'thom.piketty@gmail.com',          password: "azerty", availability: true, specification: "REP+", level: "CE1")
+thomas   = User.create!(first_name: 'Thomas',    last_name: 'Piketty',     phone: '0633561008', email: 'thom.piketty@gmail.com',          password: "azerty", availability: true, specification: "", level: "CE1")
 thomas_file = URI.open('https://cap.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fcap.2F2020.2F06.2F24.2F3befb28f-5c2e-4726-987f-2d2bcd1cbe3c.2Ejpeg/790x395/background-color/ffffff/quality/90/le-capital-au-xxie-siecle-le-juteux-cachet-du-scenariste-thomas-piketty-1373614.jpg')
 thomas.photo.attach(io: thomas_file, filename: 'thomas.jpg', content_type: 'image/jpg')
 
@@ -179,10 +179,18 @@ assig8 = Assignment.create!(start_date: 4.days.from_now, end_date: 9.days.from_n
 # # AFFECTATIONS AVEC PROFFESSEUR
 
 assig9  = Assignment.create!(start_date: 3.days.ago, end_date: 2.days.from_now, rectorat: toto_recto, classroom: cm2_w_user, user: hayao)
-
 assig10 = Assignment.create!(start_date: 1.days.ago, end_date: 1.days.from_now, rectorat: toto_recto, classroom: ce2_w_user, user: blanche)
-
 assig11 = Assignment.create!(start_date: 5.days.ago, end_date: 1.days.from_now, rectorat: toto_recto, classroom: gsm_w_user, user: pie)
+
+
+# AFFECTATIONS DE BLANCHE PASSEE ET FUTUR
+
+assig23 = Assignment.create!(start_date: 11.days.from_now, end_date: 13.days.from_now, rectorat: toto_recto, classroom: gsm, user: blanche)
+assig24 = Assignment.create!(start_date: 18.days.ago, end_date: 8.days.ago, rectorat: toto_recto, classroom: cp, user: blanche)
+assig25 = Assignment.create!(start_date: 28.days.ago, end_date: 20.days.ago, rectorat: toto_recto, classroom: ce1, user: blanche)
+assig26 = Assignment.create!(start_date: 34.days.ago, end_date: 32.days.ago, rectorat: toto_recto, classroom: ce2, user: blanche)
+assig27 = Assignment.create!(start_date: 37.days.ago, end_date: 35.days.ago, rectorat: toto_recto, classroom: cm1, user: blanche)
+assig28 = Assignment.create!(start_date: 4.days.from_now, end_date: 9.days.from_now, rectorat: toto_recto, classroom: cm2, user: blanche)
 
 # # REVIEWS
 
@@ -201,3 +209,4 @@ review6 = Review.create!(content: "Holà ! Aujourd'hui c'est multiplication !", 
 review7 = Review.create!(content: "Cours de géographie depuis mercredi. A finir : le thème sur les départements. Merci!",                                                       classroom: cm1, user: simone)
 
 review8 = Review.create!(content: "La dictée d'aujourd'hui est très importante ! Attention ils ont tendance à tricher. A surveiller comme le lait sur le feu !",     classroom: cm2, user: yuki)
+
