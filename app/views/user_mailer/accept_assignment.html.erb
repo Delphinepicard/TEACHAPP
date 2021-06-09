@@ -1,15 +1,12 @@
 <div class="mail-container">
   <div class="image-mail">
-    <h1>teachapp</h1>
+    <h1>
+      <span class="second-color"><strong>teach</strong>app</span>
+    </h1>
   </div>
-  <div class="mail-name">
+  <div class="mail-content">
     <h3>Votre affectation, <%= @user.first_name %></h3>
+    <p>Vous avez reçu une nouvelle affectation : <br><strong><%= @assignment.school.name %><strong></p><br>
   </div>
-    <p>Vous avez reçu une nouvelle affectation : <%= @assignment.school.name %><br></p>
-    <p>
-  <div class="button-container">
-    <div class="button-mail">
-      <p><%= link_to 'Voir les détails', accept_assignment_url(@assignment) %></p>
-    </div>
-  </div>
+      <%= link_to 'Voir les détails', accept_assignment_url(@assignment), class: 'button-mail' %>
 </div>
