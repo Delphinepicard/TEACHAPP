@@ -1,7 +1,5 @@
-<div class="dash-container">
-
+<div class="container">
     <div class="dashboard-nav">
-
       <div class="head-row">
         <div class="">
           <h3>Classe de <%= @assignment.classroom.level%></h3>
@@ -21,9 +19,7 @@
           </div>
         </div>
       </div>
-
     </div>
-
   <div class="dash-row">
 
       <div class="dash-col">
@@ -35,7 +31,5 @@
       <div class="dash-col">
         <%= render 'shared/classroom_log', classroom: @assignment.classroom, assignment: @assignment %>
       </div>
-
   </div>
-
 </div>
