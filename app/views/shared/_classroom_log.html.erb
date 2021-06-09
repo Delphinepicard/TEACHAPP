@@ -4,8 +4,9 @@
 <div class="review-container">
   <% classroom.reviews.each do |review| %>
     <hr>
-    <p id="review-<%= review.id %>">Ecrit par <strong><%= review.user.first_name %> <%= review.user.last_name %></strong> le <%= I18n.l(review.created_at, format: :short) %><br>
-    <%= review.content %></p>
+    <p id="review-<%= review.id %>"><span class="review_name"><%= review.user.first_name %><%= review.user.last_name %></span>
+    <span class="review_date"><%= I18n.l(review.created_at, format: :short) %></span><br>
+    <span><%= review.content %></span></p>
   <% end %>
 </div>
 <div class="form-review">
