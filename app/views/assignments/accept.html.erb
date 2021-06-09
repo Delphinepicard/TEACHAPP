@@ -8,7 +8,7 @@
     </div>
       <%= "Affectation du #{l @assignment.start_date} au #{l @assignment.end_date}"%><br>
       <%= "Niveau de la classe : #{@assignment.classroom.level}" %>
-    <div class="container">
+    <div class="container container-margin">
       <div class="bouton-accept">
         <%= link_to 'Accepter', assignment_path(@assignment) %>
       </div>
