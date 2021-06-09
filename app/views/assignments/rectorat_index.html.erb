@@ -2,7 +2,6 @@
   <div class="container-titre">
     <div class="titre">
       <h1>Requêtes des établissements</h1>
-      <h3>Demandes de remplacements - en cours </h3>
     </div>
   </div>
   <div class="assignment_cards">
@@ -11,8 +10,8 @@
       <div class="assignment_card">
         <div class="header_card">
           <div class="text_card">
-            <p><%= assignment.school.name %></p>
-            <p><%= "Du #{l assignment.start_date} au #{l assignment.end_date}" %> (<%= pluralize((assignment.end_date - assignment.start_date).to_i, 'jour') %>)</p>
+            <p class="titre_card"><%= assignment.school.name %></p>
+            <p class="date_card"><%= "Du #{l assignment.start_date} au #{l assignment.end_date}" %> (<%= pluralize((assignment.end_date - assignment.start_date).to_i, 'jour') %>)</p>
           </div>
           <div class="badges_card">
             <span class="badge rounded-pill bg-light text-dark"><%= assignment.classroom.level %></span>
@@ -22,6 +21,7 @@
           </div>
         </div>
         <div class="content_card">
+          <%= image_tag "icon_map.svg", height: 30 %>
           <p><%= assignment.school.address %></p>
         </div>
       </div>
