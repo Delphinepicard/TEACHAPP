@@ -72,17 +72,6 @@
   padding: 0 5px;
 }
 
-.activee {
-  @extend .card-index;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  -webkit-box-shadow: 2px 2px 4px #d9d4cc,
-                      -4px -4px 8px #ffffff;
-  box-shadow: 2px 2px 4px #d9d4cc,
-              -4px -4px 8px #ffffff;
-  border: 2px solid #ffcf0e80;
-}
-
 .futur {
   @extend .card-index;
   -webkit-border-radius: 5px;
