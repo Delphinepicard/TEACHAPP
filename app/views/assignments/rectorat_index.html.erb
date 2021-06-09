@@ -1,17 +1,20 @@
 <div class="container">
   <div class="container-titre">
     <div class="titre">
-      <h1>Requêtes des établissements</h1>
+      <h1>Demandes de remplacement</h1>
     </div>
   </div>
   <div class="assignment_cards">
-    <% @assignments.each do |assignment| %>
+    <% @assignments.each_with_index do |assignment, i| %>
       <%= link_to teacher_proposals_assignment_path(assignment), :action => 'go' do %>
-      <div class="assignment_card">
+      <div class="assignment_card" style="animation-delay: <%= i * 0.4 %>s;">
         <div class="header_card">
           <div class="text_card">
             <p class="titre_card"><%= assignment.school.name %></p>
-            <p class="date_card"><%= "Du #{l assignment.start_date} au #{l assignment.end_date}" %> (<%= pluralize((assignment.end_date - assignment.start_date).to_i, 'jour') %>)</p>
+            <div class="date_card">
+              <%= image_tag "calendar.svg", height: 25 %>
+              <p><%= "Du #{l assignment.start_date} au #{l assignment.end_date}" %> (<%= pluralize((assignment.end_date - assignment.start_date).to_i, 'jour') %>)</p>
+            </div>
           </div>
           <div class="badges_card">
             <span class="badge rounded-pill bg-light text-dark"><%= assignment.classroom.level %></span>
