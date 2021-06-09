@@ -190,7 +190,6 @@ assig24 = Assignment.create!(start_date: 18.days.ago, end_date: 8.days.ago, rect
 assig25 = Assignment.create!(start_date: 28.days.ago, end_date: 20.days.ago, rectorat: toto_recto, classroom: ce1, user: blanche)
 assig26 = Assignment.create!(start_date: 34.days.ago, end_date: 32.days.ago, rectorat: toto_recto, classroom: ce2, user: blanche)
 assig27 = Assignment.create!(start_date: 37.days.ago, end_date: 35.days.ago, rectorat: toto_recto, classroom: cm1, user: blanche)
-assig28 = Assignment.create!(start_date: 4.days.from_now, end_date: 9.days.from_now, rectorat: toto_recto, classroom: cm2, user: blanche)
 
 # # REVIEWS
 
