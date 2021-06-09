@@ -1,12 +1,26 @@
 .titre {
-  margin-bottom: 48px;
   text-align: center;
-  color: #6A39CC;
+  padding-top: 36px;
+  color: white;
 }
 
+@keyframes zoomout {
+  from {
+    background-size: 120%;
+  }
+}
 .container-titre {
   display: flex;
   justify-content: center;
+  height: 304px;
+  background-image: linear-gradient(rgba(106, 57, 204, 0.50), rgba(106, 57, 204, 0.45)), asset-url("school_child.jpg");
+  background-size: 100%;
+  background-position: center;
+  opacity: 0.95;
+  border-radius: 4px;
+  margin-bottom: 48px;
+  animation-duration: 25s;
+  animation-name: zoomout;
 }
 
 .titre_teacher_proposal {
@@ -49,6 +63,14 @@
   grid-template-columns: 50% 50%;
 }
 
+@keyframes opacity_card {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .assignment_card {
   min-height: 190px;
   background-color: rgba(255,255,255,0.5);
@@ -57,6 +79,10 @@
   border: 1px solid white;
   box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.16);
   transition: border 150ms ease-in-out;
+  animation-fill-mode: forwards;
+  animation-name: opacity_card;
+  animation-duration: 1.2s;
+  opacity: 0;
 
   p {
     color: #0e0000;
@@ -107,8 +133,17 @@
 }
 
 .date_card {
-  font-weight: 600;
-  font-size: 16px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  p {
+    margin: 0px;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  img {
+    margin-right: 16px;
+  }
 }
 
 .content_card {
