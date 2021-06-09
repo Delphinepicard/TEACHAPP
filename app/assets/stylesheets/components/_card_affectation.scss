@@ -2,7 +2,6 @@
   margin-top: 48px;
   margin-bottom: 48px;
   text-align: center;
-  background-color: rgba(255, 249, 240, 1);
   padding: 24px 0px;
   border-radius: 4px;
   width: 70%;
@@ -14,13 +13,19 @@
 }
 
 .titre_teacher_proposal {
-  margin-top: 16px;
-  margin-bottom: 32px;
+  color: #6A39CC;
   text-align: center;
   width: 80%;
-  background-color: rgba(255, 249, 240, 0.95);
   padding: 24px 0px;
-  border-radius: 4px;
+  margin-top: 0px;
+}
+
+.titre_teacher_proposal h1 {
+  font-weight: bold;
+}
+
+.titre_teacher_proposal h3 {
+  font-size: 20px;
 }
 
 .carte {
