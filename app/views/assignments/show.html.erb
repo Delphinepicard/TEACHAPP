@@ -1,35 +1,39 @@
-<div class="dashboard-nav" style="background-image: linear-gradient(rgba(255,249,240,0.8), rgba(255, 249, 240,0.8)), url(<%= image_url("support_fond_#{rand(1..5)}.png")%>);">
-  <div class=" container assign-container">
-    <div class="row head-row">
-      <div class="col-7">
-        <h3>Classe de <%= @assignment.classroom.level%> de <%= @assignment.classroom.main_teacher.first_name%> <%= @assignment.classroom.main_teacher.last_name%> </h3>
-        <h6>Affectation #<%= @assignment.created_at.time.to_i%>-<%= @assignment.id %></h6>
-      </div>
-      <div class="col-5">
-        <div class="text-right">
+<div class="dash-container">
+
+    <div class="dashboard-nav">
+
+      <div class="head-row">
+        <div class="">
+          <h3>Classe de <%= @assignment.classroom.level%></h3>
+          <h5><%= @assignment.classroom.school.name%></h5>
           <p>Du <strong><%= l @assignment.start_date %></strong> au <strong><%= l @assignment.end_date %></strong>, soit <%= @assignment.duration %> jour(s). </p>
         </div>
-      </div>
-        <div class="col-5">
-          <% if @assignment.user %>
-            <% if @assignment.distance != 0 && @assignment.school.specification? %>
-              Total indemnités = <strong><%= sprintf('%.2f', @assignment.indemnite_km + @assignment.prime) %>€</strong></p>
+        <div class="">
+          <div class="text-right">
+            <h6>Affectation #<%= @assignment.created_at.time.to_i%>-<%= @assignment.id %></h6>
+            <% if @assignment.user %>
+              <% if @assignment.distance != 0 || @assignment.school.specification? %>
+                Total indemnités : <h1><span class="badge-total"><%= sprintf('%.2f', @assignment.indemnite_km + @assignment.prime) %>€<%= link_to "", assignments_path(anchor: @assignment.id), class: "stretched-link" %></span></h1>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
         </div>
+      </div>
+
     </div>
+
+  <div class="dash-row">
+
+      <div class="dash-col">
+        <%= render 'shared/school_board', classroom: @assignment.classroom, assignment: @assignment %>
+      </div>
+      <div class="dash-col">
+        <%= render 'shared/school_map', classroom: @assignment.classroom, assignment: @assignment, marker:@marker %>
+      </div>
+      <div class="dash-col">
+        <%= render 'shared/classroom_log', classroom: @assignment.classroom, assignment: @assignment %>
+      </div>
+
   </div>
-</div>
-<div class="container margin-dashboard">
-  <div class="row">
-    <div class="col-sm">
-      <%= render 'shared/school_board', classroom: @assignment.classroom, assignment: @assignment  %>
-    </div>
-    <div class="col-sm">
-      <%= render 'shared/school_map', classroom: @assignment.classroom, assignment: @assignment, marker:@marker %>
-    </div>
-    <div class="col-sm">
-      <%= render 'shared/classroom_log', classroom: @assignment.classroom, assignment: @assignment  %>
-    </div>
-  </div>
+
 </div>
