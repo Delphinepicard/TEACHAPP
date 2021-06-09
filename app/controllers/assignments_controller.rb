@@ -3,9 +3,10 @@ class AssignmentsController < ApplicationController
   before_action :set_assignment, only: %i[show accept teacher_proposals affect]
 
   def index
-    @assignments = current_user.assignments
+    @assignments = current_user.assignments.all
+    @past_assignments = current_user.assignments.where('CURRENT_DATE > end_date').order('start_date DESC')
     @current_assignment = current_user.assignments.where('start_date <= CURRENT_DATE AND CURRENT_DATE <= end_date').first
-    @futur_assignment = current_user.assignments.where('start_date > CURRENT_DATE').first
+    @futur_assignments = current_user.assignments.where('start_date > CURRENT_DATE').order('start_date DESC')
   end
 
   def rectorat_index

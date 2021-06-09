@@ -179,10 +179,18 @@ assig8 = Assignment.create!(start_date: 4.days.from_now, end_date: 9.days.from_n
 # # AFFECTATIONS AVEC PROFFESSEUR
 
 assig9  = Assignment.create!(start_date: 3.days.ago, end_date: 2.days.from_now, rectorat: toto_recto, classroom: cm2_w_user, user: hayao)
-
 assig10 = Assignment.create!(start_date: 1.days.ago, end_date: 1.days.from_now, rectorat: toto_recto, classroom: ce2_w_user, user: blanche)
-
 assig11 = Assignment.create!(start_date: 5.days.ago, end_date: 1.days.from_now, rectorat: toto_recto, classroom: gsm_w_user, user: pie)
+
+
+# AFFECTATIONS DE BLANCHE PASSEE ET FUTUR
+
+assig23 = Assignment.create!(start_date: 11.days.from_now, end_date: 13.days.from_now, rectorat: toto_recto, classroom: gsm, user: blanche)
+assig24 = Assignment.create!(start_date: 18.days.ago, end_date: 8.days.ago, rectorat: toto_recto, classroom: cp, user: blanche)
+assig25 = Assignment.create!(start_date: 28.days.ago, end_date: 20.days.ago, rectorat: toto_recto, classroom: ce1, user: blanche)
+assig26 = Assignment.create!(start_date: 34.days.ago, end_date: 32.days.ago, rectorat: toto_recto, classroom: ce2, user: blanche)
+assig27 = Assignment.create!(start_date: 37.days.ago, end_date: 35.days.ago, rectorat: toto_recto, classroom: cm1, user: blanche)
+assig28 = Assignment.create!(start_date: 4.days.from_now, end_date: 9.days.from_now, rectorat: toto_recto, classroom: cm2, user: blanche)
 
 # # REVIEWS
 
@@ -201,3 +209,4 @@ review6 = Review.create!(content: "Holà ! Aujourd'hui c'est multiplication !", 
 review7 = Review.create!(content: "Cours de géographie depuis mercredi. A finir : le thème sur les départements. Merci!",                                                       classroom: cm1, user: simone)
 
 review8 = Review.create!(content: "La dictée d'aujourd'hui est très importante ! Attention ils ont tendance à tricher. A surveiller comme le lait sur le feu !",     classroom: cm2, user: yuki)
+
