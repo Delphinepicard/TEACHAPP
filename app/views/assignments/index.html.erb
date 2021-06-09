@@ -30,10 +30,10 @@
                 Prime pour établissement <%= assignment.school.specification %> : <%= sprintf('%.2f', assignment.prime_per_day) %>€ X <%= pluralize(assignment.duration,'jour') %> = <strong><%= sprintf('%.2f', assignment.prime) %>€</strong><br>
               <% end %>
             <% end %>
+            <%= link_to '', assignment_path(assignment), class: "stretched-link" %>
           </div>
         </div>
-        <%= link_to '', assignment_path(assignment), class: "stretched-link" %>
-      </div>
+       </div>
     <% end %>
 
     <% if @current_assignment %>
