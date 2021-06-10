@@ -1,8 +1,7 @@
 <h4>Contacts</h4>
 <hr>
 <h5><%= @assignment.school.name %></h5>
-<p><%= @assignment.school.address %><br>
-téléphone : <%= @assignment.school.phone %><br>
+<p>téléphone : <%= @assignment.school.phone %><br>
 Specification: <%= @assignment.school.specification ? @assignment.school.specification : "Aucune" %></p>
 <h5>Directeur / Directrice :</h5>
 <p><%="#{@assignment.school.director.first_name} #{@assignment.school.director.last_name}"%><br>

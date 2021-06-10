@@ -5,7 +5,7 @@
   <% classroom.reviews.each do |review| %>
     <div id="review-<%= review.id %>">
     <span class="review_name">
-      <%= review.user.first_name %><%= review.user.last_name %>
+      <%= review.user.first_name %> <%= review.user.last_name %>
     </span>
     <span class="review_date"><%= I18n.l(review.created_at, format: :short) %></span>
     <div class="review-content">
