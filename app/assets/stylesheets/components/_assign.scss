@@ -55,6 +55,7 @@
 .histo_assignment_card {
   @extend .assignment_card;
   margin: 20px;
+  position: relative;
 }
 
 .futur {
