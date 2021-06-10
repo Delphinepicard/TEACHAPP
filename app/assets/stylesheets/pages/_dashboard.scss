@@ -61,15 +61,6 @@
   justify-content: space-between;
 }
 
-.arrows a {
-  text-decoration: none;
-  color: #6A39CC;
-}
-
-.arrows:hover a {
-  color: #a187d4;
-}
-
 .dash-col {
   border: solid 1px;
   border-color: #A187D4;
@@ -127,4 +118,40 @@
 
 .title-address {
   text-align: center;
+}
+
+.button-route {
+  padding: 8px;
+  background-color: #8EF6CD;
+  text-align: center;
+  border-radius: 4px;
+  text-decoration: none!important;
+  color: black!important;
+  font-weight: bold;
+  width: 100%;
+  display: block;
+  margin-top: 10px;
+}
+
+
+.button-route:hover {
+  background-color: #4BF2AF;
+}
+
+#subtitle-address {
+  color: #808080;
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin-bottom: 20px;
+}
+
+
+.title-contacts {
+  margin-bottom: 35px;
+}
+
+.directeur {
+  font-size: 1,2em;
+  margin-bottom: 30px;
+  margin-left: 10px;
 }

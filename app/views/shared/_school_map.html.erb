@@ -4,15 +4,17 @@
   </div>
   <h4>Carte Ecole</h4>
 </div>
-<hr>
 <div class="title-address">
-  <h6><%= @assignment.school.address %></h6>
-  <div class="arrows">
-    <%= link_to "Votre itinéraire", "https://www.google.fr/maps/dir/#{@attached_marker[:lat]},#{@attached_marker[:lng]}/#{@assign_marker[:lat]}, #{@assign_marker[:lng]}", target: '_blank', class: "lien"%>
-  </div>
+  <h6 id="subtitle-address"><%= @assignment.school.address %></h6>
 </div>
+<hr>
+
 <div id="map"
-  style="width: 100%; height: 450px;"
+  style="width: 100%; height: 420px;"
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+
+<div class="itineraire">
+    <%= link_to "Votre itinéraire", "https://www.google.fr/maps/dir/#{@attached_marker[:lat]},#{@attached_marker[:lng]}/#{@assign_marker[:lat]}, #{@assign_marker[:lng]}", target: '_blank', class: "button-route"%>
 </div>
