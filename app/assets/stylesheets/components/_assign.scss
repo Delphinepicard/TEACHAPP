@@ -8,9 +8,12 @@
   margin-bottom: 50px;
 }
 
-.card-header {
-  margin-top: auto;
+.histo-card-header {
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
   color: #6A39CC;
+  border-bottom: 1px solid #6a39cc44;
 }
 
 .card-header h6 {
@@ -49,6 +52,11 @@
   margin-bottom: 1rem !important;
 }
 
+.histo_assignment_card {
+  @extend .assignment_card;
+  margin: 20px;
+}
+
 .futur {
   @extend .card-index;
   border-radius: 4px;
@@ -61,6 +69,16 @@
   border-radius: 4px;
   // border: solid 1px #A187D4;
   // box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.51);
+}
+
+.histo_text_card{
+  color: #000000;
+  font-size: 0.8rem;
+}
+.histo_text-right {
+  text-align: right;
+  color: #000000;
+  font-size: 0.8rem;
 }
 
 .line {
