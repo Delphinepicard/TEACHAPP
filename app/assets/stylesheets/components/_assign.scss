@@ -1,4 +1,4 @@
-.calcul {
+.text-right {
   text-align: right;
 }
 
@@ -36,7 +36,8 @@
   white-space: nowrap;
   vertical-align: baseline;
   border-radius: 2px;
-  transition: color 0.15s
+  transition: color 0.15s;
+  margin-bottom: 10px;
 }
 
 .card-index {
@@ -58,25 +59,27 @@
   position: relative;
 }
 
-.futur {
-  @extend .card-index;
-  border-radius: 4px;
-  // border: 2px solid #0e93ff80;
-  // box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.51);
-}
-
-.activee {
-  @extend .card-index;
-  border-radius: 4px;
-  // border: solid 1px #A187D4;
-  // box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.51);
-}
-
 .histo_text_card{
   color: #000000;
   font-size: 0.8rem;
 }
-.histo_text-right {
+
+.col-left {
+  // flex: 0 0 66.6666666667%;
+  // flex-basis: 66.6667%;
+  // max-width: 66.6666666667%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.col-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   text-align: right;
   color: #000000;
   font-size: 0.8rem;
@@ -133,6 +136,6 @@
 }
 
 .mute {
-  color: #b6b6b6;
-  font-size: 0.9rem;
+  color: #949494;
+  font-size: 0.8rem;
 }
