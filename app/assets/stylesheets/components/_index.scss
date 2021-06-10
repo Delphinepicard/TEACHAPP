@@ -7,3 +7,12 @@
 @import "card_professeur";
 @import "footer";
 @import "card_mail";
+
+.flex-justify-betw {
+  display: flex;
+  justify-content: space-between;
+}
+
+.align-right{
+  text-align: right;
+}

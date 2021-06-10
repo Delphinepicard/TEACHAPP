@@ -16,8 +16,8 @@
             <% end %>
           </div>
         </div>
-        <div class="d-flex justify-content-between p-1">
-          <div class="col-7">
+        <div class="flex-justify-betw ">
+          <div class=".col-left">
             <div class="histo_text_card">
               <div class="date_card">
                 <%= image_tag "calendar.svg", height: 25 %>
@@ -29,26 +29,32 @@
                 <%= assignment.school.address %>
               </div>
               <div class="date_card">
-                <%= image_tag "icon_prof.svg", height: 30 %>
-                Titulaire : <%= assignment.classroom.main_teacher.first_name%> <%= assignment.classroom.main_teacher.last_name%>
+                <%= image_tag "icon_prof.svg", height: 30 %>Titulaire : <%= assignment.classroom.main_teacher.first_name%> <%= assignment.classroom.main_teacher.last_name%>
+              </div>
+              <div class="date_card">
+                <%= image_tag "icon_calculator.svg", height: 30 %>
+                <div class="">
+                  <% if assignment.user %>
+                    <% if assignment.distance != 0 %>
+                      <span class="mute">
+                        Indem. pr <%= sprintf('%.0f', assignment.distance) %> Km = <%= sprintf('%.2f', assignment.indemnite_km_per_day) %>€ X <%= pluralize(assignment.duration,'jour') %> : </span><strong><%= sprintf('%.2f', assignment.indemnite_km) %>€</strong><br>
+                    <% end %>
+                    <% if assignment.school.specification? %>
+                    <span class="mute">
+                      Prime <%= assignment.school.specification %> : <%= sprintf('%.2f', assignment.prime_per_day) %>€ X <%= pluralize(assignment.duration,'jour') %> : </span><strong><%= sprintf('%.2f', assignment.prime) %>€</strong>
+                    <% end %>
+                  <% end %>
+                </div>
               </div>
             </div>
           </div>
-          <div class="histo_text-right">
-            <% if assignment.user %>
+          <div class="col-right">
               <h1><span class="badge-total"><%= sprintf('%.2f', assignment.indemnite_km + assignment.prime) %>€</span></h1>
-              <% if assignment.distance != 0 %>
-                <span class="mute">
-                  Indemnitée km<%= sprintf('%.3f', assignment.distance) %> Km <br><%= sprintf('%.2f', assignment.indemnite_km_per_day) %>€ X <%= pluralize(assignment.duration,'jour') %> :</span><br><strong><%= sprintf('%.2f', assignment.indemnite_km) %>€</strong><br>
-              <% end %>
-              <% if assignment.school.specification? %>
-              <span class="mute">
-                Prime <%= assignment.school.specification %> : <%= sprintf('%.2f', assignment.prime_per_day) %>€ X <%= pluralize(assignment.duration,'jour') %> :</span><br><strong><%= sprintf('%.2f', assignment.prime) %>€</strong>
-              <% end %>
-            <% end %>
           </div>
         </div>
         <%= link_to '', assignment_path(assignment), class: "stretched-link" %>
+
+
       </div>
       <% end %>
   </div>
