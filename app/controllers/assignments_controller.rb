@@ -10,7 +10,7 @@ class AssignmentsController < ApplicationController
   end
 
   def rectorat_index
-    @assignments = Assignment.where(user: nil)
+    @assignments = Assignment.where(user: nil).order('start_date ASC')
   end
 
   def show

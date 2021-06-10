@@ -13,7 +13,7 @@ Director.delete_all
 
 jaures        = School.create!(name: 'Ecole maternelle Jaurès', address: '4 rue du Colonel Marey 42500 LE CHAMBON FEUGEROLLES', phone: '0477610270', specification: 'REP', latitude: '45.395209426831215', longitude: '4.322800191508945', director: Director.create!(first_name: "Alfred", last_name: "Dupont", phone: '0622345647', email: "alfred.dupont@gmail.com")) #REP
 villon        = School.create!(name: 'Ecole maternelle Villon', address: 'Boulevard de Fonsala 42400 ST CHAMOND', phone: '0477226887', specification: 'REP+', latitude: '45.47628992883215', longitude: '4.529400470097042', director: Director.create!(first_name: "Jeannine", last_name: "Martel", phone: '0642647798', email: "alfred.martel@gmail.com")) #REP+
-richelandiere = School.create!(name: 'Ecole maternelle Richelandiere', address: '97 rue Richelandière 42100 ST ETIENNE', phone: '0477331334', specification: '', latitude: '45.43639035550118', longitude: '4.4122394137415775', director: Director.create!(first_name: "Martin", last_name: "Réveil", phone: '0722345647', email: "martin.reveil@gmail.com")) #
+richelandiere = School.create!(name: 'Ecole maternelle Richelandière', address: '97 rue Richelandière 42100 ST ETIENNE', phone: '0477331334', specification: '', latitude: '45.43639035550118', longitude: '4.4122394137415775', director: Director.create!(first_name: "Martin", last_name: "Réveil", phone: '0722345647', email: "martin.reveil@gmail.com")) #
 jean_mace     = School.create!(name: 'Ecole primaire Jean Macé', address: '59 route de l\'Etrat 42270 ST PRIEST EN JAREZ', phone: '0477790516', specification: '', latitude: '45.4783642933794', longitude: '4.382120283150085', director: Director.create!(first_name: "Joseph", last_name: "Duvagon", phone: '0744107040', email: "jojo.duvag@gmail.com")) #
 montrambert   = School.create!(name: 'Ecole élémentaire Montrambert', address: '6 impasse Guy Môquet 42150 LA RICAMARIE', phone: '0477570075', specification: 'REP+', latitude: '45.40106893619104', longitude: '4.36127945037419', director: Director.create!(first_name: "Alicia", last_name: "Guardiola", phone: '0744107040', email: "alicia.guardiola@gmail.com")) #REP+
 victor_hugo   = School.create!(name: 'Ecole élémentaire Victor Hugo', address: '7 rue Raoul Follereau 42500 LE CHAMBON FEUGEROLLES', phone: '0477561856', specification: 'REP', latitude: '45.38530786842765', longitude: '4.306579418827878', director: Director.create!(first_name: "Myriam", last_name: "Biniani", phone: '0744107040', email: "myriam.biniani@gmail.com")) #REP
@@ -116,6 +116,10 @@ kyan     = User.create!(first_name: 'Kyan',      last_name: 'Khojandi',    phone
 kyan_file = URI.open('https://www.fnacspectacles.com/static/0/visuel/300/317/KYAN-KHOJANDI-_3171432722583648527.jpg')
 kyan.photo.attach(io: kyan_file, filename: 'kyan.jpg', content_type: 'image/jpg')
 
+delphine = User.create!(first_name: 'Delphine',    last_name: 'Picard', phone: '0644770321',  email: 'delphinepicard42000@gmail.com', password: "azerty", availability: true, specification: "REP+", level: "CE1")
+# delphine_file = URI.open('')
+# delphine.photo.attach(io: delphine_file, filename: 'photo_delphine.jpg', content_type: 'image/jpg')
+
 # RATTACHEMENT PROFS / ETABLISSEMENTS
 
 SchoolUser.create!(user: paul,     school: jaures,        attachment: true)
@@ -127,9 +131,9 @@ SchoolUser.create!(user: shigeru,  school: victor_hugo,   attachment: true)
 SchoolUser.create!(user: hubert,   school: jaures,        attachment: true)
 SchoolUser.create!(user: michel,   school: villon,        attachment: true)
 SchoolUser.create!(user: claudie,  school: richelandiere, attachment: true)
-SchoolUser.create!(user: fabrice,  school: jean_mace,     attachment: true)
+SchoolUser.create!(user: fabrice,  school: villon,        attachment: true)
 SchoolUser.create!(user: blanche,  school: montrambert,   attachment: true)
-SchoolUser.create!(user: florence, school: victor_hugo,   attachment: true)
+SchoolUser.create!(user: florence, school: jean_mace,     attachment: true)
 SchoolUser.create!(user: william,  school: jaures,        attachment: true)
 SchoolUser.create!(user: jean,     school: villon,        attachment: true)
 SchoolUser.create!(user: nelson,   school: richelandiere, attachment: true)
@@ -142,6 +146,7 @@ SchoolUser.create!(user: hayao,    school: richelandiere, attachment: true)
 SchoolUser.create!(user: idriss,   school: jean_mace,     attachment: true)
 SchoolUser.create!(user: marina,   school: montrambert,   attachment: true)
 SchoolUser.create!(user: kyan,     school: victor_hugo,   attachment: true)
+SchoolUser.create!(user: delphine, school: victor_hugo,   attachment: true)
 
 # # RECTORAT
 
@@ -167,29 +172,35 @@ gsm_w_user = Classroom.create!(level: 'GSM', school: richelandiere, main_teacher
 
 # # AFFECTATIONS EN ATTENTE DE PROFFESSEUR
 
-assig1 = Assignment.create!(start_date: 1.days.from_now, end_date: 2.days.from_now, rectorat: toto_recto, classroom: psm)
-assig2 = Assignment.create!(start_date: 1.days.from_now, end_date: 4.days.from_now, rectorat: toto_recto, classroom: msm)
+assig1 = Assignment.create!(start_date: 2.days.from_now, end_date: 7.days.from_now, rectorat: toto_recto, classroom: psm)
+assig2 = Assignment.create!(start_date: 2.days.from_now, end_date: 4.days.from_now, rectorat: toto_recto, classroom: msm)
 assig3 = Assignment.create!(start_date: 3.days.from_now, end_date: 6.days.from_now, rectorat: toto_recto, classroom: gsm)
-assig4 = Assignment.create!(start_date: 2.days.from_now, end_date: 5.days.from_now, rectorat: toto_recto, classroom: cp)
-assig5 = Assignment.create!(start_date: 4.days.from_now, end_date: 8.days.from_now, rectorat: toto_recto, classroom: ce1)
-assig6 = Assignment.create!(start_date: 2.days.from_now, end_date: 3.days.from_now, rectorat: toto_recto, classroom: ce2)
-assig7 = Assignment.create!(start_date: 2.days.from_now, end_date: 4.days.from_now, rectorat: toto_recto, classroom: cm1)
-assig8 = Assignment.create!(start_date: 4.days.from_now, end_date: 9.days.from_now, rectorat: toto_recto, classroom: cm2)
+assig4 = Assignment.create!(start_date: 3.days.from_now, end_date: 5.days.from_now, rectorat: toto_recto, classroom: cp)
+assig5 = Assignment.create!(start_date: 6.days.from_now, end_date: 9.days.from_now, rectorat: toto_recto, classroom: ce2)
+assig6 = Assignment.create!(start_date: 2.days.from_now, end_date: 4.days.from_now, rectorat: toto_recto, classroom: cm1)
+assig7 = Assignment.create!(start_date: 4.days.from_now, end_date: 9.days.from_now, rectorat: toto_recto, classroom: cm2)
 
-# # AFFECTATIONS AVEC PROFFESSEUR
+#AFFECTATION EN ATTENTE DE PROF - POUR DELPHINE
+
+assig8 = Assignment.create!(start_date: 1.days.from_now, end_date: 6.days.from_now, rectorat: toto_recto, classroom: ce1)
+
+assig8 = Assignment.create!(start_date: 15.days.from_now, end_date: 18.days.from_now, rectorat: toto_recto, classroom: ce1)
+
+
+# # AFFECTATIONS AVEC PROFESSEUR
 
 assig9  = Assignment.create!(start_date: 3.days.ago, end_date: 2.days.from_now, rectorat: toto_recto, classroom: cm2_w_user, user: hayao)
 assig10 = Assignment.create!(start_date: 1.days.ago, end_date: 1.days.from_now, rectorat: toto_recto, classroom: ce2_w_user, user: blanche)
 assig11 = Assignment.create!(start_date: 5.days.ago, end_date: 1.days.from_now, rectorat: toto_recto, classroom: gsm_w_user, user: pie)
 
 
-# AFFECTATIONS DE BLANCHE PASSEE ET FUTUR
+# AFFECTATIONS DE DELPHINE PASSEE ET FUTUR
 
-assig23 = Assignment.create!(start_date: 11.days.from_now, end_date: 13.days.from_now, rectorat: toto_recto, classroom: gsm, user: blanche)
-assig24 = Assignment.create!(start_date: 18.days.ago, end_date: 8.days.ago, rectorat: toto_recto, classroom: cp, user: blanche)
-assig25 = Assignment.create!(start_date: 28.days.ago, end_date: 20.days.ago, rectorat: toto_recto, classroom: ce1, user: blanche)
-assig26 = Assignment.create!(start_date: 34.days.ago, end_date: 32.days.ago, rectorat: toto_recto, classroom: ce2, user: blanche)
-assig27 = Assignment.create!(start_date: 37.days.ago, end_date: 35.days.ago, rectorat: toto_recto, classroom: cm1, user: blanche)
+assig23 = Assignment.create!(start_date: 11.days.from_now, end_date: 13.days.from_now, rectorat: toto_recto, classroom: gsm, user: delphine)
+assig24 = Assignment.create!(start_date: 18.days.ago, end_date: 8.days.ago, rectorat: toto_recto, classroom: cp, user: delphine)
+assig25 = Assignment.create!(start_date: 28.days.ago, end_date: 20.days.ago, rectorat: toto_recto, classroom: ce1, user: delphine)
+assig26 = Assignment.create!(start_date: 34.days.ago, end_date: 32.days.ago, rectorat: toto_recto, classroom: ce2, user: delphine)
+assig27 = Assignment.create!(start_date: 37.days.ago, end_date: 35.days.ago, rectorat: toto_recto, classroom: cm1, user: delphine)
 
 # # REVIEWS
 
@@ -201,11 +212,26 @@ review3 = Review.create!(content: "Hello ! Aujourd'hui, c'est atelier puzzle ! B
 
 review4 = Review.create!(content: "Bonjour, nous avons effectué un exercice de lecture et d'écriture. Ils s'en sortent très bien. Tu trouveras le livre sur lequel on a travaillé dans le tiroir du bas. Merci ! !",                                                       classroom: cp,  user: paul)
 
-review5 = Review.create!(content: "Bonjour, hier, nous avons commencé les premiers exercices concernant les soustractions. Ils ont eu quelques difficultés, j'ai sélectionné des exercices plus abordables : ils sont dans le tiroir du bureau. Cela devrait les aider à progresser :)",                                                       classroom: ce1, user: marie)
+review5 = Review.create!(content: "Bonjour, hier, nous avons commencé les premiers exercices concernant les soustractions. Ils ont eu quelques difficultés, j'ai sélectionné des exercices plus abordables : ils sont dans le tiroir du bureau. Cela devrait les aider à progresser :)",                                                       classroom: cm1, user: marie)
 
 review6 = Review.create!(content: "Holà ! Aujourd'hui c'est multiplication !",                                                       classroom: ce2, user: francois)
 
-review7 = Review.create!(content: "Cours de géographie depuis mercredi. A finir : le thème sur les départements. Merci!",                                                       classroom: cm1, user: simone)
+review7 = Review.create!(content: "La dictée d'aujourd'hui est très importante ! Attention ils ont tendance à tricher. A surveiller comme le lait sur le feu !", classroom: cm2, user: yuki)
 
-review8 = Review.create!(content: "La dictée d'aujourd'hui est très importante ! Attention ils ont tendance à tricher. A surveiller comme le lait sur le feu !",     classroom: cm2, user: yuki)
+# # REVIEWS pr DELPHINE
+
+review8 = Review.create!(content: "Matin : orthographe (dictée n°28) et atelier multiplication 1er niveau. Après-midi : Cours de géographie. A finir : le thème sur les départements.",                                                       classroom: ce1, user: marie)
+
+review9 = Review.create!(content: "Matin : poésie (n°33) et atelier multiplication à virgules 2ème niveau. Plus de difficultés sur les mathématiques => prévoir révision. Après-midi : atelier lecture et lancement du projet peinture (Monnet).",                                                       classroom: ce1, user: marie)
+
+review10 = Review.create!(content: "Matin : grammaire (COD et COI) et rappel sur les multiplications à virgules. Après-midi : reprise de l'atelier potager et sensibilisation à l'environnement.",                                                        classroom: ce1, user: marie)
+
+review11 = Review.create!(content: "Matin : orthographe (dictée n°35) et atelier mathématiques : découverte des divisions. Après-midi : poursuite du projet peinture (Monnet).",                                                                                        classroom: ce1, user: marie)
+
+review12 = Review.create!(content: "Matin : grammaire (ORNICAR) et atelier mathématiques : division niveau 2. Après-midi : initiation danse et musique en partenariat avec le conservatoire de Saint Chamond.",                                                       classroom: ce1, user: marie)
+
+review13 = Review.create!(content: "Matin : QUIZZ lecture (Petit Prince) et atelier géométrie. Après-midi : séance piscine. En vue de mon absence, prévoir de poursuivre en maths les ateliers divison (niveau 2), en orthographe la dictée n°56 et lancer le nouveau projet lecture (Charlie et la chocolaterie).",                                                       classroom: ce1, user: marie)
+
+
+
 
