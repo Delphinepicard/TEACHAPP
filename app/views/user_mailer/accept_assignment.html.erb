@@ -5,8 +5,14 @@
     </h1>
   </div>
   <div class="mail-content">
-    <h3>Votre affectation, <%= @user.first_name %></h3>
-    <p>Vous avez reçu une nouvelle affectation : <br><strong><%= @assignment.school.name %><strong></p><br>
+    <h3>Nouvelle affectation</h3>
+      Vous venez de recevoir une affectation de:<br>
+      <div class="nom">
+        <strong><%= @assignment.school.name %></strong>
+      </div>
+      <div class="date-mail">
+        <br>Du <strong><%= l @assignment.start_date %></strong> au <strong><%= l @assignment.end_date %></strong>, soit (<%= pluralize(@assignment.duration, 'jour') %>).<br><br>
+      </div>
   </div>
       <%= link_to 'Voir les détails', accept_assignment_url(@assignment), class: 'button-mail' %>
 </div>
