@@ -4,7 +4,7 @@ const initSweetalert = () => {
   const noticeElement = document.querySelector('#sweet-notice')
   if (noticeElement) {
     swal({
-      title: "Mission Accomplie ! ",
+      title: "Affectation confirmée !",
       text:  noticeElement.dataset.message,
       icon: "success"
     });
