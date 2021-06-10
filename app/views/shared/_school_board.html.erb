@@ -1,15 +1,23 @@
-<h4>Contacts</h4>
+<div class="title-dashboard">
+  <div class="icon-contact">
+    <%= image_tag "icon_contact.svg", height: 25 %>
+  </div>
+  <div class="title-contacts">
+  <h4>Contacts</h4>
+  </div>
+</div>
 <hr>
-<h5><%= @assignment.school.name %></h5>
-<p><%= @assignment.school.address %><br>
-téléphone : <%= @assignment.school.phone %><br>
-Specification: <%= @assignment.school.specification ? @assignment.school.specification : "Aucune" %></p>
+
 <h5>Directeur / Directrice :</h5>
-<p><%="#{@assignment.school.director.first_name} #{@assignment.school.director.last_name}"%><br>
-<%="#{@assignment.school.director.phone}"%><br>
-<%="#{@assignment.school.director.email}"%></p>
+<div class="directeur">
+  <i class="far fa-user"></i> <%="#{@assignment.school.director.first_name} #{@assignment.school.director.last_name}"%><br>
+  <i class="fas fa-phone-alt"></i> <%="#{@assignment.school.director.phone}"%><br>
+  <i class="fas fa-at"></i> <a class="mailto" href="mailto:<%="#{@assignment.school.director.email}"%>"><%="#{@assignment.school.director.email}"%></a>
+</div>
 
 <h5>Enseignant(e) absent(e) :</h5>
-<p><%="#{@assignment.classroom.main_teacher.first_name} #{@assignment.classroom.main_teacher.last_name}"%><br>
-<%="#{@assignment.classroom.main_teacher.phone}"%><br>
-<%="#{@assignment.classroom.main_teacher.email}"%></p>
+<div class="directeur">
+  <i class="far fa-user"></i> <%="#{@assignment.classroom.main_teacher.first_name} #{@assignment.classroom.main_teacher.last_name}"%><br>
+  <i class="fas fa-phone-alt"></i> <%="#{@assignment.classroom.main_teacher.phone}"%><br>
+  <i class="fas fa-at"></i> <a class="mailto" href="mailto:<%="#{@assignment.classroom.main_teacher.email}"%>"><%="#{@assignment.classroom.main_teacher.email}"%></a>
+</div>
