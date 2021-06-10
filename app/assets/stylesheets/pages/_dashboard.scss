@@ -7,6 +7,11 @@
   gap: 4px;
 }
 
+.dash-col h4 {
+  font-weight: 700;
+  color: #6A39CC;
+}
+
 .dashboard-nav {
   background-size: cover;
   background-position: center;
@@ -28,11 +33,24 @@
   box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.51);
 }
 
+.head-row h3 {
+  font-weight: 700;
+}
+
 .dash-row {
   grid-column: 1;
   grid-row: 2;
   display: flex;
   justify-content: space-between;
+}
+
+.arrows a {
+  text-decoration: none;
+  color: #8EF6CD;
+}
+
+.arrows:hover a {
+  color: #4BF2AF;
 }
 
 .dash-col {

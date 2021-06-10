@@ -2,7 +2,10 @@
   <div class="icon-map">
     <%= image_tag "icon_map.svg", height: 30 %>
   </div>
-  <h4>Carte Ecole</h4>
+<h4>Carte Ecole</h4>
+<h6><%= @assignment.school.address %></h6>
+<div class="arrows">
+  <%= link_to "Votre itinéraire", "https://www.google.fr/maps/dir/#{@attached_marker[:lat]},#{@attached_marker[:lng]}/#{@assign_marker[:lat]}, #{@assign_marker[:lng]}", target: '_blank', class: "lien"%>
 </div>
 <hr>
 <div id="map"
