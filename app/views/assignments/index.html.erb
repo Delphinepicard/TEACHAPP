@@ -3,119 +3,27 @@
   <% if @assignments.empty? %>
     <%= "Pas d'affectations en cours..." %>
   <% else %>
-  <div class="line"><span class="tkt">A venir</span></div>
-  <div class="avenir-assign-content">
-    <% @futur_assignments.each do |assignment| %>
-      <div class="futur">
-        <div id="<%= assignment.id %>"  class="card-header d-flex justify-content-between">
-          <h6> Classe de <%= assignment.classroom.level%> - Instituteur Titulaire : <%= assignment.classroom.main_teacher.first_name%> <%= assignment.classroom.main_teacher.last_name%></h6>
-          <h6>Affectation #<strong><%= assignment.created_at.time.to_i%>-<%= assignment.id %></strong></h6>
-        </div>
-        <div class="d-flex justify-content-between p-1">
-          <div class="">
-            <ul class="list-unstyled">
-              <li> <%= assignment.school.name %> </li>
-              <li> <%= "Du #{l assignment.start_date} au #{l assignment.end_date}" %> </li>
-              <li> Durée de l'affectation : <%= pluralize(assignment.duration, 'jour') %>
-              </li>
-            </ul>
-          </div>
-            <div class="text-right">
-              <% if assignment.user %>
-              <h1><span class="badge-total"><%= sprintf('%.2f', assignment.indemnite_km + assignment.prime) %>€</span></h1>
-                <% if assignment.distance != 0 %>
-                  <div class="mute">
-                  Indemnités pour : <%= sprintf('%.3f', assignment.distance) %> Km = <%= sprintf('%.2f', assignment.indemnite_km_per_day) %>€ X <%= pluralize(assignment.duration,'jour') %> = <strong><%= sprintf('%.2f', assignment.indemnite_km) %>€</strong><br>
-                  </div>
-                <% end %>
-                <% if assignment.school.specification? %>
-                <div class="mute">
-                  Prime pour établissement <%= assignment.school.specification %> : <%= sprintf('%.2f', assignment.prime_per_day) %>€ X <%= pluralize(assignment.duration,'jour') %> = <strong><%= sprintf('%.2f', assignment.prime) %>€</strong><br>
-                </div>
-                <% end %>
-              <% end %>
-            </div>
-        </div>
-       </div>
+
+    <% if @futur_assignments %>
+      <div class="line"><span class="tkt">A venir</span></div>
+      <div class="avenir-assign-content">
+          <%= render 'shared/assign_card', temp_assigns: @futur_assignments %>
+      </div>
     <% end %>
-  </div>
 
     <% if @current_assignment %>
       <div class="line"><span class="tkt">En cours</span></div>
       <div class="encours-assign-content">
-        <div class="activee">
-          <div id="<%= @current_assignment.id %>"  class="card-header d-flex justify-content-between">
-            <h6> Classe de <%= @current_assignment.classroom.level%> - Instituteur Titulaire : <%= @current_assignment.classroom.main_teacher.first_name%> <%= @current_assignment.classroom.main_teacher.last_name%></h6>
-            <h6>Affectation #<strong><%= @current_assignment.created_at.time.to_i%>-<%= @current_assignment.id %></strong></h6>
-          </div>
-          <div class="d-flex justify-content-between p-1">
-            <div class="">
-              <ul class="list-unstyled">
-                <li> <%= @current_assignment.school.name %> </li>
-                <li> <%= "Du #{l @current_assignment.start_date} au #{l @current_assignment.end_date}" %> </li>
-                <li> Durée de l'affectation : <%= pluralize(@current_assignment.duration, 'jour') %>
-                </li>
-              </ul>
-            </div>
-            <div class="text-right">
-              <% if @current_assignment.user %>
-              <h1><span class="badge-total"><%= sprintf('%.2f', @current_assignment.indemnite_km + @current_assignment.prime) %>€</span></h1>
-                <% if @current_assignment.distance != 0 %>
-                <div class="mute">
-                  Indemnités pour : <%= sprintf('%.3f', @current_assignment.distance) %> Km = <%= sprintf('%.2f', @current_assignment.indemnite_km_per_day) %>€ X <%= pluralize(@current_assignment.duration,'jour') %> = <strong><%= sprintf('%.2f', @current_assignment.indemnite_km) %>€</strong><br>
-                </div>
-                <% end %>
-                <% if @current_assignment.school.specification? %>
-                <div class="mute">
-                  Prime pour établissement <%= @current_assignment.school.specification %> : <%= sprintf('%.2f', @current_assignment.prime_per_day) %>€ X <%= pluralize(@current_assignment.duration,'jour') %> = <strong><%= sprintf('%.2f', @current_assignment.prime) %>€</strong><br>
-                </div>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-          <%= link_to '', assignment_path(@current_assignment), class: "stretched-link" %>
-        </div>
-      <% end %>
+          <%= render 'shared/assign_card', temp_assigns: [@current_assignment] %>
       </div>
+    <% end %>
 
-    <div class="line"><span class="tkt">Passées</span></div>
-    <div class="past-asign-content">
-      <% @past_assignments.each do |assignment| %>
-        <div class="card-index">
-          <div id="<%= assignment.id %>"  class="card-header d-flex justify-content-between">
-            <h6> Classe de <%= assignment.classroom.level%> - Instituteur Titulaire : <%= assignment.classroom.main_teacher.first_name%> <%= assignment.classroom.main_teacher.last_name%></h6>
-            <h6>Affectation #<strong><%= assignment.created_at.time.to_i%>-<%= assignment.id %></strong></h6>
-          </div>
-          <div class="d-flex justify-content-between p-1">
-            <div class="">
-              <ul class="list-unstyled">
-                <li> <%= assignment.school.name %> </li>
-                <li> <%= "Du #{l assignment.start_date} au #{l assignment.end_date}" %> </li>
-                <li> Durée de l'affectation : <%= pluralize(assignment.duration, 'jour') %>
-                </li>
-              </ul>
-            </div>
-            <div class="text-right">
-              <% if assignment.user %>
-              <h1><span class="badge-total"><%= sprintf('%.2f', assignment.indemnite_km + assignment.prime) %>€</span></h1>
-                <% if assignment.distance != 0 %>
-                  <div class="mute">
-                  Indemnités pour : <%= sprintf('%.3f', assignment.distance) %> Km = <%= sprintf('%.2f', assignment.indemnite_km_per_day) %>€ X <%= pluralize(assignment.duration,'jour') %> = <strong><%= sprintf('%.2f', assignment.indemnite_km) %>€</strong><br>
-                  </div>
-                <% end %>
-                <% if assignment.school.specification? %>
-                <div class="mute">
-                  Prime pour établissement <%= assignment.school.specification %> : <%= sprintf('%.2f', assignment.prime_per_day) %>€ X <%= pluralize(assignment.duration,'jour') %> = <strong><%= sprintf('%.2f', assignment.prime) %>€</strong><br>
-                </div>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-          <%= link_to '', assignment_path(assignment), class: "stretched-link" %>
-        </div>
-      <% end %>
-    </div>
-    </div>
+    <% if @past_assignments %>
+      <div class="line"><span class="tkt">Passées</span></div>
+      <div class="past-asign-content">
+        <%= render 'shared/assign_card', temp_assigns: @past_assignments %>
+      </div>
+    <% end %>
 
   <% end %>
 </div>
