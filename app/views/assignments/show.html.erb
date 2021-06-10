@@ -23,11 +23,13 @@
         <h6>Affectation #<%= @assignment.created_at.time.to_i%>-<%= @assignment.id %></h6>
         <% if @assignment.user %>
           <% if @assignment.distance != 0 || @assignment.school.specification? %>
+          <div class="total">
             Total indemnités :
             <h1><%= sprintf('%.2f', @assignment.indemnite_km + @assignment.prime) %>€</h1>
             <%= link_to "", assignments_path(anchor: @assignment.id), class: "stretched-link" %>
           <% end %>
         <% end %>
+        </div>
       </div>
     </div>
     </div>
