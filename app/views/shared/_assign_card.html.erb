@@ -1,27 +1,53 @@
  <div class="assignment_cards">
     <% temp_assigns.each_with_index do |assignment, i| %>
-      <%= link_to teacher_proposals_assignment_path(assignment), :action => 'go' do %>
-      <div class="assignment_card" style="animation-delay: <%= i * 0.4 %>s;">
+      <div class="histo_assignment_card" style="animation-delay: <%= i * 0.2 %>s;">
+        <div id="<%= assignment.id %>"  class="histo-card-header d-flex justify-content-between">
+          <h6> </h6>
+          <h6 class="mute ">Affectation #<strong><%= assignment.created_at.time.to_i%>-<%= assignment.id %></strong></h6>
+        </div>
         <div class="header_card">
-          <div class="text_card">
             <p class="titre_card"><%= assignment.school.name %></p>
-            <div class="date_card">
-              <%= image_tag "calendar.svg", height: 25 %>
-              <p><%= "Du #{l assignment.start_date} au #{l assignment.end_date}" %> (<%= pluralize((assignment.end_date - assignment.start_date).to_i, 'jour') %>)</p>
-            </div>
-          </div>
           <div class="badges_card">
             <span class="badge rounded-pill bg-light text-dark"><%= assignment.classroom.level %></span>
-            <span class="badge rounded-pill bg-info text-dark"><% if assignment.school.specification? %>
+              <% if assignment.school.specification? %>
+            <span class="badge rounded-pill bg-info text-dark">
               <%= assignment.school.specification %>
-            <% end %></span>
+            </span>
+            <% end %>
           </div>
         </div>
-        <div class="content_card">
-          <%= image_tag "icon_map.svg", height: 30 %>
-          <p><%= assignment.school.address %></p>
+        <div class="d-flex justify-content-between p-1">
+          <div class="col-7">
+            <div class="histo_text_card">
+              <div class="date_card">
+                <%= image_tag "calendar.svg", height: 25 %>
+                <%= "#{l assignment.start_date} >> #{l assignment.end_date}" %>
+                (<%= pluralize((assignment.end_date - assignment.start_date).to_i, 'jour') %>)
+              </div>
+              <div class="date_card">
+                <%= image_tag "icon_map.svg", height: 30 %>
+                <%= assignment.school.address %>
+              </div>
+              <div class="date_card">
+                <%= image_tag "icon_prof.svg", height: 30 %>
+                Titulaire : <%= assignment.classroom.main_teacher.first_name%> <%= assignment.classroom.main_teacher.last_name%>
+              </div>
+            </div>
+          </div>
+          <div class="histo_text-right">
+            <% if assignment.user %>
+              <h1><span class="badge-total"><%= sprintf('%.2f', assignment.indemnite_km + assignment.prime) %>€</span></h1>
+              <% if assignment.distance != 0 %>
+                <span class="mute">
+                  Indemnitée km<%= sprintf('%.3f', assignment.distance) %> Km <br><%= sprintf('%.2f', assignment.indemnite_km_per_day) %>€ X <%= pluralize(assignment.duration,'jour') %> :</span><br><strong><%= sprintf('%.2f', assignment.indemnite_km) %>€</strong><br>
+              <% end %>
+              <% if assignment.school.specification? %>
+              <span class="mute">
+                Prime <%= assignment.school.specification %> : <%= sprintf('%.2f', assignment.prime_per_day) %>€ X <%= pluralize(assignment.duration,'jour') %> :</span><br><strong><%= sprintf('%.2f', assignment.prime) %>€</strong>
+              <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
       <% end %>
-    <% end %>
   </div>
