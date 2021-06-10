@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="assignment_card">
+  <div class="school_card">
     <div class="header_card">
       <div class="text_card">
         <div class="tete">
@@ -13,7 +13,7 @@
           </div>
         </div>
         <p class="titre_card"><%= @assignment.school.name %></p>
-      <div class="date_card">
+      <div class="line_card">
         <%= image_tag "calendar.svg", height: 25 %>
         <p><%= "Du #{l @assignment.start_date} au #{l @assignment.end_date}" %> (<%= pluralize((@assignment.end_date - @assignment.start_date).to_i, 'jour') %>)</p>
         </div>
@@ -34,7 +34,7 @@
     </div>
     </div>
   </div>
-  <div class="dash-row">
+  <div class="container dash-row">
       <div class="dash-col">
         <%= render 'shared/school_board', classroom: @assignment.classroom, assignment: @assignment %>
       </div>

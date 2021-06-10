@@ -53,9 +53,18 @@
   margin-bottom: 1rem !important;
 }
 
+.futur {
+  @extend .card-index;
+  border-radius: 4px;
+}
+
+.activee {
+  @extend .card-index;
+  border-radius: 4px;
+}
+
 .histo_assignment_card {
-  @extend .assignment_card;
-  margin: 20px;
+  @extend .school_card;
   position: relative;
 }
 
