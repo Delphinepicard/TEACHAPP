@@ -16,7 +16,7 @@
             <% end %>
           </div>
         </div>
-        <div class="d-flex justify-content-between p-1">
+        <div class="flex-justify-betw ">
           <div class="col-7">
             <div class="histo_text_card">
               <div class="date_card">
@@ -35,8 +35,11 @@
             </div>
           </div>
           <div class="histo_text-right">
-            <% if assignment.user %>
               <h1><span class="badge-total"><%= sprintf('%.2f', assignment.indemnite_km + assignment.prime) %>€</span></h1>
+          </div>
+        </div>
+          <div class="calcul">
+            <% if assignment.user %>
               <% if assignment.distance != 0 %>
                 <span class="mute">
                   Indemnitée km<%= sprintf('%.3f', assignment.distance) %> Km <br><%= sprintf('%.2f', assignment.indemnite_km_per_day) %>€ X <%= pluralize(assignment.duration,'jour') %> :</span><br><strong><%= sprintf('%.2f', assignment.indemnite_km) %>€</strong><br>
@@ -47,7 +50,8 @@
               <% end %>
             <% end %>
           </div>
-        </div>
+
+
         <%= link_to '', assignment_path(assignment), class: "stretched-link" %>
       </div>
       <% end %>
