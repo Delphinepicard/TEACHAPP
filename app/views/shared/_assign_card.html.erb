@@ -1,4 +1,4 @@
- <div class="assignment_cards">
+ <div class="school_cards">
     <% temp_assigns.each_with_index do |assignment, i| %>
       <%= link_to teacher_proposals_assignment_path(assignment), :action => 'go' do %>
       <div class="assignment_card" style="animation-delay: <%= i * 0.4 %>s;">
@@ -11,8 +11,8 @@
             </div>
           </div>
           <div class="badges_card">
-            <span class="badge rounded-pill bg-light text-dark"><%= assignment.classroom.level %></span>
-            <span class="badge rounded-pill bg-info text-dark"><% if assignment.school.specification? %>
+            <span class="badge rounded-pill bg-light"><%= assignment.classroom.level %></span>
+            <span class="badge rounded-pill bg-info"><% if assignment.school.specification? %>
               <%= assignment.school.specification %>
             <% end %></span>
           </div>

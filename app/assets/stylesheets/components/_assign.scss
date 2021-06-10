@@ -52,15 +52,11 @@
 .futur {
   @extend .card-index;
   border-radius: 4px;
-  // border: 2px solid #0e93ff80;
-  // box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.51);
 }
 
 .activee {
   @extend .card-index;
   border-radius: 4px;
-  // border: solid 1px #A187D4;
-  // box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.51);
 }
 
 .line {

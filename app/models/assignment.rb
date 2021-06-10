@@ -23,9 +23,7 @@ class Assignment < ApplicationRecord
   end
 
   def distance
-    origine = [user.attached_school.latitude, user.attached_school.longitude]
-    destination = [school.latitude, school.longitude]
-    (Geocoder::Calculations.distance_between(origine, destination).round(2)) * 1.2
+    user.distance(school)
   end
 
   def prime_per_day

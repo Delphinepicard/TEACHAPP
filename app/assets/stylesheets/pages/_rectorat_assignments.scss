@@ -1,0 +1,41 @@
+.rectorat_assignments {
+  .school_cards {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+
+  .school_card {
+    margin: 20px;
+    transition: border 150ms ease-in-out;
+  }
+
+  .school_card:hover {
+    text-decoration: none;
+    border: 1px solid #6A39CC;
+    box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.28);
+    transition: border 350ms ease-in-out;
+  }
+
+  @keyframes zoomout {
+    from {
+      background-size: 120%;
+    }
+  }
+
+  .container-titre {
+    display: flex;
+    justify-content: center;
+    height: 304px;
+    background-image: linear-gradient(rgba(106, 57, 204, 0.50), rgba(106, 57, 204, 0.45)), asset-url("school_child.jpg");
+    background-size: 100%;
+    background-position: center;
+    opacity: 0.95;
+    border-radius: 4px;
+    margin-bottom: 48px;
+    animation-duration: 25s;
+    animation-name: zoomout;
+    color: white;
+    align-items: center;
+  }
+
+}

@@ -1,0 +1,83 @@
+$teacher-card-avatar-size: 100px;
+
+
+.teacher-card {
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.16);
+  height: 376px;
+  border: 1px solid #A187D4;
+  min-width: 256px;
+
+  .en-tete {
+    background-image: linear-gradient(rgba(106, 57, 204, 0.1), rgba(106, 57, 204, 0.3)), asset-url("crayon.jpg");
+    background-size: contain;
+    background-position-y: -$teacher-card-avatar-size / 2;
+    background-repeat-y: no-repeat;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    .avatar {
+      width: $teacher-card-avatar-size;
+      height: $teacher-card-avatar-size;
+      border: 1px solid white;
+      box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.24);
+    }
+  }
+
+  .contenus {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+
+    h6 {
+      text-align: center;
+      font-weight: 600;
+      margin: 20px 0px 0px 0px;
+    }
+
+    .distance {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+
+      h6 {
+        text-align: center;
+        font-weight: 600;
+        margin: 8px 0px 4px 0px;
+      }
+
+      img {
+        margin-right: 4px;
+      }
+    }
+  }
+
+  h5 {
+    margin: 16px 0px 12px 0px;
+    text-align: center;
+    font-weight: 600;
+    }
+
+  a {
+    padding: 8px;
+    background-color: #8EF6CD;
+    border-radius: 4px;
+    text-align: center;
+    margin: auto;
+    font-weight: bold;
+    color: black;
+    display: block;
+    width: 70%;
+
+    &:hover {
+      background-color: #4BF2AF;
+      text-decoration: none;
+      color: black;
+    }
+  }
+}

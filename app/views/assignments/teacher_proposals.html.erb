@@ -1,70 +1,64 @@
-<div class="container ">
-  <div class="card_school">
+<div class="container teacher_proposals">
+  <div class="school_card">
     <div class="assignment_card_proposals">
       <div class="header_card">
         <div class="text_card">
           <p class="titre_card"><%= @assignment.school.name %></p>
-          <div class="date_card">
+          <div class="line_card">
             <%= image_tag "calendar.svg", height: 25 %>
             <p><%= "Du #{l @assignment.start_date} au #{l @assignment.end_date}" %> (<%= pluralize((@assignment.end_date - @assignment.start_date).to_i, 'jour') %>)</p>
           </div>
         </div>
         <div class="badges_card">
-          <span class="badge rounded-pill bg-primary text-dark"><%= @assignment.classroom.level %></span>
-          <span class="badge rounded-pill bg-secondary text-dark"><% if @assignment.school.specification? %>
+          <span class="badge rounded-pill badge-level"><%= @assignment.classroom.level %></span>
+          <span class="badge rounded-pill badge-specification"><% if @assignment.school.specification? %>
             <%= @assignment.school.specification %>
           <% end %></span>
         </div>
       </div>
-      <div class="content_card">
+      <div class="line_card">
         <%= image_tag "icon_map.svg", height: 30 %>
         <p><%= @assignment.school.address %></p>
       </div>
     </div>
   </div>
 
-  <div>
-   <span class="select_enseignant">Selection de l'enseignant :</span>
-  </div>
+  <h2>
+    Selection de l'enseignant :
+  </h2>
 
   <div class="d-flex justify-content-around margin_enseignant">
     <% @match_teachers_around.each do |teacher| %>
-    <div class="cartes">
-      <div class="row align-items">
-        <div class="col">
-          <div class="image">
-            <% if teacher.photo.attached? %>
-              <%= cl_image_tag teacher.photo.key, height: 200, width: 200, crop: :fill %>
-            <% end %>
+      <div class="teacher-card">
+        <div class="en-tete">
+          <% if teacher.photo.attached? %>
+            <%= cl_image_tag teacher.photo.key, height: 175, width: 175, crop: :fill, class: 'avatar' %>
+          <% end %>
+        </div>
+        <div class="contenus">
+          <h5><%= "#{teacher.first_name} #{teacher.last_name}" %></h5>
+          <div class="badges_card">
+            <span class="badge rounded-pill badge-level"><%= @assignment.classroom.level %></span>
+            <span class="badge rounded-pill badge-specification"><% if @assignment.school.specification? %>
+              <%= @assignment.school.specification %>
+            <% end %></span>
+          </div>
+          <h6><%= teacher.attached_school.name %></h6>
+          <div class="distance">
+            <%= image_tag "distance.svg", height: 25 %>
+            <h6><%= sprintf('%.0f', teacher.distance(@assignment.school)) %> km</h6>
           </div>
         </div>
-        <div class="col">
-          <div class="contenus">
-              <%= "#{teacher.first_name} #{teacher.last_name}" %>
-              <div class="badges_card">
-                <span class="badge rounded-pill bg-primary text-dark"><%= @assignment.classroom.level %></span>
-                <span class="badge rounded-pill bg-secondary text-dark"><% if @assignment.school.specification? %>
-                  <%= @assignment.school.specification %>
-                <% end %></span>
-              </div>
-          </div>
-        </div>
+        <%# <div class="competence">
+          <strong>Niveau souhaité:</strong> <%= "#{teacher.level}" %>
+        <%# </div> %>
+        <%# <div class="experience">
+          <% if teacher.specification? %>
+              <%# <strong>Catégorie souhaitée:</strong> <%= "#{teacher.specification}" %>
+          <%# <% end %>
+        <%# </div> %>
+        <%= link_to "Assigner", affect_assignment_path(@assignment, user_id: teacher.id), method: :post %>
       </div>
-
-      
-
-      <%# <div class="competence">
-        <strong>Niveau souhaité:</strong> <%= "#{teacher.level}" %>
-      <%# </div> %>
-      <%# <div class="experience">
-        <% if teacher.specification? %>
-            <%# <strong>Catégorie souhaitée:</strong> <%= "#{teacher.specification}" %>
-        <%# <% end %>
-      <%# </div> %>
-      <div class="boutons">
-          <%= link_to "Assigner", affect_assignment_path(@assignment, user_id: teacher.id), method: :post %>
-      </div>
-    </div>
     <% end %>
   </div>
 </div>
