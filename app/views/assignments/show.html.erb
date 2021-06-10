@@ -1,27 +1,42 @@
 <div class="container">
-    <div class="dashboard-nav">
-      <div class="head-row">
-        <div class="">
+  <div class="assignment_card">
+    <div class="header_card">
+      <div class="text_card">
+        <div class="tete">
           <h3>Classe de <%= @assignment.classroom.level%></h3>
-          <h5><%= @assignment.classroom.school.name%></h5>
-          <p>Du <strong><%= l @assignment.start_date %></strong> au <strong><%= l @assignment.end_date %></strong>, soit <%= @assignment.duration %> jour(s). </p>
-        </div>
-        <div class="">
-          <div class="text-right">
-            <h6>Affectation #<%= @assignment.created_at.time.to_i%>-<%= @assignment.id %></h6>
-            <% if @assignment.user %>
-              <% if @assignment.distance != 0 || @assignment.school.specification? %>
-                Total indemnités :
-                <h1><%= sprintf('%.2f', @assignment.indemnite_km + @assignment.prime) %>€</h1>
-                <%= link_to "", assignments_path(anchor: @assignment.id), class: "stretched-link" %>
-              <% end %>
-            <% end %>
+          <div class="badges_card">
+          <div class="badge-card">
+              <span class="badge rounded-pill bg-info text-dark"><% if @assignment.school.specification? %>
+              <%= @assignment.school.specification %>
+            <% end %></span>
+            </div>
           </div>
         </div>
+        <p class="titre_card"><%= @assignment.school.name %></p>
+      <div class="date_card">
+        <%= image_tag "calendar.svg", height: 25 %>
+        <p><%= "Du #{l @assignment.start_date} au #{l @assignment.end_date}" %> (<%= pluralize((@assignment.end_date - @assignment.start_date).to_i, 'jour') %>)</p>
+        </div>
+      </div>
+    <div class="">
+      <div class="text-right">
+        <h6>Affectation #<%= @assignment.created_at.time.to_i%>-<%= @assignment.id %></h6>
+        <% if @assignment.user %>
+          <% if @assignment.distance != 0 || @assignment.school.specification? %>
+            Total indemnités :
+            <h1><%= sprintf('%.2f', @assignment.indemnite_km + @assignment.prime) %>€</h1>
+            <%= link_to "", assignments_path(anchor: @assignment.id), class: "stretched-link" %>
+          <% end %>
+        <% end %>
       </div>
     </div>
+    </div>
+    <div class="content_card">
+      <%= image_tag "icon_map.svg", height: 30 %>
+      <p><%= @assignment.school.address %></p>
+    </div>
+  </div>
   <div class="dash-row">
-
       <div class="dash-col">
         <%= render 'shared/school_board', classroom: @assignment.classroom, assignment: @assignment %>
       </div>

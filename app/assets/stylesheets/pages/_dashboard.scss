@@ -7,6 +7,22 @@
   gap: 4px;
 }
 
+.badge-card {
+  .badge {
+    margin-top: 5px;
+    margin-left: 20px;
+  }
+}
+
+.tete {
+  color: #6A39CC;
+  display: flex;
+}
+
+.tete h3 {
+  font-weight: 700;
+}
+
 .dash-col h4 {
   font-weight: 700;
   color: #6A39CC;
@@ -38,6 +54,7 @@
 }
 
 .dash-row {
+  margin-top: 10px;
   grid-column: 1;
   grid-row: 2;
   display: flex;
@@ -86,6 +103,7 @@
 .text-right {
   text-align: right;
   position: relative;
+  color: #808080;
 }
 
 .title-address {
