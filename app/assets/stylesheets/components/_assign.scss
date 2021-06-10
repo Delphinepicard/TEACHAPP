@@ -55,6 +55,7 @@
 .histo_assignment_card {
   @extend .assignment_card;
   margin: 20px;
+  position: relative;
 }
 
 .futur {
@@ -95,7 +96,7 @@
   position: absolute;
   background-color: #FFFCFC;
   top: -15px;
-  left: 20px;
+  left: 2px;
   color:#000000;
   font-size: 1rem;
   font-weight: bolder;
@@ -107,8 +108,8 @@
 .avenir-assign-content {
   border-left: 10px solid #a187d43f;
   padding: 0;
-  padding-left: 15px;
-  margin-left: 5px;
+  padding-left: 10px;
+  margin-left: 10px;
   margin-bottom: 20px;
   font-size: 0.9rem;
 }
@@ -116,8 +117,8 @@
 .encours-assign-content {
   border-left: 10px solid #ffa32b41;
   padding: 0;
-  padding-left: 15px;
-  margin-left: 5px;
+  padding-left: 10px;
+  margin-left: 10px;
   margin-bottom: 20px;
   font-size: 0.9rem;
 }
@@ -125,8 +126,8 @@
 .past-asign-content {
   border-left: 10px solid #00000041;
   padding: 0;
-  padding-left: 15px;
-  margin-left: 5px;
+  padding-left: 10px;
+  margin-left: 10px;
   margin-bottom: 20px;
   font-size: 0.9rem;
 }
