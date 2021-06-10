@@ -6,14 +6,20 @@
 </div>
 <hr>
 <h5><%= @assignment.school.name %></h5>
-<p>téléphone : <%= @assignment.school.phone %><br>
-Specification: <%= @assignment.school.specification ? @assignment.school.specification : "Aucune" %></p>
+<p>
+  <%= @assignment.school.phone %><br>
+  <% if assignment.school.specification? %>
+  <%= assignment.school.specification %>
+  <% end %>
+</p>
 <h5>Directeur / Directrice :</h5>
 <p><%="#{@assignment.school.director.first_name} #{@assignment.school.director.last_name}"%><br>
 <%="#{@assignment.school.director.phone}"%><br>
-<%="#{@assignment.school.director.email}"%></p>
+<a class="mailto" href="mailto:<%="#{@assignment.school.director.email}"%>"><%="#{@assignment.school.director.email}"%></a>
+</p>
 
 <h5>Enseignant(e) absent(e) :</h5>
 <p><%="#{@assignment.classroom.main_teacher.first_name} #{@assignment.classroom.main_teacher.last_name}"%><br>
 <%="#{@assignment.classroom.main_teacher.phone}"%><br>
-<%="#{@assignment.classroom.main_teacher.email}"%></p>
+<a class="mailto" href="mailto:<%="#{@assignment.classroom.main_teacher.email}"%>"><%="#{@assignment.classroom.main_teacher.email}"%></a>
+</p>
