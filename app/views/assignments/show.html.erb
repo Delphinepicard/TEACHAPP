@@ -1,48 +1,61 @@
 <div class="container">
-  <div class="school_card">
-    <div class="header_card">
-      <div class="text_card">
-        <div class="tete">
-          <h3>Classe de <%= @assignment.classroom.level%></h3>
-          <div class="badges_card">
-          <div class="badge-card">
-              <span class="badge rounded-pill bg-info text-dark"><% if @assignment.school.specification? %>
-              <%= @assignment.school.specification %>
-            <% end %></span>
-            </div>
+  <div class="dash-grid">
+    <div class="dash-top">
+        <div class="histo_assignment_card">
+          <div class="header_card">
+            <div class="text_card">
+
+              <div class="tete">
+                <h3>Classe de <%= @assignment.classroom.level%></h3>
+                <div class="badges_card">
+                  <div class="badge-card">
+                      <span class="badge rounded-pill badge-specification"><% if @assignment.school.specification? %>
+                      <%= @assignment.school.specification %>
+                    <% end %></span>
+                  </div>
+                </div>
+              </div>
+
+              <p class="titre_card"><%= @assignment.school.name %></p>
+              <div class="line_card">
+                <%= image_tag "calendar.svg", height: 25 %>
+                <p><%= "Du #{l @assignment.start_date} au #{l @assignment.end_date}" %> (<%= pluralize((@assignment.end_date - @assignment.start_date).to_i, 'jour') %>)</p>
+                </div>
+              </div>
+              <div class="">
+                <div class="text-right">
+                  <h6>Affectation #<%= @assignment.created_at.time.to_i%>-<%= @assignment.id %></h6>
+                  <% if @assignment.user %>
+                    <% if @assignment.distance != 0 || @assignment.school.specification? %>
+                    <div class="total">
+                      Total indemnités :
+                      <h1><%= sprintf('%.2f', @assignment.indemnite_km + @assignment.prime) %>€</h1>
+                      <%= link_to "", assignments_path(anchor: @assignment.id), class: "stretched-link" %>
+                    <% end %>
+                  <% end %>
+                  </div>
+                </div>
+              </div>
           </div>
         </div>
-        <p class="titre_card"><%= @assignment.school.name %></p>
-      <div class="line_card">
-        <%= image_tag "calendar.svg", height: 25 %>
-        <p><%= "Du #{l @assignment.start_date} au #{l @assignment.end_date}" %> (<%= pluralize((@assignment.end_date - @assignment.start_date).to_i, 'jour') %>)</p>
-        </div>
-      </div>
-    <div class="">
-      <div class="text-right">
-        <h6>Affectation #<%= @assignment.created_at.time.to_i%>-<%= @assignment.id %></h6>
-        <% if @assignment.user %>
-          <% if @assignment.distance != 0 || @assignment.school.specification? %>
-          <div class="total">
-            Total indemnités :
-            <h1><%= sprintf('%.2f', @assignment.indemnite_km + @assignment.prime) %>€</h1>
-            <%= link_to "", assignments_path(anchor: @assignment.id), class: "stretched-link" %>
-          <% end %>
-        <% end %>
-        </div>
+    </div>
+
+    <div class="dash-grid-col">
+      <div class="dash-col">
+      <%= render 'shared/classroom_log', classroom: @assignment.classroom, assignment: @assignment %>
       </div>
     </div>
-    </div>
-  </div>
-  <div class="container dash-row">
+
+    <div class="dash-row1">
       <div class="dash-col">
         <%= render 'shared/school_board', classroom: @assignment.classroom, assignment: @assignment %>
       </div>
+    </div>
+    <div class="dash-row2">
       <div class="dash-col">
         <%= render 'shared/school_map', classroom: @assignment.classroom, assignment: @assignment, marker:@marker %>
       </div>
-      <div class="dash-col">
-        <%= render 'shared/classroom_log', classroom: @assignment.classroom, assignment: @assignment %>
-      </div>
+    </div>
+
   </div>
 </div>

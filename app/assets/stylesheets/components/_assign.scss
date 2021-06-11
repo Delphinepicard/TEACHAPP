@@ -64,8 +64,42 @@
 }
 
 .histo_assignment_card {
-  @extend .school_card;
+  background-color: white;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid white;
+  box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.16);
   position: relative;
+  margin: 0px;
+
+  p {
+    color: #0e0000;
+  }
+
+  .header_card {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .titre_card {
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .line_card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    p {
+      margin: 0px;
+      font-weight: 600;
+      font-size: 16px;
+    }
+    img {
+      margin-right: 16px;
+    }
+  }
 }
 
 .histo_text_card{
