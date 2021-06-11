@@ -172,19 +172,18 @@ gsm_w_user = Classroom.create!(level: 'GSM', school: richelandiere, main_teacher
 
 # # AFFECTATIONS EN ATTENTE DE PROFFESSEUR
 
-assig1 = Assignment.create!(start_date: 2.days.from_now, end_date: 7.days.from_now, rectorat: toto_recto, classroom: psm)
-assig2 = Assignment.create!(start_date: 2.days.from_now, end_date: 4.days.from_now, rectorat: toto_recto, classroom: msm)
-assig3 = Assignment.create!(start_date: 3.days.from_now, end_date: 6.days.from_now, rectorat: toto_recto, classroom: gsm)
-assig4 = Assignment.create!(start_date: 3.days.from_now, end_date: 5.days.from_now, rectorat: toto_recto, classroom: cp)
+assig1 = Assignment.create!(start_date: 5.days.from_now, end_date: 17.days.from_now, rectorat: toto_recto, classroom: psm)
+assig2 = Assignment.create!(start_date: 6.days.from_now, end_date: 14.days.from_now, rectorat: toto_recto, classroom: msm)
+assig3 = Assignment.create!(start_date: 4.days.from_now, end_date: 6.days.from_now, rectorat: toto_recto, classroom: gsm)
+assig4 = Assignment.create!(start_date: 4.days.from_now, end_date: 5.days.from_now, rectorat: toto_recto, classroom: cp)
 assig5 = Assignment.create!(start_date: 6.days.from_now, end_date: 9.days.from_now, rectorat: toto_recto, classroom: ce2)
-assig6 = Assignment.create!(start_date: 2.days.from_now, end_date: 4.days.from_now, rectorat: toto_recto, classroom: cm1)
-assig7 = Assignment.create!(start_date: 4.days.from_now, end_date: 9.days.from_now, rectorat: toto_recto, classroom: cm2)
+assig6 = Assignment.create!(start_date: 7.days.from_now, end_date: 15.days.from_now, rectorat: toto_recto, classroom: cm1)
+assig7 = Assignment.create!(start_date: 5.days.from_now, end_date: 9.days.from_now, rectorat: toto_recto, classroom: cm2)
 
 #AFFECTATION EN ATTENTE DE PROF - POUR DELPHINE
 
-assig48 = Assignment.create!(start_date: 1.days.from_now, end_date: 6.days.from_now, rectorat: toto_recto, classroom: ce1)
+assig48 = Assignment.create!(start_date: 3.days.from_now, end_date: 6.days.from_now, rectorat: toto_recto, classroom: ce1)
 assig49 = Assignment.create!(start_date: 15.days.from_now, end_date: 18.days.from_now, rectorat: toto_recto, classroom: ce1)
-assig50 = Assignment.create!(start_date: 3.days.ago, end_date: 6.days.from_now, rectorat: toto_recto, classroom: ce1)
 
 
 # # AFFECTATIONS AVEC PROFESSEUR
@@ -196,7 +195,7 @@ assig11 = Assignment.create!(start_date: 5.days.ago, end_date: 1.days.from_now, 
 
 # AFFECTATIONS DE DELPHINE PASSEE ET FUTUR
 
-assig23 = Assignment.create!(start_date: 11.days.from_now, end_date: 13.days.from_now, rectorat: toto_recto, classroom: gsm, user: delphine)
+# assig23 = Assignment.create!(start_date: 11.days.from_now, end_date: 13.days.from_now, rectorat: toto_recto, classroom: gsm, user: delphine)
 assig24 = Assignment.create!(start_date: 18.days.ago, end_date: 8.days.ago, rectorat: toto_recto, classroom: cp, user: delphine)
 assig25 = Assignment.create!(start_date: 28.days.ago, end_date: 20.days.ago, rectorat: toto_recto, classroom: ce1, user: delphine)
 assig26 = Assignment.create!(start_date: 34.days.ago, end_date: 32.days.ago, rectorat: toto_recto, classroom: ce2, user: delphine)
@@ -230,8 +229,8 @@ review11 = Review.create!(content: "Matin : orthographe (dictée n°35) et ateli
 
 review12 = Review.create!(content: "Matin : grammaire (ORNICAR) et atelier mathématiques : division niveau 2. Après-midi : initiation danse et musique en partenariat avec le conservatoire de Saint Chamond.",                                                       classroom: ce1, user: marie)
 
-review13 = Review.create!(content: "Matin : QUIZZ lecture (Petit Prince) et atelier géométrie. Après-midi : séance piscine. En vue de mon absence, prévoir de poursuivre en maths les ateliers divison (niveau 2), en orthographe la dictée n°56 et lancer le nouveau projet lecture (Charlie et la chocolaterie).",                                                       classroom: ce1, user: marie)
-
+review13 = Review.create!(content: "Matin : QUIZZ lecture (Petit Prince) et atelier géométrie. Après-midi : séance piscine. En vue de mon absence, prévoir de poursuivre en maths les ateliers divison (niveau 2), en orthographe la dictée n°56 et lancer le nouveau projet lecture (Charlie et la chocolaterie).",                               classroom: ce1, user: marie)
+review14 = Review.create!(content: " Journée de remplacement bien passée. Matin : lecture n°53, atelier géométrie (cercle) => petites difficultés (prévoir révisions). Après-midi : Histoire (chapitre Charlemagne).", classroom: ce1, user: thomas)
 
 
 
