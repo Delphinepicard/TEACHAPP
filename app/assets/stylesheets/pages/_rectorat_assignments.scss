@@ -9,12 +9,13 @@
     transition: border 150ms ease-in-out;
   }
 
-  .school_card:hover {
+  a.school_card:hover {
     text-decoration: none;
     border: 1px solid #6A39CC;
     box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.28);
     transition: border 350ms ease-in-out;
   }
+
 .rectorat_assignments {
 
   @keyframes zoomout {

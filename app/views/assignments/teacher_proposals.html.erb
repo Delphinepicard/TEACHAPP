@@ -5,7 +5,7 @@
         <div class="text_card">
           <p class="titre_card"><%= @assignment.school.name %></p>
           <div class="line_card">
-            <%= image_tag "calendar.svg", height: 25 %>
+            <%= render 'svg/calendar.svg', height: 25 %>
             <p><%= "Du #{l @assignment.start_date} au #{l @assignment.end_date}" %> (<%= pluralize((@assignment.end_date - @assignment.start_date).to_i, 'jour') %>)</p>
           </div>
         </div>
@@ -17,17 +17,17 @@
         </div>
       </div>
       <div class="line_card">
-        <%= image_tag "icon_map.svg", height: 30 %>
+        <%= render 'svg/icon_map.svg', height: 25 %>
         <p><%= @assignment.school.address %></p>
       </div>
     </div>
   </div>
 
   <h2>
-    Selection de l'enseignant :
+    Sélection de l'enseignant :
   </h2>
 
-  <div class="d-flex justify-content-around margin_enseignant">
+  <div class="d-flex justify-content-center">
     <% @match_teachers_around.each do |teacher| %>
       <div class="teacher-card">
         <div class="en-tete">
