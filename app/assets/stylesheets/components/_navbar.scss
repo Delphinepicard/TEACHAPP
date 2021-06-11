@@ -22,9 +22,26 @@
   padding: 8px;
 }
 
+.navbar-nav {
+  align-items: center;
+}
+
+.nav-item {
+  margin-right: 24px;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-item:hover a {
+  color: #6A39CC;
+}
 
 .dropdown {
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .dropdown-menu {
