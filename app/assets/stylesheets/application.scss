@@ -30,6 +30,22 @@ p {
   font-size: 0.8rem;
 }
 
+svg .fill-color1 {
+  fill: $purple;
+}
+
+svg .fill-color2 {
+  fill: $green;
+}
+
+svg .stroke-color1 {
+  stroke: $purple;
+}
+
+svg .stroke-color2 {
+  stroke: $green;
+}
+
 .flex-justify-betw {
   display: flex;
   justify-content: space-between;

@@ -31,10 +31,12 @@ import "bootstrap";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initSweetalert } from '../plugins/init_sweetalert';
+import { card_init } from './init_card_animation';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initMapbox();
   initSweetalert();
+  card_init();
 });

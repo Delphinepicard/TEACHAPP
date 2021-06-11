@@ -1,6 +1,6 @@
  <div class="school_cards">
     <% temp_assigns.each_with_index do |assignment, i| %>
-      <%= link_to assignment_path(assignment), class: "histo_assignment_card", style: "animation-delay: #{ i * 0.2 }s;" do  %>
+      <%= link_to assignment_path(assignment), class: "histo_assignment_card no-a-underline", style: "animation-delay: #{ i * 0.2 }s;" do  %>
 
         <div id="<%= assignment.id %>"  class="histo-card-header d-flex justify-content-between">
           <h6> </h6>
