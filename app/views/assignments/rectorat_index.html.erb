@@ -4,7 +4,7 @@
   </div>
   <div class="school_cards">
     <% @assignments.each_with_index do |assignment, i| %>
-      <%= link_to teacher_proposals_assignment_path(assignment), class: 'school_card', style: "animation-delay: #{i * 0.4}s;" do %>
+      <%= link_to teacher_proposals_assignment_path(assignment), class: 'school_card', id: 'school_card', style: "animation-delay: #{i * 0.4}s;" do %>
         <div class="header_card">
           <div class="text_card">
             <p class="titre_card"><%= assignment.school.name %></p>
