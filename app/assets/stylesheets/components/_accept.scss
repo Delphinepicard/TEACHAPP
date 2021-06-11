@@ -32,7 +32,7 @@
 }
 
 
-.teacher-btn {
+.teacher-btn a {
   padding: 8px 24px;
   background-color: #8EF6CD;
   border-radius: 4px;
@@ -44,13 +44,13 @@
   margin-top: 30px;
 }
 
-.teacher-btn:hover {
+.teacher-btn a:hover {
   background-color: #4BF2AF;
   text-decoration: none;
   color: black;
 }
 
-.indispo-btn {
+.indispo-btn a {
   padding: 8px 24px;
   background-color: white;
   border-color: #8EF6CD;
@@ -64,7 +64,7 @@
   margin-top: 30px;
 }
 
-.indispo-btn:hover {
+.indispo-btn a:hover {
   background-color: #4BF2AF;
   text-decoration: none;
   color: black;

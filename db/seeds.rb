@@ -117,8 +117,8 @@ kyan_file = URI.open('https://www.fnacspectacles.com/static/0/visuel/300/317/KYA
 kyan.photo.attach(io: kyan_file, filename: 'kyan.jpg', content_type: 'image/jpg')
 
 delphine = User.create!(first_name: 'Delphine',    last_name: 'Picard', phone: '0644770321',  email: 'delphinepicard42000@gmail.com', password: "azerty", availability: true, specification: "REP+", level: "CE1")
-# delphine_file = URI.open('')
-# delphine.photo.attach(io: delphine_file, filename: 'photo_delphine.jpg', content_type: 'image/jpg')
+delphine_file = File.open('app/assets/images/photo_delphine.jpg')
+delphine.photo.attach(io: delphine_file, filename: 'photo_delphine.jpg', content_type: 'image/jpg')
 
 # RATTACHEMENT PROFS / ETABLISSEMENTS
 
