@@ -1,6 +1,7 @@
   .school_cards {
     display: grid;
     grid-template-columns: 50% 50%;
+    gap: 20px;
   }
 
   .school_card {

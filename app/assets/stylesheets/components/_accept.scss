@@ -33,7 +33,7 @@
 }
 
 
-.teacher-btn {
+.teacher-btn a {
   padding: 8px 24px;
   background-color: #8EF6CD;
   border: 1px solid #4BF2AF;
@@ -47,14 +47,14 @@
   transition: background 150ms ease-in-out;
 }
 
-.teacher-btn:hover {
+.teacher-btn a:hover {
   background-color: #4BF2AF;
   text-decoration: none;
   color: black;
   transition: background 250ms ease-in-out;
 }
 
-.indispo-btn {
+.indispo-btn a {
   text-align: center;
   font-weight: 700;
   color: #8e8e8e;
@@ -62,7 +62,7 @@
   transition: color 150ms ease-in-out;
 }
 
-.indispo-btn:hover {
+.indispo-btn a:hover {
   text-decoration: none;
   color: #5b5a5a;
   transition: color 250ms ease-in-out;

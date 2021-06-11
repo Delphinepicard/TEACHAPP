@@ -1,8 +1,3 @@
-.title-dashboard {
-  display: flex;
-  justify-content: flex-start;
-}
-
 .subtitle {
   text-align: center;
 }
@@ -15,12 +10,12 @@
 .fa-book-open {
   color:#4bf2af;
   font-size: 30px;
-  margin-right: 55px;
+  margin-right: 5px;
 }
 
 .review-container {
   overflow: auto;
-  height: 19rem;
+  height: 35rem;
   // background-color: rgb(250, 250, 246);
   background-image: linear-gradient(rgba(250, 250, 246,0), rgba(250, 250, 246,1));
   border-bottom-left-radius: 5px;

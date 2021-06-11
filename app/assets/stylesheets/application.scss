@@ -30,7 +30,6 @@ p {
   font-size: 0.8rem;
 }
 
-
 svg .fill-color1 {
   fill: $purple;
 }
@@ -45,4 +44,23 @@ svg .stroke-color1 {
 
 svg .stroke-color2 {
   stroke: $green;
+}
+
+.flex-justify-betw {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-justify-evenly {
+  display: flex;
+  justify-content: space-evenly  ;
+}
+
+.default-link {
+  text-decoration: none;
+  color: #6A39CC;
+  &:hover {
+    text-decoration: none;
+    color:#a187d4;
+  }
 }

@@ -1,9 +1,11 @@
-<div class="title-dashboard">
-  <i class="fas fa-book-open"></i>
-  <h4>Carnet de bord</h4>
-</div>
-<div class="subtitle">
-  <p id="subtitle-book">Suivi du programme - Classe <%= @assignment.classroom.level %> </p>
+<div class="title-space">
+  <div class="title-dashboard">
+    <i class="fas fa-book-open"></i>
+    <h4>Carnet de bord</h4>
+  </div>
+  <div class="subtitle">
+    <h6>Suivi du programme</h6>
+  </div>
 </div>
 <div class="review-container">
   <% classroom.reviews.each do |review| %>
