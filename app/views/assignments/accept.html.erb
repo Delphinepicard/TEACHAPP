@@ -11,7 +11,7 @@
   <%= "Du #{l @assignment.start_date} au #{l @assignment.end_date}" %><br>
   </div>
   <div class="container-boutons">
-    <%= link_to 'Refuser', root_path, class: "teacher-btn" %>
-    <%= link_to 'Accepter', assignment_path(@assignment), class: "teacher-btn" %>
+    <%= link_to 'Indisponible', root_path, class: "indispo-btn" %>
+    <%= link_to 'Disponible', assignment_path(@assignment), class: "teacher-btn" %>
   </div>
 </div>
