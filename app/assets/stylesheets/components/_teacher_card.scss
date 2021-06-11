@@ -73,11 +73,13 @@ $teacher-card-avatar-size: 100px;
     color: black;
     display: block;
     width: 70%;
+    transition: background 150ms ease-in-out;
 
     &:hover {
       background-color: #4BF2AF;
       text-decoration: none;
       color: black;
+      transition: background 250ms ease-in-out;
     }
   }
 }

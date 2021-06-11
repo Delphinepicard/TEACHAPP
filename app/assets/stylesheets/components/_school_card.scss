@@ -41,7 +41,7 @@
       font-weight: 600;
       font-size: 16px;
     }
-    img {
+    img, svg {
       margin-right: 16px;
     }
   }
@@ -57,6 +57,22 @@ a.school_card {
     background-color: $light-green;
     color: black;
   }
+
+  svg .fill-color1 {
+    fill: $light-purple;
+  }
+
+  svg .fill-color2 {
+    fill: $light-green;
+  }
+
+  svg .stroke-color1 {
+  stroke: $light-purple;
+}
+
+  svg .stroke-color2 {
+    stroke: $light-green;
+}
 }
 
 a.school_card:hover {
@@ -69,4 +85,24 @@ a.school_card:hover {
     background-color: $green;
     color: black;
  }
+
+ svg .fill-color1 {
+   fill: $purple;
+ }
+
+ svg .fill-color2 {
+   fill: $green;
+ }
+
+ svg .stroke-color1 {
+   stroke: $purple;
+ }
+
+ svg .stroke-color2 {
+   stroke: $green;
+ }
 }
+
+
+
+
