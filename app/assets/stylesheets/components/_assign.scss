@@ -71,12 +71,6 @@
   box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.16);
   position: relative;
   margin: 0px;
-  &:hover {
-    text-decoration: none;
-    border: 1px solid #6A39CC;
-    box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.28);
-    transition: border 350ms ease-in-out;
-  }
 
   p {
     color: #0e0000;
