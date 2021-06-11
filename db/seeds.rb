@@ -182,9 +182,9 @@ assig7 = Assignment.create!(start_date: 4.days.from_now, end_date: 9.days.from_n
 
 #AFFECTATION EN ATTENTE DE PROF - POUR DELPHINE
 
-assig8 = Assignment.create!(start_date: 1.days.from_now, end_date: 6.days.from_now, rectorat: toto_recto, classroom: ce1)
-
-assig8 = Assignment.create!(start_date: 15.days.from_now, end_date: 18.days.from_now, rectorat: toto_recto, classroom: ce1)
+assig48 = Assignment.create!(start_date: 1.days.from_now, end_date: 6.days.from_now, rectorat: toto_recto, classroom: ce1)
+assig49 = Assignment.create!(start_date: 15.days.from_now, end_date: 18.days.from_now, rectorat: toto_recto, classroom: ce1)
+assig50 = Assignment.create!(start_date: 3.days.ago, end_date: 6.days.from_now, rectorat: toto_recto, classroom: ce1)
 
 
 # # AFFECTATIONS AVEC PROFESSEUR
