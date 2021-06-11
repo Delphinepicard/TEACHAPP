@@ -2,10 +2,13 @@
   <div class="icon-map">
     <%= image_tag "icon_map.svg", height: 30 %>
   </div>
-  <h4>Carte Ecole</h4>
+    <h4>Carte Ecole</h4>
 </div>
-<div class="title-address">
-  <h6 id="subtitle-address"><%= @assignment.school.address %></h6>
+<div class="subtitle-dash">
+  <h6> <%= link_to "https://www.google.fr/maps/dir/#{@attached_marker[:lat]},#{@attached_marker[:lng]}/#{@assign_marker[:lat]}, #{@assign_marker[:lng]}", target: '_blank', class: "default-link" do %>
+    <%= image_tag("distance.svg", height: 30) %> <%= @assignment.school.address %>
+   <% end %>
+   </h6>
 </div>
 <hr>
 
@@ -15,6 +18,3 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
-<div class="itineraire">
-    <%= link_to "Votre itinéraire", "https://www.google.fr/maps/dir/#{@attached_marker[:lat]},#{@attached_marker[:lng]}/#{@assign_marker[:lat]}, #{@assign_marker[:lng]}", target: '_blank', class: "button-route"%>
-</div>

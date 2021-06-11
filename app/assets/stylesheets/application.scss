@@ -29,3 +29,22 @@ body {
 p {
   font-size: 0.8rem;
 }
+
+.flex-justify-betw {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-justify-evenly {
+  display: flex;
+  justify-content: space-evenly  ;
+}
+
+.default-link {
+  text-decoration: none;
+  color: #6A39CC;
+  &:hover {
+    text-decoration: none;
+    color:#a187d4;
+  }
+}
