@@ -9,6 +9,12 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css' rel='stylesheet' />
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E35PRXQS0M"></script>
+    <%= javascript_include_tag 'analytics', async: true %>
+
+  
+  
   </head>
   <body>
       <%= render 'shared/navbar' %>
